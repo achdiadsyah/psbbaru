@@ -25,6 +25,20 @@
                                             
                                             <li
                                                 class="submenu-item  ">
+                                                <a href="<?= base_url('assets/images/brosur.pdf'); ?>"
+                                                    class='submenu-link' download>Download Brosur</a>
+
+                                                
+                                            </li>
+                                            <li
+                                                class="submenu-item  ">
+                                                <a href="<?= base_url('assets/images/booklet.pdf'); ?>"
+                                                    class='submenu-link' download>Download Booklet</a>
+
+                                                
+                                            </li>
+                                            <li
+                                                class="submenu-item  ">
                                                 <a href="<?= base_url('home/biaya'); ?>"
                                                     class='submenu-link'>Biaya Pendaftaran</a>
 
