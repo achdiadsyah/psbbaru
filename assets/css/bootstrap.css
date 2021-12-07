@@ -81,7 +81,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #25396f;
+    color: #005142;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: .5rem;
@@ -6436,7 +6436,7 @@ fieldset:disabled .btn {
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     border-top-left-radius: calc(.3rem - 1px);
     border-top-right-radius: calc(.3rem - 1px);
-    color: #25396f;
+    color: #005142;
     font-size: 1rem;
     margin-bottom: 0;
     padding: .5rem 1rem
