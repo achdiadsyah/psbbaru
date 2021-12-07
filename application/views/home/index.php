@@ -6,6 +6,12 @@
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <img src="<?= base_url('assets/images/').rand(1, 2).'.jpg';?>" alt="popup" width="100%">
+                                    <div class="mt-2 d-flex justify-content-center">
+                                        <div class="buttons">
+                                            <a href="<?= base_url('assets/images/brosur.pdf'); ?>" class="btn btn-primary" download>Download Brosur</a>
+                                            <a href="<?= base_url('assets/images/booklet.pdf'); ?>" class="btn btn-secondary" download>Download Booklet</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
