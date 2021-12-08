@@ -22,21 +22,7 @@
                                         
                                         
                                         <ul class="submenu-group">
-                                            
-                                            <li
-                                                class="submenu-item  ">
-                                                <a href="<?= base_url('assets/images/brosur.pdf'); ?>"
-                                                    class='submenu-link' download>Download Brosur</a>
-
-                                                
-                                            </li>
-                                            <li
-                                                class="submenu-item  ">
-                                                <a href="<?= base_url('assets/images/booklet.pdf'); ?>"
-                                                    class='submenu-link' download>Download Booklet</a>
-
-                                                
-                                            </li>
+                                        
                                             <li
                                                 class="submenu-item  ">
                                                 <a href="<?= base_url('home/biaya'); ?>"
@@ -55,6 +41,38 @@
                                                 class="submenu-item  ">
                                                 <a href="<?= base_url('home/contact_us'); ?>"
                                                     class='submenu-link'>Hubungi Kami</a>
+
+                                                
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="menu-item  has-sub">
+                                <a href="#" class='menu-link'>
+                                    <i class="bi bi-stack"></i>
+                                    <span>Download</span>
+                                </a>
+                                <div
+                                    class="submenu ">
+                                    <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                                    <div class="submenu-group-wrapper">
+                                        
+                                        
+                                        <ul class="submenu-group">
+                                            
+                                            <li
+                                                class="submenu-item  ">
+                                                <a href="<?= base_url('assets/images/brosur.pdf'); ?>"
+                                                    class='submenu-link' download>Download Brosur</a>
+
+                                                
+                                            </li>
+                                            <li
+                                                class="submenu-item  ">
+                                                <a href="<?= base_url('assets/images/booklet.pdf'); ?>"
+                                                    class='submenu-link' download>Download Booklet</a>
 
                                                 
                                             </li>
