@@ -8,7 +8,7 @@
                                     <?php else: ?>
                                         <center>
                                             <p class="lead">Pengumuman Belum Di Buka</p>
-                                            <p>Pengumuman Jalur Undangan Tanggal : <?= date_indo(psb_detail("pengumuman_reguler")); ?></p>
+                                            <p>Pengumuman Jalur Undangan Tanggal : <?= date_indo(psb_detail("pengumuman_undangan")); ?></p>
                                         </center>
                                     <?php endif; ?>
                                 </div>
