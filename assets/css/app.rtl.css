@@ -17,7 +17,7 @@
 }
 
 .alert-primary {
-    background-color: #1f7643;
+    background-color: #435ebe;
     color: #fff
 }
 
@@ -429,14 +429,14 @@
 }
 
 .pricing .card-highlighted {
-    background-color: #1f7643;
+    background-color: #435ebe;
     padding-bottom: 20px;
     padding-top: 20px
 }
 
 .pricing .card-highlighted .card-body,
 .pricing .card-highlighted .card-header {
-    background-color: #1f7643;
+    background-color: #435ebe;
     color: #fff
 }
 
@@ -450,7 +450,7 @@
 }
 
 .pricing .card-highlighted .card-footer {
-    background-color: #1f7643
+    background-color: #435ebe
 }
 
 .pricing .card-highlighted .card-title {
@@ -564,9 +564,9 @@
 
 .form-group.with-title .form-control:focus~label,
 .form-group.with-title dataTable-input:focus~label {
-    border-right: 1px solid #1f7643;
-    border-left: 1px solid #1f7643;
-    border-top: 1px solid #1f7643
+    border-right: 1px solid #435ebe;
+    border-left: 1px solid #435ebe;
+    border-top: 1px solid #435ebe
 }
 
 .form-group[class*=has-icon-].has-icon-left .form-control {
@@ -635,8 +635,8 @@
 }
 
 .form-check .form-check-input.form-check-primary {
-    background-color: #1f7643;
-    border-color: #1f7643
+    background-color: #435ebe;
+    border-color: #435ebe
 }
 
 .form-check .form-check-input.form-check-primary:not(:checked) {
@@ -799,8 +799,8 @@
 }
 
 .form-check.form-check-primary .form-check-input {
-    background-color: #1f7643;
-    border-color: #1f7643
+    background-color: #435ebe;
+    border-color: #435ebe
 }
 
 .form-check.form-check-secondary .form-check-input {
@@ -1013,7 +1013,7 @@
 }
 
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-    background-color: #1f7643
+    background-color: #435ebe
 }
 
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
@@ -1047,7 +1047,7 @@
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item.active>a {
-    color: #1f7643;
+    color: #435ebe;
     font-weight: 700
 }
 
@@ -1102,12 +1102,12 @@
 
 .nav-tabs .nav-link.active {
     border: none;
-    color: #1f7643;
+    color: #435ebe;
     position: relative
 }
 
 .nav-tabs .nav-link.active:after {
-    background-color: #1f7643;
+    background-color: #435ebe;
     bottom: 0;
     box-shadow: 0 2px 5px rgba(67, 94, 190, .5);
     content: "";
@@ -1186,11 +1186,11 @@
 }
 
 .layout-horizontal .header-top .logo img {
-    height: 20px
+    height: 35px
 }
 
 .layout-horizontal .main-navbar {
-    background-color:#005142;
+    background-color: #435ebe;
     padding: 1rem
 }
 
@@ -1390,8 +1390,8 @@
 }
 
 .pagination.pagination-primary .page-item.active .page-link {
-    background-color: #1f7643;
-    border-color: #1f7643;
+    background-color: #435ebe;
+    border-color: #435ebe;
     box-shadow: 0 2px 5px rgba(67, 94, 190, .3)
 }
 
@@ -1503,7 +1503,7 @@
 }
 
 .progress.progress-primary .progress-bar {
-    background-color: #1f7643;
+    background-color: #435ebe;
     border-radius: .25rem
 }
 
