@@ -1,9 +1,7 @@
-<?php 
-    $id = $this->session->userdata['id'];
-    $user = $this->M_Peserta->get($id);
-?>
-
-
+                    <?php 
+                        $id = $this->session->userdata['id'];
+                        $user = $this->M_Peserta->get($id);
+                    ?>
                     <section class="row">
                         <div class="col-12 col-lg-12">
                             <p>Assalamua'laikum, <?= $user->nama; ?></p>
@@ -56,10 +54,6 @@
                                                     <?php else: ?>
                                                     <td><span class="badge bg-success">Sudah</span></td>
                                                     <?php endif; ?>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mengikuti Ujian CAT dan Lisan</td>
-                                                    <td><a href="#"><span class="badge bg-danger">Belum</span></a></td>
                                                 </tr>
                                             </table>
                                         </div>

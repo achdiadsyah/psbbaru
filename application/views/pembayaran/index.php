@@ -6,6 +6,7 @@
                     <section class="row">
                         <div class="col-12 col-lg-12">
                             <div class="row">
+                                <?php if($user->jalur == "reguler"): ?>
                                 <div class="col-12 col-md-6">
                                     <div class="card">
                                         <div class="card-header">
@@ -52,6 +53,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php elseif($user->jalur == "undangan"): ?>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <center>
+                                                <p class="lead">Peserta Jalur Undangan, Tidak ada metode pembayaran di temukan.</p>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </section>

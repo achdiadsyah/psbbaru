@@ -3,7 +3,7 @@
                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                             role="document">
-                            <div class="modal-content">
+                            <div class="modal-content-nobg">
                                 <div class="modal-body">
                                     <img src="<?= base_url('assets/images/').rand(1, 2).'.jpg';?>" alt="popup" width="100%">
                                     <div class="mt-2 d-flex justify-content-center">
