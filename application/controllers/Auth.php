@@ -7,6 +7,7 @@ class Auth extends CI_Controller {
     {
 		parent::__construct();
         $this->load->model('M_Peserta');
+        $this->load->model('M_Filepsb');
     }
 
     public function index()
@@ -104,6 +105,13 @@ class Auth extends CI_Controller {
                     's_lulus'           =>  '0',
                     'tanggal_daftar'    =>  date("Y-m-d H:i:s")
                 ];
+
+                $data2 = [
+                    'nik'           => $nik,
+                    'struk'         => "undangan.jpg",
+                    'status'        => '0'
+                ];
+
                 $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
             } else if ($kode_undangan !== psb_detail('kode_jalur_undangan')){
                 $data = [
@@ -119,12 +127,20 @@ class Auth extends CI_Controller {
                     's_lulus'           =>  '0',
                     'tanggal_daftar'    =>  date("Y-m-d H:i:s")
                 ];
+
+                $data2 = [
+                    'nik'           => $nik,
+                    'struk'         => "-",
+                    'status'        => '0'
+                ];
+
                 $msg = "Berhasil Mendaftar (Jalur Reguler), Silahkan Login untuk melanjutkan";
     
             } 
-    
+            
             $insert = $this->M_Peserta->insert($data);
-            if ($insert){
+            $insert2 = $this->M_Filepsb->insert($data2);
+            if ($insert && $insert2){
                 $this->session->set_flashdata([
                     'msg'   => $msg,
                     'type'  => 'success'

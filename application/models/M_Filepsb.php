@@ -14,16 +14,24 @@ class M_Filepsb extends CI_Model {
         return $query->row();
     }
 
+    public function get_by_nik($nik)
+    {
+        $this->db->where('nik', $nik);
+        $query = $this->db->get($this->table);
+        return $query;
+    }
+
     public function insert($data)
     {
         $query = $this->db->insert($this->table, $data);
         return $query;
     }
 
-    public function update($data)
+    public function update($nik, $data)
     {
+        $this->db->where('nik', $nik);
         $query = $this->db->update($this->table, $data);
-        return $query->affected_rows();
+        return $query;
     }
 
     public function delete($id)

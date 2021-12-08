@@ -13,7 +13,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
                                                         <div class="position-relative">
-                                                            <input type="number" class="form-control" placeholder="NIK" id="nik" name="nik" minlength="16" maxlength="16" required>
+                                                            <input type="number" class="form-control" placeholder="NIK" id="nik" name="nik" minlength="16" minlength="16" maxlength="16" required>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-person"></i>
                                                             </div>

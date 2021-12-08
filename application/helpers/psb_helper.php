@@ -60,17 +60,49 @@ function check_berkas()
 {
     $ci = &get_instance();
     $id = $ci->session->userdata['id'];
+    $nik = $ci->session->userdata['nik'];
+
     $ci->load->model('M_Peserta');
-	$x = $ci->M_Peserta->get($id);
+    $ci->load->model('M_Filepsb');
+	
+    $x = $ci->M_Peserta->get($id);
+	$y = $ci->M_Filepsb->get_by_nik($nik)->result();
 
     if($x->s_file == 1){
         return true;
-    } else if($x->s_file == 0){
-        $ci->session->set_flashdata([
-            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
-            'type' => 'info'
-        ]);
-        redirect ('berkas');
+    } elseif($x->s_file == 0){
+        foreach ($y as $key) {
+            if (
+                $key->kts !== "" &&
+                $key->kk !== "" &&
+                $key->akte !== "" &&
+                $key->ktp_ayah !== "" &&
+                $key->ktp_ibu !== "" &&
+                $key->ktp_wali !== "" &&
+                $key->pasphoto !== "" &&
+                $key->raport_1 !== "" &&
+                $key->raport_2 !== "" &&
+                $key->raport_3 !== "" &&
+                $key->raport_4 !== "" &&
+                $key->sk !== "" &&
+                $key->bpjs !== ""){
+                    $data_up = [
+                        'status'   => "1"
+                    ];
+                    $data_up2 = [
+                        's_file'   => "1"
+                    ];
+                    $ci->M_Filepsb->update($nik, $data_up);
+                    $ci->M_Peserta->update($id, $data_up2);
+                    
+                } else {
+                    $ci->session->set_flashdata([
+                        'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                        'type' => 'info'
+                    ]);
+                    redirect ('berkas');
+                }
+        }
     }
 
 }

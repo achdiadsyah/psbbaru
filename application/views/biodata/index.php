@@ -213,30 +213,6 @@
                                             <p class="lead">1. Ayah</p>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
-                                                    <label>Nama Ayah</label>
-                                                    <input type="text" id="nama_ayah" name="nama_ayah" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Pekerjaan Ayah</label>
-                                                    <input type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Penghasilan Ayah</label>
-                                                    <input type="text" id="penghasilan_ayah" name="penghasilan_ayah" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Pendidikan Terakhir Ayah</label>
-                                                    <input type="text" id="pendidikan_ayah" name="pendidikan_ayah" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
                                                     <label>Status Ayah</label>
                                                     <select name="status_ayah" id="status_ayah" class="form-select" required>
                                                         <option value="">Pilih Status Ayah</option> 
@@ -247,36 +223,46 @@
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
+                                                    <label>Nama Ayah</label>
+                                                    <input type="text" id="nama_ayah" name="nama_ayah" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="status_ayah_result">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Pekerjaan Ayah</label>
+                                                    <input type="text" id="pekerjaan_ayah" name="pekerjaan_ayah" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Penghasilan Ayah</label>
+                                                    <select name="penghasilan_ayah" id="penghasilan_ayah" class="form-select" required>
+                                                        <option value="">Silahkan Pilih</option>
+                                                        <option value="0">Tidak Ada</option>
+                                                        <option value="< 2.500.000">&#x2190; 2.500.000</option>
+                                                        <option value="2.500.000 - 5.000.000">2.500.000 - 5.000.000</option>
+                                                        <option value="5.000.000 - 7.000.000">5.000.000 - 7.000.000</option>
+                                                        <option value=">7.000.000">&#8594; 7.000.000</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Pendidikan Terakhir Ayah</label>
+                                                    <input type="text" id="pendidikan_ayah" name="pendidikan_ayah" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
                                                     <label>Nomor Telepon Ayah</label>
                                                     <input type="number" id="no_telepon_ayah" name="no_telepon_ayah" maxlength="16" class="form-control" required>
                                                 </div>
                                             </div>
-
+                                        </div>
+                                        <div class="row">
                                             <p class="lead">2. Ibu</p>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Nama Ibu</label>
-                                                    <input type="text" id="nama_ibu" name="nama_ibu" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Pekerjaan Ibu</label>
-                                                    <input type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Penghasilan Ibu</label>
-                                                    <input type="text" id="penghasilan_ibu" name="penghasilan_ibu" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label>Pendidikan Terakhir Ibu</label>
-                                                    <input type="text" id="pendidikan_ibu" name="pendidikan_ibu" class="form-control" required>
-                                                </div>
-                                            </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label>Status Ibu</label>
@@ -289,11 +275,45 @@
                                             </div>
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
+                                                    <label>Nama Ibu</label>
+                                                    <input type="text" id="nama_ibu" name="nama_ibu" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="status_ibu_result">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Pekerjaan Ibu</label>
+                                                    <input type="text" id="pekerjaan_ibu" name="pekerjaan_ibu" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Penghasilan Ibu</label>
+                                                    <select name="penghasilan_ibu" id="penghasilan_ibu" class="form-select" required>
+                                                        <option value="">Silahkan Pilih</option>
+                                                        <option value="0">Tidak Ada</option>
+                                                        <option value="< 2.500.000">&#x2190; 2.500.000</option>
+                                                        <option value="2.500.000 - 5.000.000">2.500.000 - 5.000.000</option>
+                                                        <option value="5.000.000 - 7.000.000">5.000.000 - 7.000.000</option>
+                                                        <option value=">7.000.000">&#8594; 7.000.000</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Pendidikan Terakhir Ibu</label>
+                                                    <input type="text" id="pendidikan_ibu" name="pendidikan_ibu" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
                                                     <label>Nomor Telepon Ibu</label>
                                                     <input type="number" id="no_telepon_ibu" name="no_telepon_ibu" maxlength="16" class="form-control" required>
                                                 </div>
                                             </div>
-
+                                        </div>
+                                        <div class="row">
                                             <p class="lead">3. Wali Santri</p>
                                             <div class="col-md-4 col-12">
                                                 <div class="form-group">

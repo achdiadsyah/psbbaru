@@ -11,6 +11,7 @@ class Biodata extends CI_Controller {
         check_payment();
 
         $this->load->model('M_Peserta');
+        $this->load->model('M_Filepsb');
     }
 
 	public function index()
@@ -37,6 +38,27 @@ class Biodata extends CI_Controller {
     {
         if ($this->input->is_ajax_request() == true) {
             $checksum = $this->input->post('checksum');
+            
+            $status_ayah = $this->input->post('status_ayah');
+            $status_ibu = $this->input->post('status_ibu');
+            
+            if ($status_ayah == 'meninggal'){
+                $nama_ayah = "Alm. ".strtoupper($this->input->post('nama_ayah'));
+                $file_ktp_ayah = "no_image.jpg";
+            } else {
+                $nama_ayah = strtoupper($this->input->post('nama_ayah'));
+                $file_ktp_ayah = "";
+            }
+
+            if ($status_ayah == 'meninggal'){
+                $nama_ibu = "Almh. ".strtoupper($this->input->post('nama_ibu'));
+                $file_ktp_ibu = "no_image.jpg";
+            } else {
+                $nama_ibu = strtoupper($this->input->post('nama_ibu'));
+                $file_ktp_ibu = "";
+            }
+
+
             $data = [
                 'jurusan'                   => $this->input->post('jurusan'),
                 'nik'                       => $this->input->post('nik'),
@@ -62,13 +84,13 @@ class Biodata extends CI_Controller {
                 'alamat_sekolah_asal'       => $this->input->post('alamat_sekolah_asal'),
                 'jenis_sekolah_asal'        => $this->input->post('jenis_sekolah_asal'),
                 'tahun_lulus'               => $this->input->post('tahun_lulus'),
-                'nama_ayah'                 => strtoupper($this->input->post('nama_ayah')),
+                'nama_ayah'                 => $nama_ayah,
                 'pekerjaan_ayah'            => strtoupper($this->input->post('pekerjaan_ayah')),
                 'penghasilan_ayah'          => $this->input->post('penghasilan_ayah'),
                 'pendidikan_ayah'           => $this->input->post('pendidikan_ayah'),
                 'no_telepon_ayah'           => $this->input->post('no_telepon_ayah'),
                 'status_ayah'               => $this->input->post('status_ayah'),
-                'nama_ibu'                  => strtoupper($this->input->post('nama_ibu')),
+                'nama_ibu'                  => $nama_ibu,
                 'pekerjaan_ibu'             => strtoupper($this->input->post('pekerjaan_ibu')),
                 'penghasilan_ibu'           => $this->input->post('penghasilan_ibu'),
                 'pendidikan_ibu'            => $this->input->post('pendidikan_ibu'),
@@ -85,6 +107,11 @@ class Biodata extends CI_Controller {
                 's_biodata'                 => '1',
             ];
             $this->M_Peserta->update_checksum($checksum, $data);
+            $data2 = [
+                'ktp_ayah' => $file_ktp_ayah,
+                'ktp_ibu' => $file_ktp_ibu
+            ];
+            $this->M_Filepsb->update($data['nik'], $data2);
         } else {
             exit('Error');
         }
@@ -143,6 +170,23 @@ class Biodata extends CI_Controller {
                 'prestasi_5'                => $get->prestasi_5,
             ];
 
+            echo json_encode($data);
+        } else {
+            exit('Error');
+        }
+    }
+
+    public function ajax_biodata()
+    {
+        if ($this->input->is_ajax_request() == true) {
+            $get = $this->M_Peserta->get($this->session->userdata['id']);
+
+            $data = [
+                'checksum'                  => $get->checksum,
+                'nik'                       => $get->nik,
+                'nama'                      => $get->nama,
+                'no_telepon'                => $get->no_telepon,
+            ];
             echo json_encode($data);
         } else {
             exit('Error');

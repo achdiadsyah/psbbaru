@@ -5,7 +5,7 @@
             // Get Data
             $.ajax({
                 type: "GET",
-                url: '<?= base_url('biodata/ajax_get'); ?>',
+                url: '<?= base_url('biodata/ajax_biodata'); ?>',
                 async : true,
                 dataType : 'json',
                 success: function (data) {
@@ -84,6 +84,39 @@
                         $('#desa').html(html);
                     }
                 });
+            });
+
+
+            $('#status_ayah').change(function(){
+                if($(this).val() == 'meninggal'){
+                    $('#status_ayah_result').addClass('d-none');
+                    $('#pekerjaan_ayah').val('-');
+                    $('#penghasilan_ayah').val('0');
+                    $('#pendidikan_ayah').val('-');
+                    $('#no_telepon_ayah').val('0');
+                } else {
+                    $('#status_ayah_result').removeClass('d-none');
+                    $('#pekerjaan_ayah').val('');
+                    $('#penghasilan_ayah').val('');
+                    $('#pendidikan_ayah').val('');
+                    $('#no_telepon_ayah').val('');
+                }
+            });
+
+            $('#status_ibu').change(function(){
+                if($(this).val() == 'meninggal'){
+                    $('#status_ibu_result').addClass('d-none');
+                    $('#pekerjaan_ibu').val('-');
+                    $('#penghasilan_ibu').val('0');
+                    $('#pendidikan_ibu').val('-');
+                    $('#no_telepon_ibu').val('0');
+                } else {
+                    $('#status_ibu_result').removeClass('d-none');
+                    $('#pekerjaan_ibu').val('');
+                    $('#penghasilan_ibu').val('');
+                    $('#pendidikan_ibu').val('');
+                    $('#no_telepon_ibu').val('');
+                }
             });
 
         });

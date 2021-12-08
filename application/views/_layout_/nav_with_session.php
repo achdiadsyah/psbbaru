@@ -1,6 +1,5 @@
 <?php 
-    $id = $this->session->userdata['id'];
-    $user = $this->M_Peserta->get($id);
+    $user = $this->M_Peserta->get($this->session->userdata['id']);
 ?>
 
                 <nav class="main-navbar">

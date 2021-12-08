@@ -104,10 +104,7 @@
                                                     <td><?= $user->sesi_lisan; ?></td>
                                                     <?php endif; ?>
                                                 </tr>
-                                                <tr>
-                                                    <td>Pengumuman Jalur Reguler</td>
-                                                    <td><?= longdate_indo(psb_detail('pengumuman_reguler')); ?></td>
-                                                </tr>
+                                                <?php if ($user->jalur == "undangan"): ?>
                                                 <tr>
                                                     <td>Pengumuman Seleksi Adm (Undangan)</td>
                                                     <td><?= longdate_indo(psb_detail('pengumuman_adm_undangan')); ?></td>
@@ -116,6 +113,12 @@
                                                     <td>Pengumuman Jalur Undangan</td>
                                                     <td><?= longdate_indo(psb_detail('pengumuman_undangan')); ?></td>
                                                 </tr>
+                                                <?php elseif($user->jalur == "reguler"): ?>
+                                                <tr>
+                                                    <td>Pengumuman Jalur Reguler</td>
+                                                    <td><?= longdate_indo(psb_detail('pengumuman_reguler')); ?></td>
+                                                </tr>
+                                                <?php endif; ?>
                                             </table>
                                         </div>
                                     </div>
