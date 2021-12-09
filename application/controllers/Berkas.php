@@ -43,7 +43,7 @@ class Berkas extends CI_Controller {
     
                 $namafile = $this->upload->data('file_name');
                 
-                $config2['image_library']='GD';
+                $config2['image_library']='gd2';
                 $config2['source_image']= $path.$namafile;
                 $config2['create_thumb']= FALSE;
                 $config2['maintain_ratio']= FALSE;
