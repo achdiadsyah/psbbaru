@@ -2,6 +2,14 @@
     <script>
         $(document).ready(function(){
             getStatus();
+            
+
+            $("input[type='file']").on("change", function () {
+                if(this.files[0].size > 5000000) {
+                    mySwalalert('File Lebih dari 5MB, Silahkan memperkecil ukuran file', 'warning');
+                $(this).val('');
+                }
+            });
         });
 
         function save(target){
@@ -32,14 +40,14 @@
                     },
                     success: function(data){
                         const obj = JSON.parse(data);
-                        var res = obj.message;
+                        var res = obj.msg;
                         if (obj.status == true){
-                            mySwalalert('Berhasil Upload Data', 'success');
+                            mySwalalert(res, 'success');
                             btn.attr('disabled',false);
                             btn.html('Upload');
                             getStatus();
                         } else {
-                            mySwalalert('Gagal Upload Data', 'error');
+                            mySwalalert(res, 'error');
                             btn.attr('disabled',false);
                             btn.html('Upload');
                             form.reset();

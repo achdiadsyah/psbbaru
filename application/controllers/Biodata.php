@@ -61,6 +61,7 @@ class Biodata extends CI_Controller {
 
             $data = [
                 'jurusan'                   => $this->input->post('jurusan'),
+                'no_ujian'                  => get_noujian($this->input->post('jurusan')),
                 'nik'                       => $this->input->post('nik'),
                 'no_telepon'                => $this->input->post('no_telepon'),
                 'email'                     => $this->input->post('email'),

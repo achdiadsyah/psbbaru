@@ -12,6 +12,14 @@ function check_login()
     }
 }
 
+function check_logout()
+{
+    $ci = &get_instance();
+    if ($ci->session->has_userdata('id')) {
+        redirect('dashboard');
+    }
+}
+
 function check_payment()
 {
     $ci = &get_instance();
@@ -71,29 +79,59 @@ function check_berkas()
     if($x->s_file == 1){
         return true;
     } elseif($x->s_file == 0){
-        foreach ($y as $key) {
-            if (           
-                $key->pasphoto !== "" &&
-                $key->raport_1 !== "" &&
-                $key->raport_2 !== "" &&
-                $key->raport_3 !== "" &&
-                $key->raport_4 !== ""){
-                    $data_up = [
-                        'status'   => "1"
-                    ];
-                    $data_up2 = [
-                        's_file'   => "1"
-                    ];
-                    $ci->M_Filepsb->update($nik, $data_up);
-                    $ci->M_Peserta->update($id, $data_up2);
-                    
-                } else {
-                    $ci->session->set_flashdata([
-                        'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
-                        'type' => 'info'
-                    ]);
-                    redirect ('berkas');
-                }
+        if ($x->jalur ==  "undangan"){
+            foreach ($y as $key) {
+                if (           
+                    $key->pasphoto !== "" &&
+                    $key->surat_pernyataan !== "" &&
+                    $key->surat_kesanggupan !== "" &&
+                    $key->formulir_kepsek !== "" &&
+                    $key->raport_1 !== "" &&
+                    $key->raport_2 !== "" &&
+                    $key->raport_3 !== "" &&
+                    $key->raport_4 !== ""){
+                        $data_up = [
+                            'status'   => "1"
+                        ];
+                        $data_up2 = [
+                            's_file'   => "1"
+                        ];
+                        $ci->M_Filepsb->update($nik, $data_up);
+                        $ci->M_Peserta->update($id, $data_up2);
+                        
+                    } else {
+                        $ci->session->set_flashdata([
+                            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                            'type' => 'info'
+                        ]);
+                        redirect ('berkas');
+                    }
+            }
+        } else {
+            foreach ($y as $key) {
+                if (           
+                    $key->pasphoto !== "" &&
+                    $key->raport_1 !== "" &&
+                    $key->raport_2 !== "" &&
+                    $key->raport_3 !== "" &&
+                    $key->raport_4 !== ""){
+                        $data_up = [
+                            'status'   => "1"
+                        ];
+                        $data_up2 = [
+                            's_file'   => "1"
+                        ];
+                        $ci->M_Filepsb->update($nik, $data_up);
+                        $ci->M_Peserta->update($id, $data_up2);
+                        
+                    } else {
+                        $ci->session->set_flashdata([
+                            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                            'type' => 'info'
+                        ]);
+                        redirect ('berkas');
+                    }
+            }
         }
     }
 
@@ -153,6 +191,25 @@ function psb_detail($name)
     $ci->load->model('M_Psbdetail');
 	$payload = $ci->M_Psbdetail->get_detail();
     return $payload->$name;
+}
+
+
+function arr_jadwal_reguler()
+{
+    $array = array();
+    
+    $x1 = strtotime(psb_detail('buka_tes_reguler'));
+    $x2 = strtotime(psb_detail('tutup_tes_reguler'));
+
+    // Use for loop to store dates into array
+    // 86400 sec = 24 hrs = 60*60*24 = 1 day
+    for ($currentDate = $x1; $currentDate <= $x2;
+        $currentDate += (86400)) {
+        $Store = date('Y-m-d', $currentDate);
+        $jadwal[] = $Store;
+    }
+
+    return $jadwal;
 }
 
 function sekolah_detail($name)

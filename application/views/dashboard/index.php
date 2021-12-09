@@ -40,6 +40,14 @@
                                                     <?php endif; ?>
                                                 </tr>
                                                 <tr>
+                                                    <td>Penentuan Nomor Ujian</td>
+                                                    <?php if ($user->s_biodata == 0): ?>
+                                                    <td><a href="<?= base_url('biodata'); ?>"><span class="badge bg-danger">Belum</span></a></td>
+                                                    <?php else: ?>
+                                                    <td><span class="badge bg-success"><?= $user->no_ujian; ?></span></td>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <tr>
                                                     <td>Upload Berkas</td>
                                                     <?php if ($user->s_file == 0): ?>
                                                     <td><a href="<?= base_url('berkas'); ?>"><span class="badge bg-danger">Belum</span></a></td>
@@ -53,6 +61,14 @@
                                                     <td><a href="<?= base_url('cetak'); ?>"><span class="badge bg-danger">Belum</span></a></td>
                                                     <?php else: ?>
                                                     <td><span class="badge bg-success">Sudah</span></td>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cetak Kartu Ujian</td>
+                                                    <?php if ($user->s_cetak == 0): ?>
+                                                    <td><a href="<?= base_url('cetak'); ?>"><span class="badge bg-danger">Belum</span></a></td>
+                                                    <?php else: ?>
+                                                    <td><a href="<?= base_url('cetak'); ?>"><span class="badge bg-success">Sudah</span></a></td>
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
@@ -86,7 +102,7 @@
                                                         <?php if ($user->sesi_cat == ""): ?>
                                                         <td><span class="badge bg-danger">Belum Pilih</span></td>
                                                         <?php else: ?>
-                                                        <td><?= $user->jadwal_ujian; ?></td>
+                                                        <td><?= $user->sesi_cat." WIB"; ?></td>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </tr>
@@ -95,7 +111,7 @@
                                                     <?php if ($user->sesi_lisan == ""): ?>
                                                     <td><span class="badge bg-danger">Belum Pilih</span></td>
                                                     <?php else: ?>
-                                                    <td><?= $user->sesi_lisan; ?></td>
+                                                    <td><?= $user->sesi_lisan." WIB"; ?></td>
                                                     <?php endif; ?>
                                                 </tr>
                                                 <?php if ($user->jalur == "undangan"): ?>

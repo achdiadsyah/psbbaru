@@ -26,6 +26,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <?php if($user->jalur == "reguler"): ?>
+                                            
                                         <div class="col-md-12 mb-2">
                                             <form action="#" id="form_pasphoto" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
@@ -158,8 +159,11 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
-                                        Sertifikat Prestasi Siswa
+                                        Sertifikat Prestasi Siswa & SK Rangking
                                     </h4>
+                                    <p class="card-subtitle">
+                                        Silahkan Upload Jika Ada
+                                    </p>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

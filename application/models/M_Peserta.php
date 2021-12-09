@@ -61,7 +61,7 @@ class M_Peserta extends CI_Model {
         ->select('*')
         ->from ('peserta_psb')
         ->join ('file_psb', 'file_psb.nik = peserta_psb.nik')
-        ->where("costumer.nik",$nik)
+        ->where("peserta_psb.nik",$nik)
         ->get();
         return $query;
     }

@@ -1,4 +1,8 @@
                     
+                    <?php 
+                        $id = $this->session->userdata['id'];
+                        $user = $this->M_Peserta->get($id);
+                    ?>
                     <section class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -16,8 +20,16 @@
                                                     <label>Pilih Jurusan</label>
                                                     <select name="jurusan" id="jurusan" class="form-select" required>
                                                         <option value="">Pilih Jurusan</option>
+                                                        <?php if($user->jalur == "reguler"): ?>
                                                         <option value="A">(IPA) - Ilmu Pengatahuan Alam</option>
                                                         <option value="G">(MAK) - Ilmu Keagamaan</option>
+
+                                                        <?php elseif($user->jalur == "undangan"): ?>
+                                                        
+                                                        <option value="A-UDG">(IPA) - Ilmu Pengatahuan Alam</option>
+                                                        <option value="G-UDG">(MAK) - Ilmu Keagamaan</option>
+
+                                                        <?php endif; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -173,7 +185,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label>Kode NPSN Sekolah Asal</label>
-                                                    <input type="text" id="npsn_sekolah_asal" name="npsn_sekolah_asal" maxlength="15" class="form-control" required>
+                                                    <input type="number" id="npsn_sekolah_asal" name="npsn_sekolah_asal" maxlength="15" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-12">

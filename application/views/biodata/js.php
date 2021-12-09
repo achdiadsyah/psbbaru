@@ -155,7 +155,7 @@
                     }
                 });
             }else{
-                mySwalalert('Periksa Kembali Form Laporan anda, ada yang belum lengkap', 'info');
+                mySwalalert('Periksa Kembali Form Biodata anda, ada yang belum lengkap', 'info');
             }
             return false;
         }

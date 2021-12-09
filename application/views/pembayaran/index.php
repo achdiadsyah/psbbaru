@@ -58,7 +58,8 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <center>
-                                                <p class="lead">Peserta Jalur Undangan, Tidak ada metode pembayaran di temukan.</p>
+                                                <p class="lead">Anda adalah Peserta Jalur Undangan</p>
+                                                <p>Tidak ada metode pembayaran di temukan.</p>
                                             </center>
                                         </div>
                                     </div>

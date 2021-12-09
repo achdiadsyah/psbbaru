@@ -32,8 +32,10 @@ class Berkas extends CI_Controller {
         if ($upload_image != NULL) {
             $config['upload_path']          = $path;
             $config['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
-            $config['max_size']             = '15015';
+            $config['max_size']             = '5120';
             $config['encrypt_name']         = TRUE;
+            $config['file_ext_tolower']     = TRUE;
+            
     
             $this->load->library('upload', $config);
     
@@ -41,13 +43,21 @@ class Berkas extends CI_Controller {
     
                 $namafile = $this->upload->data('file_name');
                 
-                $config['image_library']='gd2';
-                $config['source_image']= $path.$namafile;
-                $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
-                $config['quality']= '80%';                            
-                $config['new_image']= $path.$namafile;
-                $this->load->library('image_lib', $config);
+                $config2['image_library']='GD2';
+                $config2['source_image']= $path.$namafile;
+                $config2['create_thumb']= FALSE;
+                $config2['maintain_ratio']= FALSE;
+                $config2['quality']= '80%';                            
+                if ($target == "pasphoto"){
+                    $config2['width']= 300;                            
+                    $config2['height']= 400;
+                }
+                $config2['new_image']= $path.$namafile;
+                
+                $this->load->library('image_lib');
+                
+                $this->image_lib->initialize($config2);
+
                 $this->image_lib->resize();
 
                     $nik = $this->input->post('nik');
@@ -57,7 +67,7 @@ class Berkas extends CI_Controller {
 
                     $insert = $this->M_Filepsb->update($nik, $data);
                     if ($insert == TRUE) {
-                        echo json_encode(array("status" => true, "msg" => "Berhasil Upload Gambar Dan Ke Database"));
+                        echo json_encode(array("status" => true, "msg" => $this->image_lib->display_errors()));
                     } else {
                         echo json_encode(array("status" => false, "msg" => "Gagal Upload Gambar Dan Ke Database"));
                     }
@@ -112,5 +122,11 @@ class Berkas extends CI_Controller {
         } else {
             echo json_encode(array("status" => false));
         }
+    }
+
+
+    public function test()
+    {
+        phpinfo();
     }
 }
