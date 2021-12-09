@@ -41,7 +41,7 @@
                                 class="menu-item  ">
                                 <a href="<?= base_url('cetak'); ?>" class='menu-link'>
                                     <i class="bi bi-printer-fill"></i>
-                                    <span>Cetak Berkas</span>
+                                    <span>Cetak Kartu Ujian</span>
                                 </a>
                             </li>
 

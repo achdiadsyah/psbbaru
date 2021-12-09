@@ -72,20 +72,12 @@ function check_berkas()
         return true;
     } elseif($x->s_file == 0){
         foreach ($y as $key) {
-            if (
-                $key->kts !== "" &&
-                $key->kk !== "" &&
-                $key->akte !== "" &&
-                $key->ktp_ayah !== "" &&
-                $key->ktp_ibu !== "" &&
-                $key->ktp_wali !== "" &&
+            if (           
                 $key->pasphoto !== "" &&
                 $key->raport_1 !== "" &&
                 $key->raport_2 !== "" &&
                 $key->raport_3 !== "" &&
-                $key->raport_4 !== "" &&
-                $key->sk !== "" &&
-                $key->bpjs !== ""){
+                $key->raport_4 !== ""){
                     $data_up = [
                         'status'   => "1"
                     ];

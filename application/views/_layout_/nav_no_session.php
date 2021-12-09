@@ -80,35 +80,6 @@
                                     </div>
                                 </div>
                             </li>
-
-                            <li
-                                class="menu-item  has-sub">
-                                <a href="#" class='menu-link'>
-                                    <i class="bi bi-megaphone-fill"></i>
-                                    <span>Pengumuman Kelulusan</span>
-                                </a>
-                                <div
-                                    class="submenu ">
-                                    <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
-                                    <div class="submenu-group-wrapper">
-                                        
-                                        
-                                        <ul class="submenu-group">
-                                            
-                                            <li
-                                                class="submenu-item  ">
-                                                <a href="<?= base_url('pengumuman/reguler'); ?>"
-                                                    class='submenu-link'>Jalur Reguler</a>
-                                            </li>
-                                            <li
-                                                class="submenu-item  ">
-                                                <a href="<?= base_url('pengumuman/undangan'); ?>"
-                                                    class='submenu-link'>Jalur Undangan</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
                             <?php if(check_open(psb_detail("buka_daftar_undangan"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
                             <li
                                 class="menu-item mr-5 float-right">
