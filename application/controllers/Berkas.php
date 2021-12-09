@@ -30,35 +30,36 @@ class Berkas extends CI_Controller {
         $upload_image = $_FILES['file']['name'];
         $path = './uploads/'.$target;
         if ($upload_image != NULL) {
-            $config['upload_path']          = $path;
-            $config['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
-            $config['max_size']             = '5120';
-            $config['encrypt_name']         = TRUE;
-            $config['file_ext_tolower']     = TRUE;
+            $cfg['upload_path']          = $path;
+            $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
+            $cfg['max_size']             = '5120';
+            $cfg['encrypt_name']         = TRUE;
+            $cfg['file_ext_tolower']     = TRUE;
             
     
-            $this->load->library('upload', $config);
+            $this->load->library('upload', $cfg);
     
             if ($this->upload->do_upload('file')){
     
                 $namafile = $this->upload->data('file_name');
                 
-                $config2['image_library']='ImageMagick';
-                $config2['source_image']= $path.$namafile;
-                $config2['create_thumb']= FALSE;
-                $config2['maintain_ratio']= FALSE;
-                $config2['quality']= '80%';                            
+                $config['image_library']='gd2';
+                $config['source_image']= $path.$namafile;
+                $config['create_thumb']= FALSE;
+                $config['maintain_ratio']= FALSE;
+                $config['quality']= '80%';                            
                 if ($target == "pasphoto"){
-                    $config2['width']= 300;                            
-                    $config2['height']= 400;
+                    $config['width']= 300;                            
+                    $config['height']= 400;
                 }
-                $config2['new_image']= $path.$namafile;
+                $config['new_image']= $path.$namafile;
                 
                 $this->load->library('image_lib');
+// Set your config up
+$this->image_lib->initialize($config);
+// Do your manipulation
+$this->image_lib->clear();
                 
-                $this->image_lib->initialize($config2);
-
-                $this->image_lib->resize();
 
                     $nik = $this->input->post('nik');
                     $data = [
@@ -127,6 +128,6 @@ class Berkas extends CI_Controller {
 
     public function test()
     {
-        phpinfo();
+        print_r(gd_info());
     }
 }
