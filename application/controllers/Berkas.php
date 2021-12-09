@@ -44,21 +44,24 @@ class Berkas extends CI_Controller {
                 $namafile = $this->upload->data('file_name');
                 
                 $config['image_library']='gd2';
-                $config['source_image']= $path.$namafile;
+                $config['source_image']= $path.'/'.$namafile;
                 $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
-                $config['quality']= '80%';                            
+                $config['quality']= '100%';                            
                 if ($target == "pasphoto"){
-                    $config['width']= 300;                            
-                    $config['height']= 400;
+                    $config['maintain_ratio']= FALSE;
+                    $config['width']= 152;                            
+                    $config['height']= 226;
+                } else {
+                    $config['maintain_ratio']= TRUE;
+                    $config['width']= 1000;                            
                 }
-                $config['new_image']= $path.$namafile;
+                $config['new_image']= $path.'/'.$namafile;
                 
                 $this->load->library('image_lib');
-// Set your config up
-$this->image_lib->initialize($config);
-// Do your manipulation
-$this->image_lib->clear();
+                
+                $this->image_lib->initialize($config);
+
+                $this->image_lib->resize();
                 
 
                     $nik = $this->input->post('nik');
@@ -128,6 +131,6 @@ $this->image_lib->clear();
 
     public function test()
     {
-        print_r(gd_info());
+        
     }
 }
