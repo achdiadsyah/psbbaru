@@ -11,6 +11,7 @@ class Cetak extends CI_Controller {
         check_payment();
         check_biodata();
         check_berkas();
+        check_lulus_adm();
         $this->load->model('M_Peserta');
     }
 
@@ -111,6 +112,7 @@ class Cetak extends CI_Controller {
         $data = [
             'title'         => 'Berkas PSB',
             'assetsurl'     => base_url('assets/'),
+            'filesurl'      => base_url('uploads/'),
             'output'        => $join->row(),
             'ketua_panitia' => psb_detail('ketua_panitia_psb'),
         ];

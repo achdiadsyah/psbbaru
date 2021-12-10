@@ -100,6 +100,9 @@
                                     <h4 class="card-title">
                                         Raport Siswa
                                     </h4>
+                                    <p class="card-subtitle">
+                                        Hasil Scan harus di legalisir
+                                    </p>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -177,6 +180,7 @@
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sk" onClick="save('sk')">Upload</button>
                                                     </div>
+                                                    <small id="emailHelpId" class="form-text text-muted">SK Harus di tanda tangani oleh Kepala Sekolah asal</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -185,7 +189,7 @@
                                             <form action="#" id="form_sertifikat_1" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                 <div class="form-group">
-                                                    <label>Sertifikat 1</label>
+                                                    <label>Sertifikat Prestasi 1</label>
                                                     <div class="input-group" id="result_sertifikat_1">
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_1" onClick="save('sertifikat_1')">Upload</button>
@@ -198,7 +202,7 @@
                                             <form action="#" id="form_sertifikat_2" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                 <div class="form-group">
-                                                    <label>Sertifikat 2</label>
+                                                    <label>Sertifikat Prestasi 2</label>
                                                     <div class="input-group" id="result_sertifikat_2">
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_2" onClick="save('sertifikat_2')">Upload</button>
@@ -211,7 +215,7 @@
                                             <form action="#" id="form_sertifikat_3" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                 <div class="form-group">
-                                                    <label>Sertifikat 3</label>
+                                                    <label>Sertifikat Prestasi 3</label>
                                                     <div class="input-group" id="result_sertifikat_3">
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_3" onClick="save('sertifikat_3')">Upload</button>
@@ -224,7 +228,7 @@
                                             <form action="#" id="form_sertifikat_4" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                 <div class="form-group">
-                                                    <label>Sertifikat 4</label>
+                                                    <label>Sertifikat Prestasi 4</label>
                                                     <div class="input-group" id="result_sertifikat_4">
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_4" onClick="save('sertifikat_4')">Upload</button>
@@ -237,7 +241,7 @@
                                             <form action="#" id="form_sertifikat_5" enctype="multipart/form-data">
                                                 <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                 <div class="form-group">
-                                                    <label>Sertifikat 5</label>
+                                                    <label>Sertifikat Prestasi 5</label>
                                                     <div class="input-group" id="result_sertifikat_5">
                                                         <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_5" onClick="save('sertifikat_5')">Upload</button>

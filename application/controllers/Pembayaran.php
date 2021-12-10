@@ -27,12 +27,12 @@ class Pembayaran extends CI_Controller {
         $upload_image = $_FILES['file']['name'];
         $nik = $this->input->post('nik');
         if ($upload_image != NULL) {
-            $config['upload_path']          = './uploads/struk/';
-            $config['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
-            $config['max_size']             = '15015';
-            $config['encrypt_name']         = TRUE;
+            $cfg['upload_path']          = './uploads/struk/';
+            $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
+            $cfg['max_size']             = '15015';
+            $cfg['encrypt_name']         = TRUE;
     
-            $this->load->library('upload', $config);
+            $this->load->library('upload', $cfg);
     
             if ($this->upload->do_upload('file')){
     
@@ -41,10 +41,14 @@ class Pembayaran extends CI_Controller {
                 $config['image_library']='gd2';
                 $config['source_image']= './uploads/struk/'.$namafile;
                 $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
-                $config['quality']= '50%';                            
+                $config['maintain_ratio']= TRUE;
+                $config['quality']= '100%';
+                $config['width']= 1000;
                 $config['new_image']= './uploads/struk/'.$namafile;
-                $this->load->library('image_lib', $config);
+                $this->load->library('image_lib');
+                
+                $this->image_lib->initialize($config);
+
                 $this->image_lib->resize();
     
                     $data = [

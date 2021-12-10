@@ -3,7 +3,7 @@
 
 ob_start();
 $pdf = new Pdf('P', '', 'A4', true, 'UTF-8', false);
-$pdf->SetTitle($title);
+$pdf->SetTitle($title.'-'.$output->checksum);
 $pdf->SetTopMargin(4);
 $pdf->setFooterMargin(4);
 $pdf->setPrintHeader(false);
@@ -18,12 +18,18 @@ $pdf->SetFont('freeserif', '', 10);
 
 $pdf->SetAuthor('Ruhul Islam Anak Bangsa');
 
+if ($output->jalur == "reguler"){
+    $cat = "<b>".$output->ruang_cat."</b> - Pukul : ".$output->sesi_cat;
+} elseif ($output->jalur == "undangan") {
+    $cat = "<b>Tidak Ada Ujian Komputer</b>";
+}
+
 // Lembar Kartu ujian
 $pdf->AddPage();
 
 $header = '<p><img src="'.$assetsurl.'images/header-kartu.jpg"></img></p>';
 $pdf->writeHTML($header, true, false, false, false, '');
-$pdf->Image($assetsurl.'psb-photo/'.$output->pasphoto, 172, 30, 28, '', '', '', '', false, 300);
+$pdf->Image($filesurl.'pasphoto/'.$output->pasphoto, 172, 30, 28, '', '', '', '', false, 300);
 $body = '
      <table width="100%">
           <tbody>
@@ -66,7 +72,7 @@ $body = '
                </tr>
                <tr>
                     <td width="160">Ruang Ujian Komputer</td>
-                    <td>: <b>'.$output->ruang_cat.'</b> - Pukul : '.$output->sesi_cat.'</td>
+                    <td>: '.$cat.'</td>
                </tr>
                <tr>
                     <td width="160">Ruang Ujian Lisan (Wawancara)</td>
@@ -78,7 +84,7 @@ $body = '
 $pdf->writeHTML($body, true, false, true, false, '');
 $pdf->StartTransform();
 $pdf->Rotate(10, 70, 100);
-$pdf->Image($assetsurl.'ttd.png', 110, 155, 55, '', '', '', '', false, 300);
+$pdf->Image($assetsurl.'images/ttd.png', 117, 152, 55, '', '', '', '', false, 300);
 $pdf->StopTransform();
 $tanda_tangan = '
     <table width="100%">
@@ -118,10 +124,12 @@ $tanda_tangan = '
                     <br />
                     <br />
                     <br />
-                    <u>'.$ketua_panitia.'</u>
+                    <u><b>'.$ketua_panitia.'</b></u>
                 </td>               
             </tr>         
      </table>
+     <br />
+     <br />
      <p style="border: 1px solid black;"><b> Mekanisme calon santri yang akan mengikuti tes :</b>
      <ol>
           <li>Calon santri wajib hadir 30 menit sebelum jadwal tes dilaksanakan.</li>
@@ -152,13 +160,13 @@ $pdf->endPage();
 $pdf->AddPage();
 $header = '<p><img src="'.$assetsurl.'images/header-formulir.jpg"></img></p>';
 $pdf->writeHTML($header, true, false, false, false, '');
-$pdf->Image($assetsurl.'pasphoto/'.$output->pasphoto, 172, 30, 28, '', '', '', '', false, 300);
+$pdf->Image($filesurl.'pasphoto/'.$output->pasphoto, 172, 30, 28, '', '', '', '', false, 300);
 $formulir = '   
     
     <h2 align="center" style="line-height: 1.1em;">'.$output->no_ujian.'</h2>
     <h3 align="center" style="line-height: 1.1em;">'.jurusan($output->jurusan).'</h3>
 
-    <table cellpadding="1" class="table table-striped">
+    <table cellpadding="1">
         <br />
         <tr>
             <td width="50mm">1. Nama</td>
@@ -398,7 +406,7 @@ $tandatangan = '
         <tbody>
         <tr>
             <td>
-                
+                <img src="'.$filesurl.'qr/'.$output->checksum.'.png" width="70px"/>
             </td>
             <td width="90mm" align="center">
                 Aceh Besar, '.date_indo(date('Y-m-d', strtotime($output->tanggal_daftar))).'<br / />
@@ -415,6 +423,6 @@ $tandatangan = '
 $pdf->writeHTML($tandatangan, true, false, true, false, '');
 $pdf->endPage();
  
-$pdf->Output('PSB-RIAB-'.$output->no_ujian.'.pdf', 'I');
+$pdf->Output('PSB-RIAB-'.$output->no_ujian.'.pdf', true);
 exit;
 ?>

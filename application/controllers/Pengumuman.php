@@ -10,18 +10,22 @@ class Pengumuman extends CI_Controller {
 
 	public function reguler()
 	{
+        check_akses_pengumuman('reguler');
 		$data = [
             'title'     => 'Pengumuman Kelulusan Jalur Reguler',
-            'content'   => 'pengumuman/reguler'
+            'content'   => 'pengumuman/reguler',
+            'costum_js' => 'pengumuman/js'
         ];
         echo $this->template->views($data);
 	}
 
     public function undangan()
 	{
+        check_akses_pengumuman('undangan');
 		$data = [
             'title'     => 'Pengumuman Kelulusan Jalur Undangan',
-            'content'   => 'pengumuman/undangan'
+            'content'   => 'pengumuman/undangan',
+            'costum_js' => 'pengumuman/js'
         ];
         echo $this->template->views($data);
 	}

@@ -64,6 +64,63 @@ function check_biodata()
 
 }
 
+function check_lulus()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+
+    if($x->s_lulus == 1){
+        return true;
+    } else if($x->s_lulus == 0){
+        $ci->session->set_flashdata([
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena anda tidak lulus',
+            'type' => 'info'
+        ]);
+        redirect ('dashboard');
+    }
+
+}
+
+function check_akses_pengumuman($from)
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+
+    if($x->jalur == $from){
+        return true;
+    } else {
+        $ci->session->set_flashdata([
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini',
+            'type' => 'info'
+        ]);
+        redirect ('dashboard');
+    }
+
+}
+
+function check_lulus_adm()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+
+    if($x->s_lulus_adm == 1){
+        return true;
+    } else if($x->s_lulus_adm == 0){
+        $ci->session->set_flashdata([
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena anda tidak lulus seleksi berkas',
+            'type' => 'info'
+        ]);
+        redirect ('dashboard');
+    }
+
+}
+
 function check_berkas()
 {
     $ci = &get_instance();
@@ -137,11 +194,11 @@ function check_berkas()
 
 }
 
-function check_open($dateA, $dateZ)
+function check_open($date)
 {
-    $date_now = time();
+    $date_now = date("Y-m-d");
 
-    if ($date_now >= strtotime($dateA) && $date_now <= strtotime($dateZ)) {
+    if ($date_now >= $date) {
         return "Open";
     } else {
         return "Close";
@@ -167,6 +224,12 @@ function jurusan($jurusan)
         return "Ilmu Pengatahuan Alam (IPA)";
         break;
         case "G":
+        return "Ilmu Keagamaan (MAK)";
+        break;
+        case "A-UDG":
+        return "Ilmu Pengatahuan Alam (IPA)";
+        break;
+        case "G-UDG":
         return "Ilmu Keagamaan (MAK)";
         break;
     }

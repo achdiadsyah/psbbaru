@@ -103,6 +103,7 @@ class Auth extends CI_Controller {
                     's_payment'         =>  '1',
                     's_biodata'         =>  '0',
                     's_file'            =>  '0',
+                    's_lulus_adm'       =>  '0',
                     's_lulus'           =>  '0',
                     'tanggal_daftar'    =>  date("Y-m-d H:i:s")
                 ];
@@ -126,6 +127,7 @@ class Auth extends CI_Controller {
                     's_payment'         =>  '0',
                     's_biodata'         =>  '0',
                     's_file'            =>  '0',
+                    's_lulus_adm'       =>  '1',
                     's_lulus'           =>  '0',
                     'tanggal_daftar'    =>  date("Y-m-d H:i:s")
                 ];

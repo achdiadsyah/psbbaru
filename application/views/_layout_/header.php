@@ -1,4 +1,4 @@
-            
+           
             <header class="mb-5">
                 <div class="header-top">
                     <div class="container">
@@ -14,8 +14,17 @@
                     </div>
                 </div>
                     <?php if(!$this->session->has_userdata('id')): ?>
+
                         <?php $this->view('_layout_/nav_no_session'); ?>
+
                     <?php elseif($this->session->has_userdata('id')): ?>
-                        <?php $this->view('_layout_/nav_with_session'); ?>
+                        <?php $user = $this->M_Peserta->get($this->session->userdata['id']); ?>
+
+                        <?php if($user->jalur == "undangan"): ?>
+                            <?php $this->view('_layout_/nav_with_session_udg'); ?>
+                        <?php elseif($user->jalur == "reguler"): ?>
+                            <?php $this->view('_layout_/nav_with_session_reg'); ?>
+                        <?php endif; ?>
+
                     <?php endif; ?>
             </header>

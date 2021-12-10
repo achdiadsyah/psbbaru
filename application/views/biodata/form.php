@@ -247,7 +247,7 @@
                                             </tbody>
                                         </table>
                                         <center>
-                                            <a href="<?= base_url('berkas'); ?>" class="btn btn-primary mb-2">Lanjut Upload Berkas / File</a>
+                                            <a href="<?= base_url('berkas'); ?>" class="btn btn-primary mb-2">Lanjut Upload Berkas & File</a>
                                         </center>
                                     </div>
                                 </div>

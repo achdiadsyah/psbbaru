@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <?php if(check_open(psb_detail("buka_daftar_undangan"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
+                            <?php if(check_open(psb_detail("buka_daftar_undangan")) == "Open"): ?>
                             <li
                                 class="menu-item mr-5 float-right">
                                 <a href="<?= base_url('auth/register'); ?>" class='menu-link'>
