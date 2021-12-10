@@ -90,7 +90,6 @@
                                             </form>
                                         </div>
                                         <?php endif; ?>
-
                                     </div>
                                 </div>
                             </div>
@@ -155,6 +154,7 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +249,9 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        <center>
+                                            <a href="<?= base_url('cetak'); ?>" class="btn btn-primary mb-2">Lanjut Cetak Kartu</a>
+                                        </center>
                                     </div>
                                 </div>
                             </div>

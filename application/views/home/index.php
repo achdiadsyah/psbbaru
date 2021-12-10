@@ -5,6 +5,9 @@
                             role="document">
                             <div class="modal-content-nobg">
                                 <div class="modal-body">
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn rounded-circle btn-warning" type="button" class="close" data-dismiss="modal" aria-label="Close" id="closebtn"><span aria-hidden="true">&times;</span></button>
+                                    </div>
                                     <img src="<?= base_url('assets/images/').rand(1, 2).'.jpg';?>" alt="popup" width="100%">
                                     <div class="mt-2 d-flex justify-content-center">
                                         <div class="buttons">
@@ -32,9 +35,9 @@
                                         <li>Peserta wajib melakukan pendaftaran akun dan upload berkas administrasi melalui menu <b>Daftar</b></li>
                                         <li><b>Kode Undangan</b> dapat di minta kepada panitia</li>
                                         <li>Kontak Person : <b><?= psb_detail("contact_person_1"); ?> / <?= psb_detail("contact_person_2"); ?></b></li>
-                                        <li>Pengumuman kelulusan administrasi santri berprestasi <b><?= date_indo(psb_detail("pengumuman_adm_undangan")); ?></b>. Melalui Melalui website <a href="https://<?= sekolah_detail("web_sekolah"); ?>"><?= sekolah_detail("nama_sekolah"); ?></a> atau Fanspage Facebook <?= sekolah_detail("nama_sekolah"); ?></li>
+                                        <li>Pengumuman kelulusan administrasi santri berprestasi <b><?= date_indo(psb_detail("pengumuman_adm_undangan")); ?></b>. Melalui Melalui website <a href="https://<?= sekolah_detail("web_sekolah"); ?>"><b><?= sekolah_detail("nama_sekolah"); ?></b></a> atau Fanspage Facebook <b><?= sekolah_detail("nama_sekolah"); ?></b></li>
                                         <li>Pelaksanaan test santri jalur undangan yang lulus administrasi <b><?= date_indo(psb_detail("tes_undangan")); ?></b>.</li>
-                                        <li>Pengumuman kelulusan santri jalur undangan pada tanggal <b><?= date_indo(psb_detail("pengumuman_undangan")); ?></b>. Melalui Melalui menu : <a href="<?=base_url('pengumuman/undangan');?>">Pengumuman Kelulusan Jalur Undangan</a> atau Fanspage Facebook <?= sekolah_detail("nama_sekolah"); ?></li>
+                                        <li>Pengumuman kelulusan santri jalur undangan pada tanggal <b><?= date_indo(psb_detail("pengumuman_undangan")); ?></b>. Melalui Melalui menu : <a href="<?=base_url('pengumuman/undangan');?>"><b>Pengumuman Kelulusan Jalur Undangan</b></a> atau Fanspage Facebook <b><?= sekolah_detail("nama_sekolah"); ?></b></li>
                                         <li>Pendaftaran ulang santri jalur undangan tanggal <b><?= date_indo(psb_detail("buka_daftar_ulang_undangan")); ?></b> s.d <b><?= date_indo(psb_detail("tutup_daftar_ulang_undangan")); ?>.</b></li>
                                     </ol>
                                 </div>
@@ -52,10 +55,10 @@
                                         <li>Pendaftaran secara offline <b>Tidak di Buka</b> mengingat pandemi <b>COVID-19</b> masih berlangsung di Aceh</li>
                                         <li>Kontak Person : <b><?= psb_detail("contact_person_1"); ?> / <?= psb_detail("contact_person_2"); ?></b></li>
                                         <li>Pendaftaran reguler mulai tanggal <b><?=date_indo(psb_detail("buka_daftar_reguler"));?> s.d. <?=date_indo(psb_detail("tutup_daftar_reguler"))?></b></li>
-                                        <li>Pelaksanaan Tes reguler pada tanggal <b><?=date_indo(psb_detail("buka_tes_reguler"))?> s.d. <?=date_indo(psb_detail("tutup_tes_reguler"))?></b> di Kampus <?= sekolah_detail("nama_sekolah"); ?>.</li>
-                                        <li>Datang dan Mengikuti Ujian pada tanggal dan sesi yang telah di tentukan pada Lembar Nomor Ujian. Guna Mengantisipasi keramaian dalam lingkugan Kampus <?= sekolah_detail("nama_sekolah"); ?></li>
-                                        <li>Jangan Lupa <b>Selalu menggunakan Masker saat ujian berlangsung</b>, dan selama berada di dalam lingkungan Kampus <?= sekolah_detail("nama_sekolah"); ?></b></li>
-                                        <li>Pengumuman hasil tes reguler pada tanggal <b><?=date_indo(psb_detail("pengumuman_reguler"))?></b>. Melalui menu: <a href="<?=base_url('pengumuman/reguler');?>">Pengumuman Kelulusan Jalur Reguler</a> atau Fanspage Facebook <?= sekolah_detail("nama_sekolah"); ?>.</li>
+                                        <li>Pelaksanaan Tes reguler pada tanggal <b><?=date_indo(psb_detail("buka_tes_reguler"))?> s.d. <?=date_indo(psb_detail("tutup_tes_reguler"))?></b> di Kampus <b><?= sekolah_detail("nama_sekolah"); ?></b>.</li>
+                                        <li>Datang dan Mengikuti Ujian pada tanggal dan sesi yang telah di tentukan pada Lembar Nomor Ujian. Guna Mengantisipasi keramaian dalam lingkugan Kampus <b><?= sekolah_detail("nama_sekolah"); ?></b></li>
+                                        <li>Jangan Lupa <b>Selalu menggunakan Masker saat ujian berlangsung</b>, dan selama berada di dalam lingkungan Kampus <b><?= sekolah_detail("nama_sekolah"); ?></b></li>
+                                        <li>Pengumuman tes reguler pada tanggal <b><?=date_indo(psb_detail("pengumuman_reguler"))?></b>. Melalui menu: <a href="<?=base_url('pengumuman/reguler');?>"><b>Pengumuman Kelulusan Jalur Reguler</b></a> atau Fanspage Facebook <b><?= sekolah_detail("nama_sekolah"); ?></b>.</li>
                                     </ol>
                                 </div>
                             </div>
@@ -96,7 +99,7 @@
                                         <li>Informasi masuk asrama, pertemuan wali santri akan di beritahukan pada waktu Pendaftaran Ulang</li>
                                         <li>Pilihan jurusan tertera pada Form Pendaftaran</li>
                                         <li>Berpakaian Muslim/Muslimah pada saat mengikuti Tes</li>    
-                                        <li>Jangan Lupa <b>Selalu menggunakan Masker saat ujian berlangsung</b>, dan selama berada di dalam lingkungan Kampus <?= sekolah_detail("nama_sekolah"); ?></b></li>
+                                        <li>Jangan Lupa <b>Selalu menggunakan Masker saat ujian berlangsung</b>, dan selama berada di dalam lingkungan Kampus <b><?= sekolah_detail("nama_sekolah"); ?></b></li>
                                     </ol>
                                 </div>
                             </div>

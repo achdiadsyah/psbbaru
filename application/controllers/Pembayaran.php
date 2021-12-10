@@ -29,7 +29,7 @@ class Pembayaran extends CI_Controller {
         if ($upload_image != NULL) {
             $cfg['upload_path']          = './uploads/struk/';
             $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
-            $cfg['max_size']             = '15015';
+            $cfg['max_size']             = '5012';
             $cfg['encrypt_name']         = TRUE;
     
             $this->load->library('upload', $cfg);

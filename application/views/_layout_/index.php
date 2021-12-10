@@ -19,14 +19,20 @@
     <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.ico" type="image/x-icon">
 </head>
     <body>
+        
         <div id="app">
             <div id="main" class="layout-horizontal">
+
                 <?php $this->view('_layout_/header'); ?>
+                
                 <div class="content-wrapper container">
+                    
                     <div class="page-heading">
                         <h3><?= $title; ?></h3>
                     </div>
+
                     <div class="page-content">
+
                     <?php
                         if (!empty($content)) {
                             $this->view($content);
@@ -34,9 +40,12 @@
                             echo "Nothing To Display";
                         }
                     ?>
+
                     </div>
                 </div>
+
                 <?php $this->view('_layout_/footer'); ?>
+
             </div>
         </div>
 

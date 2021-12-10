@@ -71,9 +71,9 @@ class Berkas extends CI_Controller {
 
                     $insert = $this->M_Filepsb->update($nik, $data);
                     if ($insert == TRUE) {
-                        echo json_encode(array("status" => true, "msg" => $this->image_lib->display_errors()));
+                        echo json_encode(array("status" => true, "msg" => 'Berhasil Upload File'));
                     } else {
-                        echo json_encode(array("status" => false, "msg" => "Gagal Upload Gambar Dan Ke Database"));
+                        echo json_encode(array("status" => false, "msg" => "Gagal Upload File Ke Database"));
                     }
                       
             } else {
@@ -89,9 +89,8 @@ class Berkas extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $nik = $this->session->userdata['nik'];
             $get = $this->M_Filepsb->get_by_nik($nik)->row();
-            $get2 = $this->M_Peserta->get_by_nik($nik)->row();
 
-            if ($get && $get2){
+            if ($get){
                 echo json_encode($get);
             } else {
                 echo json_encode(array('status' => false, 'message' => "Gagal Mendapatkan Data"));

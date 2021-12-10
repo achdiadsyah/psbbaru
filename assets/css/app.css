@@ -17,7 +17,7 @@
 }
 
 .alert-primary {
-    background-color: #435ebe;
+    background-color: #006266;
     color: #fff
 }
 
@@ -429,14 +429,14 @@
 }
 
 .pricing .card-highlighted {
-    background-color: #435ebe;
+    background-color: #006266;
     padding-bottom: 20px;
     padding-top: 20px
 }
 
 .pricing .card-highlighted .card-body,
 .pricing .card-highlighted .card-header {
-    background-color: #435ebe;
+    background-color: #006266;
     color: #fff
 }
 
@@ -450,7 +450,7 @@
 }
 
 .pricing .card-highlighted .card-footer {
-    background-color: #435ebe
+    background-color: #006266
 }
 
 .pricing .card-highlighted .card-title {
@@ -564,9 +564,9 @@
 
 .form-group.with-title .form-control:focus~label,
 .form-group.with-title dataTable-input:focus~label {
-    border-left: 1px solid #435ebe;
-    border-right: 1px solid #435ebe;
-    border-top: 1px solid #435ebe
+    border-left: 1px solid #006266;
+    border-right: 1px solid #006266;
+    border-top: 1px solid #006266
 }
 
 .form-group[class*=has-icon-].has-icon-left .form-control {
@@ -635,8 +635,8 @@
 }
 
 .form-check .form-check-input.form-check-primary {
-    background-color: #435ebe;
-    border-color: #435ebe
+    background-color: #006266;
+    border-color: #006266
 }
 
 .form-check .form-check-input.form-check-primary:not(:checked) {
@@ -799,8 +799,8 @@
 }
 
 .form-check.form-check-primary .form-check-input {
-    background-color: #435ebe;
-    border-color: #435ebe
+    background-color: #006266;
+    border-color: #006266
 }
 
 .form-check.form-check-secondary .form-check-input {
@@ -964,7 +964,7 @@
 }
 
 .sidebar-wrapper .menu .sidebar-title {
-    color: #25396f;
+    color: #009432;
     font-size: 1rem;
     font-weight: 600;
     list-style: none;
@@ -975,7 +975,7 @@
 .sidebar-wrapper .menu .sidebar-link {
     align-items: center;
     border-radius: .5rem;
-    color: #25396f;
+    color: #009432;
     display: block;
     display: flex;
     font-size: 1rem;
@@ -1013,7 +1013,7 @@
 }
 
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-    background-color: #435ebe
+    background-color: #006266
 }
 
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
@@ -1047,12 +1047,12 @@
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item.active>a {
-    color: #435ebe;
+    color: #006266;
     font-weight: 700
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a {
-    color: #25396f;
+    color: #009432;
     display: block;
     font-size: .85rem;
     font-weight: 600;
@@ -1102,12 +1102,12 @@
 
 .nav-tabs .nav-link.active {
     border: none;
-    color: #435ebe;
+    color: #006266;
     position: relative
 }
 
 .nav-tabs .nav-link.active:after {
-    background-color: #435ebe;
+    background-color: #006266;
     bottom: 0;
     box-shadow: 0 2px 5px rgba(67, 94, 190, .5);
     content: "";
@@ -1190,7 +1190,7 @@
 }
 
 .layout-horizontal .main-navbar {
-    background-color: #435ebe;
+    background-color: #006266;
     padding: 1rem
 }
 
@@ -1390,8 +1390,8 @@
 }
 
 .pagination.pagination-primary .page-item.active .page-link {
-    background-color: #435ebe;
-    border-color: #435ebe;
+    background-color: #006266;
+    border-color: #006266;
     box-shadow: 0 2px 5px rgba(67, 94, 190, .3)
 }
 
@@ -1503,7 +1503,7 @@
 }
 
 .progress.progress-primary .progress-bar {
-    background-color: #435ebe;
+    background-color: #006266;
     border-radius: .25rem
 }
 

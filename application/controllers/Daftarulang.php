@@ -8,13 +8,17 @@ class Daftarulang extends CI_Controller {
     {
 		parent::__construct();
         check_login();
-        check_lulus_adm();
-        check_lulus();
+        // check_lulus_adm();
+        // check_lulus();
         $this->load->model('M_Peserta');
     }
 
 	public function index()
     {
-        echo "Daftar Ulang";
+        $data = [
+            'title'     => 'Daftar Ulang',
+            'content'   => 'daftarulang/index'
+        ];
+        echo $this->template->views($data);
     }
 }
