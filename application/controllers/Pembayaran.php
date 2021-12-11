@@ -76,7 +76,7 @@ class Pembayaran extends CI_Controller {
 
             $get2 = $this->M_Peserta->get_by_nik($nik)->row();
             if ($get->struk == "-"){
-                echo json_encode(array('status' => false, 'message' => "Silahkan Upload Struk"));
+                echo json_encode(array('status' => false, 'message' => "Silahkan Upload Slip Transfer Anda"));
             } elseif ($get->struk == "undangan.jpg"){
                 echo json_encode(array('status' => true, 'message' => "Jalur Undangan, Tidak perlu upload bukti pembayaran"));
             } else {

@@ -2,10 +2,10 @@
 <?php
 
 ob_start();
-$pdf = new Pdf('P', '', 'A4', true, 'UTF-8', false);
+$pdf = new Pdf('P', 'in', 'A4', true, 'UTF-8', false);
 $pdf->SetTitle($title.'-'.$output->checksum);
-$pdf->SetTopMargin(4);
-$pdf->setFooterMargin(4);
+$pdf->SetTopMargin(2);
+$pdf->setFooterMargin(2);
 $pdf->setPrintHeader(false);
 $pdf->setPrintFooter(false);
 
@@ -14,7 +14,7 @@ $pdf->setPrintFooter(false);
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set font
-$pdf->SetFont('freeserif', '', 10);
+$pdf->SetFont('helvetica', '', 10, '', true);
 
 $pdf->SetAuthor('Ruhul Islam Anak Bangsa');
 
@@ -26,6 +26,8 @@ if ($output->jalur == "reguler"){
 
 // Lembar Kartu ujian
 $pdf->AddPage();
+// set JPEG quality
+$pdf->setJPEGQuality(75);
 
 $header = '<p><img src="'.$assetsurl.'images/header-kartu.jpg"></img></p>';
 $pdf->writeHTML($header, true, false, false, false, '');
@@ -158,13 +160,15 @@ $pdf->endPage();
 
 // Lembar Formulir
 $pdf->AddPage();
+// set JPEG quality
+$pdf->setJPEGQuality(75);
 $header = '<p><img src="'.$assetsurl.'images/header-formulir.jpg"></img></p>';
 $pdf->writeHTML($header, true, false, false, false, '');
 $pdf->Image($filesurl.'pasphoto/'.$output->pasphoto, 172, 30, 28, '', '', '', '', false, 300);
 $formulir = '   
     
-    <h2 align="center" style="line-height: 1.1em;">'.$output->no_ujian.'</h2>
-    <h3 align="center" style="line-height: 1.1em;">'.jurusan($output->jurusan).'</h3>
+    <h3 align="center" style="line-height: 1.1em;">'.$output->no_ujian.'</h3>
+    <h4 align="center" style="line-height: 1.1em;">'.jurusan($output->jurusan).'</h4>
 
     <table cellpadding="1">
         <br />
@@ -179,7 +183,7 @@ $formulir = '
             <td>'.$output->nisn.'</td>
         </tr>
         <tr>
-            <td>3. Tempat Lahir</td>
+            <td>3. Tempat / Tanggal Lahir</td>
             <td>:</td>
             <td>'.$output->tempat_lahir.'</td>
         </tr>
@@ -252,28 +256,26 @@ $formulir = '
         <tr>
             <td>10. Data Asal Sekolah</td>
             <td>:</td>
-            <td width="28mm">Nama Sekolah</td>
-            <td width="2mm">:</td>
-            <td width="90mm">'.$output->asal_sekolah.'</td>
+            <td width="160mm">'.$output->asal_sekolah.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="28mm">NPSN Sekolah</td>
+            <td width="28mm">NPSN</td>
             <td width="2mm">:</td>
             <td width="90mm">'.$output->npsn_sekolah_asal.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="28mm">Alamat Sekolah</td>
+            <td width="28mm">Alamat</td>
             <td width="2mm">:</td>
             <td width="90mm">'.$output->alamat_sekolah_asal.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="28mm">Kategori Sekolah</td>
+            <td width="28mm">Kategori</td>
             <td width="2mm">:</td>
             <td width="90mm">'.$output->jenis_sekolah_asal.'</td>
         </tr>
@@ -288,14 +290,14 @@ $formulir = '
         <tr>
             <td>11. Nama Orang Tua</td>
             <td>:</td>
-            <td width="15mm">Ayah</td>
+            <td width="28mm">Ayah</td>
             <td width="2mm">:</td>
             <td width="90mm">'.$output->nama_ayah.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ibu</td>
+            <td width="28mm">Ibu</td>
             <td width="2mm">:</td>
             <td width="90mm">'.$output->nama_ibu.'</td>
         </tr>
@@ -303,97 +305,97 @@ $formulir = '
         <tr>
             <td>12. Pekerjaan Orang Tua</td>
             <td>:</td>
-            <td width="15mm">Ayah</td>
+            <td width="28mm">Ayah</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->pekerjaan_ayah.'</td>
+            <td width="90mm">'.$output->pekerjaan_ayah.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ibu</td>
+            <td width="28mm">Ibu</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->pekerjaan_ibu.'</td>
+            <td width="90mm">'.$output->pekerjaan_ibu.'</td>
         </tr>
         <br />
         <tr>
             <td>13. Penghasilan Orang Tua</td>
             <td>:</td>
-            <td width="15mm">Ayah</td>
+            <td width="28mm">Ayah</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->penghasilan_ayah.'</td>
+            <td width="90mm">'.$output->penghasilan_ayah.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ibu</td>
+            <td width="28mm">Ibu</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->penghasilan_ibu.'</td>
+            <td width="90mm">'.$output->penghasilan_ibu.'</td>
         </tr>
         <br />
         <tr>
             <td>14. Pendidikan Orang Tua</td>
             <td>:</td>
-            <td width="15mm">Ayah</td>
+            <td width="28mm">Ayah</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->pendidikan_ayah.'</td>
+            <td width="90mm">'.$output->pendidikan_ayah.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ibu</td>
+            <td width="28mm">Ibu</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->pendidikan_ibu.'</td>
+            <td width="90mm">'.$output->pendidikan_ibu.'</td>
         </tr>
         <br />
         <tr>
             <td>15. Data Wali Santri</td>
             <td>:</td>
-            <td width="15mm">Nama</td>
+            <td width="28mm">Nama</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->nama_wali.'</td>
+            <td width="90mm">'.$output->nama_wali.'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Status</td>
+            <td width="28mm">Status</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.$output->status_wali.'</td>
+            <td width="90mm">'.$output->status_wali.'</td>
         </tr>
         <br />
         <tr>
             <td>16. No Telp / Email </td>
             <td>:</td>
-            <td width="15mm">Peserta</td>
+            <td width="28mm">Peserta</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.preg_replace("/^62/", "0", $output->no_telepon).'</td>
+            <td width="90mm">'.preg_replace("/^62/", "0", $output->no_telepon).'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Email</td>
+            <td width="28mm">Email</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.preg_replace("/^62/", "0", $output->email).'</td>
+            <td width="90mm">'.preg_replace("/^62/", "0", $output->email).'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ayah</td>
+            <td width="28mm">Ayah</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.preg_replace("/^62/", "0", $output->no_telepon_ayah).'</td>
+            <td width="90mm">'.preg_replace("/^62/", "0", $output->no_telepon_ayah).'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Ibu</td>
+            <td width="28mm">Ibu</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.preg_replace("/^62/", "0", $output->no_telepon_ibu).'</td>
+            <td width="90mm">'.preg_replace("/^62/", "0", $output->no_telepon_ibu).'</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td width="15mm">Wali</td>
+            <td width="28mm">Wali</td>
             <td width="2mm">:</td>
-            <td width="52mm">'.preg_replace("/^62/", "0", $output->no_telepon_wali).'</td>
+            <td width="90mm">'.preg_replace("/^62/", "0", $output->no_telepon_wali).'</td>
         </tr>
     </table>
 <br />
@@ -423,6 +425,6 @@ $tandatangan = '
 $pdf->writeHTML($tandatangan, true, false, true, false, '');
 $pdf->endPage();
  
-$pdf->Output('PSB-RIAB-'.$output->no_ujian.'.pdf', true);
+$pdf->Output('PSB-RIAB-'.$output->no_ujian.'.pdf', 'I');
 exit;
 ?>

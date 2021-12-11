@@ -165,7 +165,7 @@
                                         Sertifikat Prestasi Siswa & SK Rangking
                                     </h4>
                                     <p class="card-subtitle">
-                                        Silahkan Upload Jika Ada
+                                        TIDAK WAJIB UPLOAD
                                     </p>
                                 </div>
                                 <div class="card-body">

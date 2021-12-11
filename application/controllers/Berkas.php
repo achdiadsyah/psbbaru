@@ -46,7 +46,7 @@ class Berkas extends CI_Controller {
                 $config['image_library']='gd2';
                 $config['source_image']= $path.'/'.$namafile;
                 $config['create_thumb']= FALSE;
-                $config['quality']= '100%';                            
+                $config['quality']= '80%';                            
                 if ($target == "pasphoto"){
                     $config['maintain_ratio']= FALSE;
                     $config['width']= 152;                            
