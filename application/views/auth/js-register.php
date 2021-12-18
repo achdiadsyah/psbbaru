@@ -33,18 +33,16 @@
                         const obj = JSON.parse(data);
                         var onwa = obj.onwhatsapp;
                         if (onwa == "true"){
-                            var x = 'Nomor Whatsapp Terdaftar</b>';
                             $("#no_telepon").removeClass('is-invalid');
                             $("#no_telepon").addClass('is-valid');
                         } else {
-                            var x = 'Nomor Whatsaap Tidak Terdaftar</b>';
+                            mySwalalert('Nomor Whatsaap Tidak Terdaftar', 'info');
                             $("#no_telepon").removeClass('is-valid');
                             $("#no_telepon").addClass('is-invalid');
                             $("#no_telepon").val('');
                         }
-                        $("#checkWA").html(x);
                     }, error: function (data) {
-                        $("#checkWA").html('Gagal Mengakses server WhatsApp</b>');
+                        mySwalalert('Gagal Mengakses server WhatsApp', 'error');
                     }
                 });
                 return false;
