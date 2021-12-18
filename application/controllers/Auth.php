@@ -65,7 +65,8 @@ class Auth extends CI_Controller {
 	{
 		$data = [
             'title'     => 'Daftar',
-            'content'   => 'auth/register'
+            'content'   => 'auth/register',
+            'costum_js' => 'auth/js-register'
         ];
         echo $this->template->views($data);
 	}
@@ -77,6 +78,7 @@ class Auth extends CI_Controller {
         $nama               = $this->input->post('nama');
         $no_telepon         = $this->input->post('no_telepon');
         $password           = $this->input->post('password');
+        $s_akademik         = $this->input->post('s_akademik');
         
         $check              = $this->M_Peserta->get_by_nik($nik)->num_rows();
 
@@ -100,6 +102,7 @@ class Auth extends CI_Controller {
                     'jadwal_ujian'      =>  psb_detail("tes_undangan"),
                     'ruang_lisan'       =>  'RUANG-UNDANGAN',
                     'sesi_lisan'        =>  '08:00 - 12:00',
+                    's_akademik'        =>  $s_akademik,
                     's_payment'         =>  '1',
                     's_biodata'         =>  '0',
                     's_file'            =>  '0',
@@ -124,6 +127,7 @@ class Auth extends CI_Controller {
                     'password'          =>  password_hash($password, PASSWORD_DEFAULT),
                     'jalur'             =>  'reguler',
                     'ujian_via'         =>  NULL,
+                    's_akademik'        =>  '0',
                     's_payment'         =>  '0',
                     's_biodata'         =>  '0',
                     's_file'            =>  '0',

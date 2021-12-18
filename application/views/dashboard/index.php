@@ -40,14 +40,6 @@
                                                     <?php endif; ?>
                                                 </tr>
                                                 <tr>
-                                                    <td>Penentuan Nomor Ujian</td>
-                                                    <?php if ($user->s_biodata == 0): ?>
-                                                    <td><a href="<?= base_url('biodata'); ?>"><span class="badge bg-danger">Belum</span></a></td>
-                                                    <?php else: ?>
-                                                    <td><span class="badge bg-success"><?= $user->no_ujian; ?></span></td>
-                                                    <?php endif; ?>
-                                                </tr>
-                                                <tr>
                                                     <td>Upload Berkas</td>
                                                     <?php if ($user->s_file == 0): ?>
                                                     <td><a href="<?= base_url('berkas'); ?>"><span class="badge bg-danger">Belum</span></a></td>
@@ -61,6 +53,14 @@
                                                     <td><a href="<?= base_url('cetak'); ?>"><span class="badge bg-danger">Belum</span></a></td>
                                                     <?php else: ?>
                                                     <td><span class="badge bg-success">Sudah</span></td>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <tr>
+                                                    <td>Penentuan Nomor Ujian</td>
+                                                    <?php if ($user->no_ujian == ''): ?>
+                                                    <td><a href="<?= base_url('biodata'); ?>"><span class="badge bg-danger">Belum</span></a></td>
+                                                    <?php else: ?>
+                                                    <td><span class="badge bg-success"><?= $user->no_ujian; ?></span></td>
                                                     <?php endif; ?>
                                                 </tr>
                                                 <tr>

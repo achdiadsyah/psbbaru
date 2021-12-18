@@ -40,6 +40,11 @@ $body = '
                     <td>: '.$output->asal_sekolah.'</td>
                     
                </tr>
+               <tr>
+                    <td width="160">Asal Daerah</td>
+                    <td>: '.what_kabupaten($output->kabupaten).'</td>
+                    
+               </tr>
                <br />
                <tr>
                     <td width="160"><strong>NOMOR UJIAN</strong></td>
@@ -183,14 +188,14 @@ $formulir = '
             <td>'.$output->nisn.'</td>
         </tr>
         <tr>
-            <td>3. Tempat / Tanggal Lahir</td>
+            <td>3. NIK (KTP)</td>
             <td>:</td>
-            <td>'.$output->tempat_lahir.'</td>
+            <td>'.$output->nik.'</td>
         </tr>
-            <tr>
-            <td>4. Tanggal Lahir</td>
+        <tr>
+            <td>4. Tempat / Tanggal Lahir</td>
             <td>:</td>
-            <td>'.date_indo($output->tanggal_lahir).'</td>
+            <td>'.$output->tempat_lahir.', '.date_indo($output->tanggal_lahir).'</td>
         </tr>
         <tr>
             <td>5. Jenis Kelamin</td>

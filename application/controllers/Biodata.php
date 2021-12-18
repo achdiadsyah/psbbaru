@@ -78,10 +78,9 @@ class Biodata extends CI_Controller {
             $this->ciqrcode->generate($params);
 
             $data = [
-                'jurusan'                   => $this->input->post('jurusan'),
-                'no_ujian'                  => get_noujian($this->input->post('jurusan')),
                 'nik'                       => $this->input->post('nik'),
                 'no_telepon'                => $this->input->post('no_telepon'),
+                'minat'                     => $this->input->post('minat'),
                 'email'                     => $this->input->post('email'),
                 'nama'                      => strtoupper($this->input->post('nama')),
                 'nisn'                      => $this->input->post('nisn'),
@@ -143,8 +142,8 @@ class Biodata extends CI_Controller {
 
             $data = [
                 'checksum'                  => $get->checksum,
-                'jurusan'                   => jurusan($get->jurusan),
                 'nik'                       => $get->nik,
+                'minat'                     => $get->minat,
                 'no_telepon'                => $get->no_telepon,
                 'email'                     => $get->email,
                 'nama'                      => $get->nama,

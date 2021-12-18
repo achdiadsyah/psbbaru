@@ -85,7 +85,7 @@ class Pembayaran extends CI_Controller {
                 } elseif ($get2->s_payment == 2){
                     echo json_encode(array('status' => true, 'message' => "Pembayaran anda di tolak"));
                 } else {
-                    echo json_encode(array('status' => true, 'message' => "Sudah Pernah Upload, Menunggu Verifikasi"));
+                    echo json_encode(array('status' => true, 'message' => "Sudah Pernah Upload, Menunggu Verifikasi <p>Jika Anda tidak menerima whatsapp dari kami 1x24 Jam, segera hubungi kami untuk konfirmasi manual</p>"));
                 }
             }
         } else {

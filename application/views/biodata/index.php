@@ -11,25 +11,17 @@
                                         <input type="hidden" name="checksum" id="checksum" required>
                                         <div class="divider">
                                             <div class="divider-text">
-                                                <b>Jururan di minati</b>
+                                                <b>Minat Pada Jurusan</b>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 col-12">
                                                 <div class="form-group">
-                                                    <label>Pilih Jurusan</label>
-                                                    <select name="jurusan" id="jurusan" class="form-select" required>
-                                                        <option value="">Pilih Jurusan</option>
-                                                        <?php if($user->jalur == "reguler"): ?>
+                                                    <label>Pilih Minat Jurusan Anda</label>
+                                                    <select name="minat" id="minat" class="form-select" required>
+                                                        <option value="">Silahkan Pilih</option>
                                                         <option value="A">(IPA) - Ilmu Pengatahuan Alam</option>
                                                         <option value="G">(MAK) - Ilmu Keagamaan</option>
-
-                                                        <?php elseif($user->jalur == "undangan"): ?>
-                                                        
-                                                        <option value="A-UDG">(IPA) - Ilmu Pengatahuan Alam</option>
-                                                        <option value="G-UDG">(MAK) - Ilmu Keagamaan</option>
-
-                                                        <?php endif; ?>
                                                     </select>
                                                 </div>
                                             </div>

@@ -64,9 +64,45 @@
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <label>Kode Undangan</label>
+                                                    <label>Pilih Jalur</label>
                                                 </div>
                                                 <div class="col-md-8">
+                                                    <div class="form-group has-icon-left">
+                                                        <div class="position-relative">
+                                                        <select name="jalur" id="jalur" class="form-control" required>
+                                                            <option value="">Pilih Jalur</option>
+                                                            <option value="reguler">REGULER</option>
+                                                            <option value="undangan">UNDANGAN</option>                                                            
+                                                        </select>
+                                                            <div class="form-control-icon">
+                                                                <i class="bi bi-check"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 d-none" id="akademi_title">
+                                                    <label>Pilih Akademik</label>
+                                                </div>
+                                                <div class="col-md-8 d-none" id="akademi_form">
+                                                    <div class="form-group has-icon-left">
+                                                        <div class="position-relative">
+                                                        <select name="s_akademik" id="s_akademik" class="form-control">
+                                                            <option value="">Pilih Akademik</option>
+                                                            <option value="1">AKADEMIK</option>
+                                                            <option value="2">NON-AKADEMIK</option>                                                            
+                                                        </select>
+                                                            <div class="form-control-icon">
+                                                                <i class="bi bi-check"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4 d-none" id="kode_title">
+                                                    <label>Kode Undangan</label>
+                                                </div>
+                                                <div class="col-md-8 d-none" id="kode_form">
                                                     <div class="form-group has-icon-left">
                                                         <div class="position-relative">
                                                             <input type="text" class="form-control" placeholder="Kode Peserta Undangan" id="kode_undangan" name="kode_undangan">
@@ -74,7 +110,6 @@
                                                                 <i class="bi bi-lock"></i>
                                                             </div>
                                                         </div>
-                                                        <p><small class="text-muted">Biarkan kosong, jika anda peserta reguler</small></p>
                                                     </div>
                                                 </div>
 

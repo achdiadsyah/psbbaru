@@ -92,15 +92,15 @@
                             if(data.status == true){
                                 mySwalalert('Berhasil Menghapus Data', 'success');
                                 location.reload();
+                            } else if(data.status == "forbiden"){
+                                mySwalalert('Dilarang Menghapus File, karena berkas sudah di cetak', 'warning');
                             } else {
                                 mySwalalert('Gagal Menghapus Data', 'error');
-                                location.reload();
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
                             mySwalalert('Gagal Menghapus Data', 'error');
-                            location.reload();
                         }
                     });
                 }

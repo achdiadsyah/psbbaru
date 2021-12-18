@@ -121,6 +121,21 @@ function check_lulus_adm()
 
 }
 
+function check_cetak()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+
+    if($x->s_cetak == 0){
+        return true;
+    } else if($x->s_cetak == 1){
+        return false;
+    }
+
+}
+
 function check_berkas()
 {
     $ci = &get_instance();
@@ -136,7 +151,36 @@ function check_berkas()
     if($x->s_file == 1){
         return true;
     } elseif($x->s_file == 0){
-        if ($x->jalur ==  "undangan"){
+        if ($x->jalur ==  "undangan" && $x->s_akademik == 1){
+            foreach ($y as $key) {
+                if (           
+                    $key->pasphoto !== "" &&
+                    $key->sk !== "" &&
+                    $key->surat_pernyataan !== "" &&
+                    $key->surat_kesanggupan !== "" &&
+                    $key->formulir_kepsek !== "" &&
+                    $key->raport_1 !== "" &&
+                    $key->raport_2 !== "" &&
+                    $key->raport_3 !== "" &&
+                    $key->raport_4 !== ""){
+                        $data_up = [
+                            'status'   => "1"
+                        ];
+                        $data_up2 = [
+                            's_file'   => "1"
+                        ];
+                        $ci->M_Filepsb->update($nik, $data_up);
+                        $ci->M_Peserta->update($id, $data_up2);
+                        
+                    } else {
+                        $ci->session->set_flashdata([
+                            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                            'type' => 'info'
+                        ]);
+                        redirect ('berkas');
+                    }
+            }
+        } else if ($x->jalur ==  "undangan" && $x->s_akademik == 2){
             foreach ($y as $key) {
                 if (           
                     $key->pasphoto !== "" &&
@@ -302,30 +346,44 @@ function get_cat($tanggal)
     $ci->load->model('M_Peserta');
 	$jumlahCat = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows();
     
-    if($jumlahCat <= "25" ){
+    if($jumlahCat <= "40" ){
         $result = [
             'ruang_cat'  => 'Ruang LAB 1',
-            'sesi_cat'  => '08:00 - 10:00',
+            'sesi_cat'  => '08:00 - 09:30',
         ];
         return $result;
-    } else if ($jumlahCat >= "25" && $jumlahCat <= "50"){
+    } else if ($jumlahCat >= "40" && $jumlahCat <= "80"){
         $result = [
             'ruang_cat'  => 'Ruang LAB 2',
-            'sesi_cat'  => '08:00 - 10:00',
+            'sesi_cat'  => '08:00 - 09:30',
         ];
         return $result;
 
         // Masuk Sesi 2
-    } else if ($jumlahCat >= "50" && $jumlahCat <= "75"){
+    } else if ($jumlahCat >= "80" && $jumlahCat <= "120"){
         $result = [
             'ruang_cat'  => 'Ruang LAB 1',
-            'sesi_cat'  => '14:00 - 16:00',
+            'sesi_cat'  => '09:30 - 11:00',
         ];
         return $result;
-    } else if ($jumlahCat >= "75" && $jumlahCat <= "100"){
+    } else if ($jumlahCat >= "120" && $jumlahCat <= "160"){
         $result = [
             'ruang_cat'  => 'Ruang LAB 2',
-            'sesi_cat'  => '14:00 - 16:00',
+            'sesi_cat'  => '09:30 - 11:00',
+        ];
+        return $result;
+
+        // Masuk Sesi 3
+    } else if ($jumlahCat >= "160" && $jumlahCat <= "200"){
+        $result = [
+            'ruang_cat'  => 'Ruang LAB 1',
+            'sesi_cat'  => '11:00 - 12:30',
+        ];
+        return $result;
+    } else if ($jumlahCat >= "200" && $jumlahCat <= "240"){
+        $result = [
+            'ruang_cat'  => 'Ruang LAB 2',
+            'sesi_cat'  => '11:00 - 12:30',
         ];
         return $result;
     } else {
@@ -339,69 +397,193 @@ function get_lisan($tanggal)
     $ci->load->model('M_Peserta');
 	$jumlahLisan = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows();
     
-    if($jumlahLisan <= "10"){
+
+    // SESI 1
+    if($jumlahLisan <= "8"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 1',
-            'sesi_lisan'  => '10:00 - 12:00',
+            'sesi_lisan'  => '09:30 - 11:00',
         ];
         return $result;
-    } else if ($jumlahLisan >= "10" && $jumlahLisan <= "20"){
+    } else if ($jumlahLisan >= "8" && $jumlahLisan <= "16"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 2',
-            'sesi_lisan'  => '10:00 - 12:00',
+            'sesi_lisan'  => '09:30 - 11:00',
         ];
         return $result;
-    } else if ($jumlahLisan >= "20" && $jumlahLisan <= "30"){
+    } else if ($jumlahLisan >= "16" && $jumlahLisan <= "24"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 3',
-            'sesi_lisan'  => '10:00 - 12:00',
+            'sesi_lisan'  => '09:30 - 11:00',
         ];
         return $result;
-    } else if ($jumlahLisan >= "30" && $jumlahLisan <= "40"){
+    } else if ($jumlahLisan >= "24" && $jumlahLisan <= "32"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 4',
-            'sesi_lisan'  => '10:00 - 12:00',
+            'sesi_lisan'  => '09:30 - 11:00',
         ];
         return $result;
-    } else if ($jumlahLisan >= "40" && $jumlahLisan <= "50"){
+    } else if ($jumlahLisan >= "32" && $jumlahLisan <= "40"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 5',
-            'sesi_lisan'  => '10:00 - 12:00',
+            'sesi_lisan'  => '09:30 - 11:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "40" && $jumlahLisan <= "48"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 6',
+            'sesi_lisan'  => '09:30 - 11:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "48" && $jumlahLisan <= "56"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 7',
+            'sesi_lisan'  => '09:30 - 11:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "56" && $jumlahLisan <= "64"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 8',
+            'sesi_lisan'  => '09:30 - 11:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "64" && $jumlahLisan <= "72"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 9',
+            'sesi_lisan'  => '09:30 - 11:00',
         ];
         return $result;
 
-        // Masuk Sesi 2
-    } else if ($jumlahLisan >= "50" && $jumlahLisan <= "60"){
+    // SESI 2
+    } else if ($jumlahLisan >= "72" && $jumlahLisan <= "80"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 10',
+            'sesi_lisan'  => '09:30 - 11:00',
+        ];
+        return $result;
+    } else if($jumlahLisan >= "80" && $jumlahLisan <= "88"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 1',
-            'sesi_lisan'  => '16:00 - 18:00',
+            'sesi_lisan'  => '08:00 - 09:30',
         ];
         return $result;
-    } else if ($jumlahLisan >= "60" && $jumlahLisan <= "70"){
+    } else if ($jumlahLisan >= "88" && $jumlahLisan <= "96"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 2',
-            'sesi_lisan'  => '16:00 - 18:00',
+            'sesi_lisan'  => '08:00 - 09:30',
         ];
         return $result;
-    } else if ($jumlahLisan >= "70" && $jumlahLisan <= "80"){
+    } else if ($jumlahLisan >= "96" && $jumlahLisan <= "104"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 3',
-            'sesi_lisan'  => '16:00 - 18:00',
+            'sesi_lisan'  => '08:00 - 09:30',
         ];
         return $result;
-    } else if ($jumlahLisan >= "80" && $jumlahLisan <= "90"){
+    } else if ($jumlahLisan >= "104" && $jumlahLisan <= "112"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 4',
-            'sesi_lisan'  => '16:00 - 18:00',
+            'sesi_lisan'  => '08:00 - 09:30',
         ];
         return $result;
-    } else if ($jumlahLisan >= "90" && $jumlahLisan <= "100"){
+    } else if ($jumlahLisan >= "112" && $jumlahLisan <= "120"){
         $result = [
             'ruang_lisan'  => 'Ruang Lisan 5',
-            'sesi_lisan'  => '16:00 - 18:00',
+            'sesi_lisan'  => '08:00 - 09:30',
         ];
         return $result;
-    } else {
+    } else if ($jumlahLisan >= "120" && $jumlahLisan <= "128"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 6',
+            'sesi_lisan'  => '08:00 - 09:30',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "128" && $jumlahLisan <= "136"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 7',
+            'sesi_lisan'  => '08:00 - 09:30',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "136" && $jumlahLisan <= "144"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 8',
+            'sesi_lisan'  => '08:00 - 09:30',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "144" && $jumlahLisan <= "152"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 9',
+            'sesi_lisan'  => '08:00 - 09:30',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "152" && $jumlahLisan <= "160"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 10',
+            'sesi_lisan'  => '08:00 - 09:30',
+        ];
+        return $result;
+    
+    // SESI 3
+    } else if($jumlahLisan >= "160" && $jumlahLisan <= "168"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 1',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "168" && $jumlahLisan <= "176"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 2',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "176" && $jumlahLisan <= "184"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 3',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "184" && $jumlahLisan <= "192"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 4',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "192" && $jumlahLisan <= "200"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 5',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "200" && $jumlahLisan <= "208"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 6',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "208" && $jumlahLisan <= "216"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 7',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "216" && $jumlahLisan <= "224"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 8',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "224" && $jumlahLisan <= "232"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 9',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else if ($jumlahLisan >= "232" && $jumlahLisan <= "240"){
+        $result = [
+            'ruang_lisan'  => 'Ruang Lisan 10',
+            'sesi_lisan'  => '13:30 - 15:00',
+        ];
+        return $result;
+    } else  {
         return FALSE;
     }
 }

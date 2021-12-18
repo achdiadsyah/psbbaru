@@ -76,6 +76,8 @@ class Cetak extends CI_Controller {
             $get    = $this->M_Peserta->get($this->session->userdata['id']);
 
                 $data = [
+                    'jurusan'       => $this->input->post('jurusan'),
+                    'no_ujian'      => get_noujian($this->input->post('jurusan')),
                     'jadwal_ujian'  => $jadwal,
                     'ruang_cat'     => get_cat($jadwal)['ruang_cat'],
                     'sesi_cat'      => get_cat($jadwal)['sesi_cat'],
@@ -96,6 +98,8 @@ class Cetak extends CI_Controller {
     {
         if ($this->input->is_ajax_request() == true) {
             $data = [
+                'jurusan'   => $this->input->post('jurusan'),
+                'no_ujian'  => get_noujian($this->input->post('jurusan')),
                 'ujian_via' => $this->input->post('ujian_via'),
                 's_cetak'   => '1',
             ];

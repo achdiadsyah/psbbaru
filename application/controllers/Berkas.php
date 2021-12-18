@@ -102,28 +102,32 @@ class Berkas extends CI_Controller {
 
     public function delete_file()
     {
-        $folder = $this->input->post('folder');
-        $file = $this->input->post('file');
-
-        $nik = $this->session->userdata['nik'];
-        $id = $this->session->userdata['id'];
-
-        $get = $this->M_Filepsb->get_by_nik($nik);
-        $path = './uploads/'.$folder.'/'.$file;
-        if ($get){
-            unlink($path);
-            $data = [
-                $folder => '',
-                'status' => '0'
-            ];
-            $data2 = [
-                's_file' => '0'
-            ];
-            $this->M_Filepsb->update($nik, $data);
-            $this->M_Peserta->update($id, $data2);
-            echo json_encode(array("status" => true));
+        if (check_cetak() == TRUE){
+            $folder = $this->input->post('folder');
+            $file = $this->input->post('file');
+    
+            $nik = $this->session->userdata['nik'];
+            $id = $this->session->userdata['id'];
+    
+            $get = $this->M_Filepsb->get_by_nik($nik);
+            $path = './uploads/'.$folder.'/'.$file;
+            if ($get){
+                unlink($path);
+                $data = [
+                    $folder => '',
+                    'status' => '0'
+                ];
+                $data2 = [
+                    's_file' => '0'
+                ];
+                $this->M_Filepsb->update($nik, $data);
+                $this->M_Peserta->update($id, $data2);
+                echo json_encode(array("status" => true));
+            } else {
+                echo json_encode(array("status" => false));
+            }
         } else {
-            echo json_encode(array("status" => false));
+            echo json_encode(array("status" => "forbiden"));
         }
     }
 

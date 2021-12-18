@@ -1,4 +1,9 @@
                     
+                    <?php 
+                        $id = $this->session->userdata['id'];
+                        $user = $this->M_Peserta->get($id);
+                    ?>
+                    
                     <section class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -8,6 +13,22 @@
                                         <p>Lokasi hanya dapat di pilih sekali, dan tidak dapat di rubah <br>Pastikan anda memilih lokasi ujian dengan benar</p>
                                     </center>
                                     <form method="post" class="form-horizontal" id="form-lokasi">
+                                        <div class="form-group">
+                                            <label>Pilih Jurusan</label>
+                                            <select name="jurusan" id="jurusan" class="form-select" required>
+                                                <option value="">Pilih Jurusan</option>
+                                                <?php if($user->jalur == "reguler"): ?>
+                                                <option value="A">(IPA) - Ilmu Pengatahuan Alam</option>
+                                                <option value="G">(MAK) - Ilmu Keagamaan</option>
+
+                                                <?php elseif($user->jalur == "undangan"): ?>
+                                                
+                                                <option value="A-UDG">(IPA) - Ilmu Pengatahuan Alam</option>
+                                                <option value="G-UDG">(MAK) - Ilmu Keagamaan</option>
+
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label for="ujian_via">Pilih Lokasi Ikut Ujian Wawancara</label>
                                             <select name="ujian_via" id="ujian_via" class="form-control" required>
