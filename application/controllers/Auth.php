@@ -8,6 +8,7 @@ class Auth extends CI_Controller {
 		parent::__construct();
         $this->load->model('M_Peserta');
         $this->load->model('M_Filepsb');
+        $this->load->model('M_Chat');
     }
 
     public function index()
@@ -117,8 +118,21 @@ class Auth extends CI_Controller {
                     'status'        => '0'
                 ];
 
+                $pesan_wa = "Assalamualaikum..".urldecode('%0A').
+                "Sdr/i"."*".$nama."*".urldecode('%0A').
+                "Jalur : *UNDANGAN*".urldecode('%0A').
+                "Terima Kasih, sudah mendaftar di *Ruhul Islam Anak Bangsa*".urldecode('%0A').
+                "Silahkan kembali *LOGIN* dan mengisi kelengkapan biodata dan upload berkas.".urldecode('%0A').
+                "Terima Kasih";
+
                 $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
             } else if ($kode_undangan !== psb_detail('kode_jalur_undangan')){
+                $this->session->set_flashdata([
+                    'msg'   => 'Kode Undangan Salah, Silahkan minta pada panitia',
+                    'type'  => 'error'
+                ]);
+                redirect('auth/register');
+            } else {
                 $data = [
                     'nik'               =>  $nik,
                     'checksum'          =>  my_checksum($nik),
@@ -142,12 +156,33 @@ class Auth extends CI_Controller {
                     'status'        => '0'
                 ];
 
+                $pesan_wa = "Assalamualaikum..".urldecode('%0A').
+                "Sdr/i"."*".$nama."*".urldecode('%0A').
+                "Jalur : *REGULER*".urldecode('%0A%0A').
+                "Terima Kasih, sudah mendaftar di *Ruhul Islam Anak Bangsa*".urldecode('%0A').
+                "Silahkan kembali *LOGIN* dan melakukan pembayaran sebesesar".urldecode('%0A').
+                "NOMINAL : *".rupiah(psb_detail('biaya_psb'))."*".urldecode('%0A').
+                "BANK : *".psb_detail('nama_bank')."*".urldecode('%0A').
+                "NO REK : *".psb_detail('no_rekening')."*".urldecode('%0A').
+                "A/N : *".psb_detail('nama_rekening')."*".urldecode('%0A').
+                "BERITA : *PSB-".$nik."*".urldecode('%0A%0A').
+                "Lakukan Pembayaran sebelum 1x24 Jam".urldecode('%0A').
+                "Segera *Upload Bukti Pembayaran* jika sudah melakukan transfer".urldecode('%0A').
+                "Terima Kasih";                
+
                 $msg = "Berhasil Mendaftar (Jalur Reguler), Silahkan Login untuk melanjutkan";
-    
-            } 
+            }
+
+            $data3 = [
+                'no_telepon'    => $no_telepon,
+                'pesan'         => $pesan_wa,
+                'type'          => 'text',
+                'status_proses' => 'pending'
+            ];
             
             $insert = $this->M_Peserta->insert($data);
             $insert2 = $this->M_Filepsb->insert($data2);
+            $insert3 = $this->M_Chat->insert($data3);
             if ($insert && $insert2){
                 $this->session->set_flashdata([
                     'msg'   => $msg,

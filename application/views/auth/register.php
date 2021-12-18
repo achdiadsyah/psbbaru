@@ -46,6 +46,7 @@
                                                                 <i class="bi bi-phone"></i>
                                                             </div>
                                                         </div>
+                                                        <div id="checkWA"></div>
                                                     </div>
                                                 </div>
 
