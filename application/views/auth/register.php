@@ -75,7 +75,7 @@
                                                             <option value="" disabled>REGULER - BELUM DI BUKA</option>
                                                             <option value="undangan">UNDANGAN</option>   
                                                             <?php elseif(check_open(psb_detail("buka_daftar_reguler"), psb_detail("tutup_daftar_reguler")) == "Open"): ?>
-                                                            <option value="reguler">REGULER - BELUM DI BUKA</option>
+                                                            <option value="reguler">REGULER</option>
                                                             <option value="" disabled>UNDANGAN - SUDAH DI TUTUP</option>
                                                             <?php endif; ?>
                                                         </select>
