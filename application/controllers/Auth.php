@@ -211,10 +211,24 @@ class Auth extends CI_Controller {
     {
         $nik                = $this->input->post('nik');
         $no_telepon         = $this->input->post('no_telepon');
-        
-        $check              = $this->M_Peserta->get_by_nik($nik)->num_rows();
+        $get                = $this->M_Peserta->get_by_nik($nik)->row();
 
-        if ($check >= 1){
+        if ($nik == $get->nik && $no_telepon == $get->no_telepon){
+
+            $date = md5(date('Y-m-d'));
+
+            $pesan_wa = "Link Reset Password PSB Ruhul Islam Anak Bangsa".urldecode('%0A%0A').
+            "https://psb.ruhulislam.com/auth/resetpass/".$get->checksum."/".$date.urldecode('%0A%0A').
+            "Berlaku 1 Hari";
+
+            $data = [
+                'no_telepon'    => $get->no_telepon,
+                'pesan'         => $pesan_wa,
+                'type'          => 'Text',
+                'status_proses' => 'pending'
+            ];
+            $this->M_Chat->insert($data);
+
             $this->session->set_flashdata([
                 'msg'   => 'Link untuk reset password akan di kirimkan ke whatsapp anda.',
                 'type'  => 'success'
@@ -227,6 +241,63 @@ class Auth extends CI_Controller {
             ]);
             redirect('auth/forgetpass');
         }
+    }
+
+    public function resetpass($checksum = NULL, $date = NULL)
+    {
+        $get = $this->M_Peserta->get_by_checksum($checksum)->row();
+        if ($get){
+            $date_now = md5(date('Y-m-d'));
+
+            if ($date == $date_now){
+                if ($checksum == $get->checksum){
+                    $data = [
+                        'title'     => 'Reset Password',
+                        'content'   => 'auth/resetpass',
+                        'checksum'  => $checksum,
+                        'costum_js' => 'auth/js-resetpass',
+                    ];
+                    echo $this->template->views($data);
+                } else {
+                    $this->session->set_flashdata([
+                        'msg'   => 'Token Reset Password Sudah tidak berlaku',
+                        'type'  => 'error'
+                    ]);
+                    redirect('auth/login');
+                }
+            } else {
+                $this->session->set_flashdata([
+                    'msg'   => 'Token Reset Password Sudah tidak berlaku',
+                    'type'  => 'error'
+                ]);
+                redirect('auth/login');
+            }
+        } else {
+            $this->session->set_flashdata([
+                'msg'   => 'Token Reset Password Sudah tidak berlaku',
+                'type'  => 'error'
+            ]);
+            redirect('auth/login');
+        }
+    }
+
+    public function do_resetpass()
+    {
+        $checksum   = $this->input->post('checksum');
+        $password1  = $this->input->post('password1');
+
+        $data = [
+            'password'  =>  password_hash($password1, PASSWORD_DEFAULT),
+        ];
+
+        $update = $this->M_Peserta->update_checksum($checksum, $data);
+
+        if($update){
+            echo json_encode(array("status" => "success", "msg" => "Berhasil Update Password"));
+        } else {
+            echo json_encode(array("status" => "error", "msg" => "Gagal Update Password"));
+        }
+        
     }
 
 
