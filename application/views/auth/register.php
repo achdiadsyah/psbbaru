@@ -71,8 +71,13 @@
                                                         <div class="position-relative">
                                                         <select name="jalur" id="jalur" class="form-control" required>
                                                             <option value="">Pilih Jalur</option>
-                                                            <option value="reguler" disabled>REGULER - BELUM DI BUKA</option>
-                                                            <option value="undangan">UNDANGAN</option>                                                            
+                                                            <?php if(check_open(psb_detail("buka_daftar_undangan"), psb_detail("tutup_daftar_undangan")) == "Open"): ?>
+                                                            <option value="" disabled>REGULER - BELUM DI BUKA</option>
+                                                            <option value="undangan">UNDANGAN</option>   
+                                                            <?php elseif(check_open(psb_detail("buka_daftar_reguler"), psb_detail("tutup_daftar_reguler")) == "Open"): ?>
+                                                            <option value="reguler">REGULER - BELUM DI BUKA</option>
+                                                            <option value="" disabled>UNDANGAN - SUDAH DI TUTUP</option>
+                                                            <?php endif; ?>
                                                         </select>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-check"></i>
