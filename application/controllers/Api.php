@@ -62,8 +62,8 @@ class Api extends CI_Controller {
              
         /* close curl */
         curl_close($curl);
-
         var_dump($result);
+
 			
 	}
 }

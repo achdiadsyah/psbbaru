@@ -71,7 +71,7 @@
                                                         <div class="position-relative">
                                                         <select name="jalur" id="jalur" class="form-control" required>
                                                             <option value="">Pilih Jalur</option>
-                                                            <option value="reguler">REGULER</option>
+                                                            <option value="reguler" disabled>REGULER - BELUM DI BUKA</option>
                                                             <option value="undangan">UNDANGAN</option>                                                            
                                                         </select>
                                                             <div class="form-control-icon">
