@@ -67,4 +67,13 @@ class M_Chat extends CI_Model
         return $query;
     }
 
+    public function get_to_send($limit)
+    {
+        $this->db->from($this->table);
+        $this->db->where('status_proses', 'pending');
+        $this->db->limit($limit);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
