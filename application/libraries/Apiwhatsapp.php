@@ -7,8 +7,6 @@
 		}
 
 		function send($payload, $target) {
-			header("access-control-allow-origin: *");
-        	header("Access-Control-Allow-Methods: POST,GET");
 			
 			$this->_ci->load->model('M_Walayanan');
 			$geturl = $this->_ci->M_Walayanan->get_by_service($target);

@@ -17,6 +17,9 @@ class Api extends CI_Controller {
 
 	public function checkNumberWA($nomor)
 	{
+
+        header("Access-Control-Allow-origin: *");
+        header("Access-Control-Allow-Methods: POST,GET");
         if ($this->input->is_ajax_request() == true) {
             $target = 'CheckNumber';
 
@@ -32,4 +35,17 @@ class Api extends CI_Controller {
             exit('Maaf data tidak bisa ditampilkan');
         }
 	}
+
+    public function kodeUndangan($kode)
+    {
+        if ($this->input->is_ajax_request() == true) {
+            if ($kode !== psb_detail('kode_jalur_undangan')){
+                echo json_encode(array("status" => false, "msg" => "Kode Undangan Tidak Sesuai, Mintalah pada panitia"));
+            } else if ($kode === psb_detail('kode_jalur_undangan')){
+                echo json_encode(array("status" => true, "msg" => "Kode Undangan Sesuai"));
+            }
+        } else {
+            exit('Maaf data tidak bisa ditampilkan');
+        }
+    }
 }

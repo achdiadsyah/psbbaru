@@ -50,6 +50,29 @@
                 return false;
             });
 
+            $('#kode_undangan').change(function(){ 
+                var kode=$(this).val();
+                $.ajax({
+                    url : "<?= base_url('api/kodeUndangan/');?>"+kode,
+                    method : "GET",
+                    async : true,
+                    success: function(data){
+                        const obj = JSON.parse(data);
+                        var sts = obj.status;
+                        if (sts == false){
+                            mySwalalert('Kode Undagan Salah', 'error');
+                            $("#kode_undangan").addClass('is-invalid');
+                            $("#kode_undangan").val('');
+                        } else if (sts == true){
+                            $("#kode_undangan").removeClass('is-invalid');
+                            $("#kode_undangan").addClass('is-valid');
+                        }
+                        
+                    }
+                });
+                return false;
+            });
+
         });
         
 </script>

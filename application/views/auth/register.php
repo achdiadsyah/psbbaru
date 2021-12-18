@@ -87,6 +87,20 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="col-md-4 d-none" id="kode_title">
+                                                    <label>Kode Undangan</label>
+                                                </div>
+                                                <div class="col-md-8 d-none" id="kode_form">
+                                                    <div class="form-group has-icon-left">
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control" placeholder="Kode Peserta Undangan" id="kode_undangan" name="kode_undangan">
+                                                            <div class="form-control-icon">
+                                                                <i class="bi bi-lock"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-md-4 d-none" id="akademi_title">
                                                     <label>Pilih Akademik</label>
                                                 </div>
@@ -100,20 +114,6 @@
                                                         </select>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-check"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4 d-none" id="kode_title">
-                                                    <label>Kode Undangan</label>
-                                                </div>
-                                                <div class="col-md-8 d-none" id="kode_form">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Kode Peserta Undangan" id="kode_undangan" name="kode_undangan">
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-lock"></i>
                                                             </div>
                                                         </div>
                                                     </div>
