@@ -89,7 +89,7 @@ class Api extends CI_Controller {
                     ];
                 } else if ($respond->result == false){
                     $update = [
-                        'status_proses' => 'fail',
+                        'status_proses' => 'pending',
                         'respond_server' => $respond->message,
                     ];
                 }
