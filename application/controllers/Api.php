@@ -81,17 +81,17 @@ class Api extends CI_Controller {
                 $proses = $this->apiwhatsapp->send($payload, $target);
                 $respond =  json_decode($proses);
             
-                if ($respond->result == true) {
-                    $update = [
-                        'chat_id' => $respond->id,
-                        'status_proses' => 'sended',
-                        'respond_server' => $respond->message,
-                    ];
-                } else if ($respond->result == false){
-                    $update = [
+                if ($respond->id == "" OR $respond->result == "false") {
+                     $update = [
                         'status_proses' => 'pending',
                         'respond_server' => $respond->message,
                     ];
+                } else {
+			$update = [
+				'chat_id' => $respond->id,
+				'status_proses' => 'sended',
+				'respond_server' => $respond->message,
+                    	];               
                 }
                 $this->M_Chat->update($key->id, $update);
             }
