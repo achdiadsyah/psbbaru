@@ -76,7 +76,7 @@ class Auth extends CI_Controller {
     {
         $kode_undangan      = $this->input->post('kode_undangan');
         $nik                = $this->input->post('nik');
-        $nama               = $this->input->post('nama');
+        $nama               = strtoupper($this->input->post('nama'));
         $no_telepon         = $this->input->post('no_telepon');
         $password           = $this->input->post('password');
         $s_akademik         = $this->input->post('s_akademik');
