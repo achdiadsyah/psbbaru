@@ -132,30 +132,4 @@ class Api extends CI_Controller {
         }
     }
 
-    public function test()
-    {
-
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://app.ruangwa.id/api/qrcode_image',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => 'token=IoFnKHjV3o5xgpHdgxqLlizpib8F7T9NpBSG5ems6Kq53an8ed',
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/x-www-form-urlencoded'
-        ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        echo $response;
-
-    }
 }
