@@ -136,7 +136,8 @@ class Auth extends CI_Controller {
                 $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
                 "Nama : *".$nama."*".urldecode('%0A').
                 "NIK : *".$nik."*".urldecode('%0A').
-                "Jalur : *REGULER*";
+                "Jalur : *REGULER*".urldecode('%0A').
+                "No WA : *".$no_telepon."*";
 
                 $msg = "Berhasil Mendaftar (Jalur Reguler), Silahkan Login untuk melanjutkan";
 
@@ -180,7 +181,8 @@ class Auth extends CI_Controller {
                     $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
                     "Nama : *".$nama."*".urldecode('%0A').
                     "NIK : *".$nik."*".urldecode('%0A').
-                    "Jalur : *UNDANGAN*";
+                    "Jalur : *UNDANGAN*".urldecode('%0A').
+                    "No WA : *".$no_telepon."*";
     
                     $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
                 } else {
