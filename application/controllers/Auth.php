@@ -101,7 +101,7 @@ class Auth extends CI_Controller {
                     'nama'              =>  strtoupper($nama),
                     'no_telepon'        =>  $no_telepon,
                     'password'          =>  password_hash($password, PASSWORD_DEFAULT),
-                    'jalur'             =>  'reguler',
+                    'jalur'             =>  $jalur,
                     'ujian_via'         =>  NULL,
                     's_akademik'        =>  '0',
                     's_payment'         =>  '0',
@@ -149,7 +149,7 @@ class Auth extends CI_Controller {
                         'nama'              =>  strtoupper($nama),
                         'no_telepon'        =>  $no_telepon,
                         'password'          =>  password_hash($password, PASSWORD_DEFAULT),
-                        'jalur'             =>  'undangan',
+                        'jalur'             =>  $jalur,
                         'ujian_via'         =>  NULL,
                         'jadwal_ujian'      =>  psb_detail("tes_undangan"),
                         'ruang_lisan'       =>  'RUANG-UNDANGAN',
@@ -211,7 +211,7 @@ class Auth extends CI_Controller {
             $insert2 = $this->M_Filepsb->insert($data2);
             $insert3 = $this->M_Chat->insert($data3);
             $insert4 = $this->M_Chat->insert($data4);
-            
+
             if ($insert && $insert2 && $insert3 && $insert4){
                 $this->session->set_flashdata([
                     'msg'   => $msg,
