@@ -75,6 +75,14 @@ class Api extends CI_Controller {
                         'number' => $key->no_telepon,
                         'link' => $key->pesan
                     ];   
+                } else if ($key->type == "TextGroup"){
+                    $target = $key->type;
+                    
+                    $payload = [
+                        'token' => $this->config->item('WAapiKey'),
+                        'number' => $key->no_telepon,
+                        'message' => $key->pesan
+                    ];
                 }
 
                 // Jalankan Request ke API Per Pesan

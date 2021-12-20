@@ -126,7 +126,7 @@ class Auth extends CI_Controller {
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                 "Terima Kasih";
 
-                $pesan_grup = "* -- INFO!! PENDAFTAR BARU --*".urldecode('%0A').
+                $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
                 "Nama : *".$nama."*".urldecode('%0A').
                 "NIK : *".$nik."*".urldecode('%0A').
                 "Jalur : *UNDANGAN*";
@@ -171,7 +171,7 @@ class Auth extends CI_Controller {
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                 "Terima Kasih";
 
-                $pesan_grup = "* -- INFO!! PENDAFTAR BARU --*".urldecode('%0A').
+                $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
                 "Nama : *".$nama."*".urldecode('%0A').
                 "NIK : *".$nik."*".urldecode('%0A').
                 "Jalur : *REGULER*";
@@ -189,7 +189,7 @@ class Auth extends CI_Controller {
             $data4 = [
                 'no_telepon'    => $this->config->item('WAgroupAdmin'),
                 'pesan'         => $pesan_grup,
-                'type'          => 'Text',
+                'type'          => 'TextGroup',
                 'status_proses' => 'pending'
             ];
             
