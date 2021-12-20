@@ -104,6 +104,7 @@ class Cetak extends CI_Controller {
                 $data = [
                     'jurusan'       => $this->input->post('jurusan'),
                     'no_ujian'      => get_noujian($this->input->post('jurusan')),
+                    'jadwal_ujian'  => '2022-01-01',
                     'ruang_lisan'   => 'ZOOM / GOOGLE MEET',
                     'sesi_lisan'    => '08:00 - 12:00',
                     'ujian_via'     => $via,
@@ -113,6 +114,7 @@ class Cetak extends CI_Controller {
                 $data = [
                     'jurusan'       => $this->input->post('jurusan'),
                     'no_ujian'      => get_noujian($this->input->post('jurusan')),
+                    'jadwal_ujian'  => '2022-01-01',
                     'ruang_lisan'   => 'RUANG-UNDANGAN',
                     'sesi_lisan'    => '08:00 - 12:00',
                     'ujian_via'     => $via,
