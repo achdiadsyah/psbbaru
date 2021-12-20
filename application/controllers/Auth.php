@@ -80,6 +80,7 @@ class Auth extends CI_Controller {
         $no_telepon         = $this->input->post('no_telepon');
         $password           = $this->input->post('password');
         $s_akademik         = $this->input->post('s_akademik');
+        $jalur              = $this->input->post('jalur');
         
         $check              = $this->M_Peserta->get_by_nik($nik)->num_rows();
 
@@ -91,48 +92,9 @@ class Auth extends CI_Controller {
             redirect('auth/register');
         } else {
 
-            if ($kode_undangan == psb_detail('kode_jalur_undangan')){
-                $data = [
-                    'nik'               =>  $nik,
-                    'checksum'          =>  my_checksum($nik),
-                    'nama'              =>  strtoupper($nama),
-                    'no_telepon'        =>  $no_telepon,
-                    'password'          =>  password_hash($password, PASSWORD_DEFAULT),
-                    'jalur'             =>  'undangan',
-                    'ujian_via'         =>  NULL,
-                    'jadwal_ujian'      =>  psb_detail("tes_undangan"),
-                    'ruang_lisan'       =>  'RUANG-UNDANGAN',
-                    'sesi_lisan'        =>  '08:00 - 12:00',
-                    's_akademik'        =>  $s_akademik,
-                    's_payment'         =>  '1',
-                    's_biodata'         =>  '0',
-                    's_file'            =>  '0',
-                    's_lulus_adm'       =>  '0',
-                    's_lulus'           =>  '0',
-                    'tanggal_daftar'    =>  date("Y-m-d H:i:s")
-                ];
 
-                $data2 = [
-                    'nik'           => $nik,
-                    'struk'         => "undangan.jpg",
-                    'status'        => '0'
-                ];
+            if ($jalur == "reguler"){
 
-                $pesan_wa = "Assalamualaikum..".urldecode('%0A').
-                "Sdr/i "."*".$nama."*".urldecode('%0A').
-                "Jalur : *UNDANGAN*".urldecode('%0A%0A').
-                "Terima Kasih, sudah mendaftar di *Ruhul Islam Anak Bangsa*".urldecode('%0A').
-                "Silahkan kembali *LOGIN* untuk mengisi kelengkapan biodata dan upload berkas.".urldecode('%0A%0A').
-                "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
-                "Terima Kasih";
-
-                $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
-                "Nama : *".$nama."*".urldecode('%0A').
-                "NIK : *".$nik."*".urldecode('%0A').
-                "Jalur : *UNDANGAN*";
-
-                $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
-            } else {
                 $data = [
                     'nik'               =>  $nik,
                     'checksum'          =>  my_checksum($nik),
@@ -177,6 +139,58 @@ class Auth extends CI_Controller {
                 "Jalur : *REGULER*";
 
                 $msg = "Berhasil Mendaftar (Jalur Reguler), Silahkan Login untuk melanjutkan";
+
+            } else if($jalur == "undangan"){
+
+                if ($kode_undangan == psb_detail('kode_jalur_undangan')){
+                    $data = [
+                        'nik'               =>  $nik,
+                        'checksum'          =>  my_checksum($nik),
+                        'nama'              =>  strtoupper($nama),
+                        'no_telepon'        =>  $no_telepon,
+                        'password'          =>  password_hash($password, PASSWORD_DEFAULT),
+                        'jalur'             =>  'undangan',
+                        'ujian_via'         =>  NULL,
+                        'jadwal_ujian'      =>  psb_detail("tes_undangan"),
+                        'ruang_lisan'       =>  'RUANG-UNDANGAN',
+                        'sesi_lisan'        =>  '08:00 - 12:00',
+                        's_akademik'        =>  $s_akademik,
+                        's_payment'         =>  '1',
+                        's_biodata'         =>  '0',
+                        's_file'            =>  '0',
+                        's_lulus_adm'       =>  '0',
+                        's_lulus'           =>  '0',
+                        'tanggal_daftar'    =>  date("Y-m-d H:i:s")
+                    ];
+    
+                    $data2 = [
+                        'nik'           => $nik,
+                        'struk'         => "undangan.jpg",
+                        'status'        => '0'
+                    ];
+    
+                    $pesan_wa = "Assalamualaikum..".urldecode('%0A').
+                    "Sdr/i "."*".$nama."*".urldecode('%0A').
+                    "Jalur : *UNDANGAN*".urldecode('%0A%0A').
+                    "Terima Kasih, sudah mendaftar di *Ruhul Islam Anak Bangsa*".urldecode('%0A').
+                    "Silahkan kembali *LOGIN* untuk mengisi kelengkapan biodata dan upload berkas.".urldecode('%0A%0A').
+                    "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
+                    "Terima Kasih";
+    
+                    $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
+                    "Nama : *".$nama."*".urldecode('%0A').
+                    "NIK : *".$nik."*".urldecode('%0A').
+                    "Jalur : *UNDANGAN*";
+    
+                    $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
+                } else {
+                    $this->session->set_flashdata([
+                        'msg'   => 'Gagal Melakukan Pendaftaran, Kode Undangan Salah',
+                        'type'  => 'warning'
+                    ]);
+                    redirect('auth/register');
+                }
+
             }
 
             $data3 = [
@@ -197,6 +211,7 @@ class Auth extends CI_Controller {
             $insert2 = $this->M_Filepsb->insert($data2);
             $insert3 = $this->M_Chat->insert($data3);
             $insert4 = $this->M_Chat->insert($data4);
+            
             if ($insert && $insert2 && $insert3 && $insert4){
                 $this->session->set_flashdata([
                     'msg'   => $msg,
