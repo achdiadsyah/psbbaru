@@ -97,12 +97,28 @@ class Cetak extends CI_Controller {
     public function ajax_lokasi()
     {
         if ($this->input->is_ajax_request() == true) {
-            $data = [
-                'jurusan'   => $this->input->post('jurusan'),
-                'no_ujian'  => get_noujian($this->input->post('jurusan')),
-                'ujian_via' => $this->input->post('ujian_via'),
-                's_cetak'   => '1',
-            ];
+
+            $via = $this->input->post('ujian_via');
+
+            if ($via == 'online'){
+                $data = [
+                    'jurusan'       => $this->input->post('jurusan'),
+                    'no_ujian'      => get_noujian($this->input->post('jurusan')),
+                    'ruang_lisan'   => 'ZOOM / GOOGLE MEET',
+                    'sesi_lisan'    => '08:00 - 12:00',
+                    'ujian_via'     => $via,
+                    's_cetak'       => '1',
+                ];
+            } elseif ($via == 'offline') {
+                $data = [
+                    'jurusan'       => $this->input->post('jurusan'),
+                    'no_ujian'      => get_noujian($this->input->post('jurusan')),
+                    'ruang_lisan'   => 'RUANG-UNDANGAN',
+                    'sesi_lisan'    => '08:00 - 12:00',
+                    'ujian_via'     => $via,
+                    's_cetak'       => '1',
+                ];
+            }
             $this->M_Peserta->update($this->session->userdata['id'], $data);
             echo json_encode(array('status' => true, 'message' => "Berhasil Pilih Lokasi"));
         } else {
