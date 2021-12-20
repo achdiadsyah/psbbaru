@@ -133,7 +133,7 @@ class Auth extends CI_Controller {
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                 "Terima Kasih";
 
-                $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
+                $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A%0A').
                 "Nama : *".$nama."*".urldecode('%0A').
                 "NIK : *".$nik."*".urldecode('%0A').
                 "Jalur : *REGULER*".urldecode('%0A').
@@ -175,7 +175,7 @@ class Auth extends CI_Controller {
                     "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                     "Terima Kasih";
     
-                    $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A').
+                    $pesan_grup = "*INFO!! PENDAFTAR BARU*".urldecode('%0A%0A').
                     "Nama : *".$nama."*".urldecode('%0A').
                     "NIK : *".$nik."*".urldecode('%0A').
                     "Jalur : *UNDANGAN*".urldecode('%0A').
