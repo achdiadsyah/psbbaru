@@ -33,7 +33,7 @@ $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERV
 // WHATSAPP CONFIG
 
 $config['WAapiKey'] = 'IoFnKHjV3o5xgpHdgxqLlizpib8F7T9NpBSG5ems6Kq53an8ed';
-$config['WAgroupAdmin'] = '';
+$config['WAgroupAdmin'] = '+120363023312421695';
 
 // END OF WHATSAPP CONFIG
 

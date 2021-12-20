@@ -87,11 +87,11 @@ class Api extends CI_Controller {
                         'respond_server' => $respond->message,
                     ];
                 } else {
-			$update = [
-				'chat_id' => $respond->id,
-				'status_proses' => 'sended',
-				'respond_server' => $respond->message,
-                    	];               
+                    $update = [
+                        'chat_id' => $respond->id,
+                        'status_proses' => 'sended',
+                        'respond_server' => $respond->message,
+                    ];               
                 }
                 $this->M_Chat->update($key->id, $update);
             }

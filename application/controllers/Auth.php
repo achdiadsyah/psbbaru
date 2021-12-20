@@ -126,6 +126,11 @@ class Auth extends CI_Controller {
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                 "Terima Kasih";
 
+                $pesan_grup = "* -- INFO!! PENDAFTAR BARU --*".urldecode('%0A').
+                "Nama : *".$nama."*".urldecode('%0A').
+                "NIK : *".$nik."*".urldecode('%0A').
+                "Jalur : *UNDANGAN*";
+
                 $msg = "Berhasil Mendaftar (Jalur Undangan), Silahkan Login untuk melanjutkan";
             } else {
                 $data = [
@@ -164,7 +169,12 @@ class Auth extends CI_Controller {
                 "Lakukan Pembayaran sebelum 1x24 Jam".urldecode('%0A').
                 "Segera *Upload Bukti Pembayaran* jika sudah melakukan transfer".urldecode('%0A%0A').
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
-                "Terima Kasih";                
+                "Terima Kasih";
+
+                $pesan_grup = "* -- INFO!! PENDAFTAR BARU --*".urldecode('%0A').
+                "Nama : *".$nama."*".urldecode('%0A').
+                "NIK : *".$nik."*".urldecode('%0A').
+                "Jalur : *REGULER*";
 
                 $msg = "Berhasil Mendaftar (Jalur Reguler), Silahkan Login untuk melanjutkan";
             }
@@ -175,11 +185,19 @@ class Auth extends CI_Controller {
                 'type'          => 'Text',
                 'status_proses' => 'pending'
             ];
+
+            $data4 = [
+                'no_telepon'    => $this->config->item('WAgroupAdmin'),
+                'pesan'         => $pesan_grup,
+                'type'          => 'Text',
+                'status_proses' => 'pending'
+            ];
             
             $insert = $this->M_Peserta->insert($data);
             $insert2 = $this->M_Filepsb->insert($data2);
             $insert3 = $this->M_Chat->insert($data3);
-            if ($insert && $insert2){
+            $insert4 = $this->M_Chat->insert($data4);
+            if ($insert && $insert2 && $insert3 && $insert4){
                 $this->session->set_flashdata([
                     'msg'   => $msg,
                     'type'  => 'success'
