@@ -3,8 +3,6 @@
     <script>
         $(document).ready(function(){
             getStatus();
-            $('img').EZView();
-            
 
             $("input[type='file']").on("change", function () {
                 if(this.files[0].size > 5000000) {
@@ -115,17 +113,13 @@
 
             if (myArray[1] == "pdf"){
                 var myImageLink = "<?= base_url('uploads/');?>"+key_value;
-                var html = '<embed src="'+myImageLink+'" frameborder="0" width="100%" height="700px">';
-                $(".modal-body").html(html);
-                $('#modalImage').modal('show');
+                window.open(myImageLink);
             } else {
                 var myImageLink = "<?= base_url('uploads/');?>"+key_value;
                 var html = '<center><img src="'+myImageLink+'" alt="popup" width="40%"></center>';
                 $(".modal-body").html(html);
                 $('#modalImage').modal('show');
             }
-
-            console.log(myArray[1]);
         }
 
         function getStatus()
