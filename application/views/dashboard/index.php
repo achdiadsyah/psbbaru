@@ -84,14 +84,11 @@
                                             <table width="100%" class="table table-striped">
                                                 <tr>
                                                     <td>Tanggal Ujian Anda</td>
-                                                    <?php if ($user->jalur == "undangan"): ?>
-                                                    <td><?= longdate_indo($user->jadwal_ujian); ?></td>
-                                                    <?php elseif($user->jalur == "reguler"): ?>
-                                                        <?php if ($user->jadwal_ujian == NULL): ?>
+
+                                                    <?php if ($user->jadwal_ujian == NULL): ?>
                                                         <td><span class="badge bg-danger">Belum Pilih</span></td>
-                                                        <?php else: ?>
+                                                    <?php else: ?>
                                                         <td><?= longdate_indo($user->jadwal_ujian); ?></td>
-                                                        <?php endif; ?>
                                                     <?php endif; ?>
                                                 </tr>
                                                 <tr>
