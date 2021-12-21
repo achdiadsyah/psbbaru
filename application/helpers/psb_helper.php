@@ -588,7 +588,19 @@ function get_lisan($tanggal)
     }
 }
 
-
-
-
+function what_akademik($kode)
+{
+    switch ($kode)
+        {
+        case 0:
+        return "NON-AKADEMIK";
+        break;
+        case 1:
+        return "AKADEMIK";
+        break;
+        case 2:
+        return "NON-AKADEMIK";
+        break;
+        }
+}
 ?>

@@ -16,10 +16,14 @@
                                                 <tr>
                                                     <td>Jalur Pilihan</td>
                                                     <?php if($user->jalur == "reguler"): ?>
-                                                    <td><span  pan class="badge bg-success">Reguler</span></td>
+                                                    <td><span class="badge bg-success">Reguler</span></td>
                                                     <?php elseif($user->jalur == "undangan"): ?>
                                                     <td><span class="badge bg-primary">Undangan</span></td>
                                                     <?php endif; ?>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status Akademik Pilihan</td>
+                                                    <td><span class="badge bg-info"><?= what_akademik($user->s_akademik); ?></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Pembayaran & Konfirmasi</td>

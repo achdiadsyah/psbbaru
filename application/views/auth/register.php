@@ -108,8 +108,8 @@
                                                         <div class="position-relative">
                                                         <select name="s_akademik" id="s_akademik" class="form-control">
                                                             <option value="">Pilih Akademik</option>
-                                                            <option value="1">AKADEMIK</option>
-                                                            <option value="2">NON-AKADEMIK</option>                                                            
+                                                            <option value="1">JALUR AKADEMIK</option>
+                                                            <option value="2">JALUR NON-AKADEMIK</option>                                                            
                                                         </select>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-check"></i>
