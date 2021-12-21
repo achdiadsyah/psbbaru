@@ -1,7 +1,9 @@
-    
+
+
     <script>
         $(document).ready(function(){
             getStatus();
+            $('img').EZView();
             
 
             $("input[type='file']").on("change", function () {
@@ -108,9 +110,22 @@
         }
 
         function show_file(key_value){
-            $('#modalImage').modal('show');
-            var myImageLink = "<?= base_url('uploads/');?>"+key_value;
-            $(".modal-body #img_link").attr("src", myImageLink);
+
+            const myArray = key_value.split(".");
+
+            if (myArray[1] == "pdf"){
+                var myImageLink = "<?= base_url('uploads/');?>"+key_value;
+                var html = '<embed src="'+myImageLink+'" frameborder="0" width="100%" height="700px">';
+                $(".modal-body").html(html);
+                $('#modalImage').modal('show');
+            } else {
+                var myImageLink = "<?= base_url('uploads/');?>"+key_value;
+                var html = '<center><img src="'+myImageLink+'" alt="popup" width="40%"></center>';
+                $(".modal-body").html(html);
+                $('#modalImage').modal('show');
+            }
+
+            console.log(myArray[1]);
         }
 
         function getStatus()
