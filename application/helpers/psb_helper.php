@@ -113,7 +113,7 @@ function check_lulus_adm()
         return true;
     } else if($x->s_lulus_adm == 0){
         $ci->session->set_flashdata([
-            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena anda tidak lulus seleksi berkas',
+            'msg' => 'Menu ini akan dibuka bagi yang lulus pengumuman administrasi tanggal 30 Desember 2021.',
             'type' => 'info'
         ]);
         redirect ('dashboard');
