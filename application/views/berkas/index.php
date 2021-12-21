@@ -61,10 +61,10 @@
                                                 <div class="form-group">
                                                     <label>Surat Pernyataan</label>
                                                     <div class="input-group" id="result_surat_pernyataan">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_surat_pernyataan" onClick="save('surat_pernyataan')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -74,10 +74,10 @@
                                                 <div class="form-group">
                                                     <label>Surat Kesanggupan Membiayai</label>
                                                     <div class="input-group" id="result_surat_kesanggupan">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_surat_kesanggupan" onClick="save('surat_kesanggupan')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -87,10 +87,10 @@
                                                 <div class="form-group">
                                                     <label>Formulir Kepala Sekolah</label>
                                                     <div class="input-group" id="result_formulir_kepsek">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_formulir_kepsek" onClick="save('formulir_kepsek')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -117,10 +117,10 @@
                                                 <div class="form-group">
                                                     <label>Raport Semester 1</label>
                                                     <div class="input-group" id="result_raport_1">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_raport_1" onClick="save('raport_1')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -130,10 +130,10 @@
                                                 <div class="form-group">
                                                     <label>Raport Semester 2</label>
                                                     <div class="input-group" id="result_raport_2">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_raport_2" onClick="save('raport_2')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -143,10 +143,10 @@
                                                 <div class="form-group">
                                                     <label>Raport Semester 3</label>
                                                     <div class="input-group" id="result_raport_3">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_raport_3" onClick="save('raport_3')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -156,10 +156,10 @@
                                                 <div class="form-group">
                                                     <label>Raport Semester 4</label>
                                                     <div class="input-group" id="result_raport_4">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_raport_4" onClick="save('raport_4')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -170,10 +170,10 @@
                                                 <div class="form-group">
                                                     <label>Surat Keterangan Rangking (WAJIB UPLOAD)</label>
                                                     <div class="input-group" id="result_sk">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sk" onClick="save('sk')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small><br>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small><br>
                                                     <small class="text-muted">SK Harus di tanda tangani oleh Kepala Sekolah asal</small>
                                                 </div>
                                             </form>
@@ -185,7 +185,7 @@
                                                 <div class="form-group">
                                                     <label>Surat Keterangan Rangking (TIDAK WAJIB)</label>
                                                     <div class="input-group" id="result_sk">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sk" onClick="save('sk')">Upload</button>
                                                     </div>
                                                     <small id="emailHelpId" class="form-text text-muted">SK Harus di tanda tangani oleh Kepala Sekolah asal</small>
@@ -215,10 +215,10 @@
                                                 <div class="form-group">
                                                     <label>Sertifikat Prestasi 1</label>
                                                     <div class="input-group" id="result_sertifikat_1">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_1" onClick="save('sertifikat_1')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -229,10 +229,10 @@
                                                 <div class="form-group">
                                                     <label>Sertifikat Prestasi 2</label>
                                                     <div class="input-group" id="result_sertifikat_2">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_2" onClick="save('sertifikat_2')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -243,10 +243,10 @@
                                                 <div class="form-group">
                                                     <label>Sertifikat Prestasi 3</label>
                                                     <div class="input-group" id="result_sertifikat_3">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_3" onClick="save('sertifikat_3')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -257,10 +257,10 @@
                                                 <div class="form-group">
                                                     <label>Sertifikat Prestasi 4</label>
                                                     <div class="input-group" id="result_sertifikat_4">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_4" onClick="save('sertifikat_4')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>
@@ -271,10 +271,10 @@
                                                 <div class="form-group">
                                                     <label>Sertifikat Prestasi 5</label>
                                                     <div class="input-group" id="result_sertifikat_5">
-                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
+                                                        <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                         <button class="btn btn-primary" type="button" id="btnSave_sertifikat_5" onClick="save('sertifikat_5')">Upload</button>
                                                     </div>
-                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG</small>
+                                                    <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                                 </div>
                                             </form>
                                         </div>

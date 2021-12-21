@@ -31,7 +31,7 @@ class Berkas extends CI_Controller {
         $path = './uploads/'.$target;
         if ($upload_image != NULL) {
             $cfg['upload_path']          = $path;
-            $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
+            $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif|pdf';
             $cfg['max_size']             = '5120';
             $cfg['encrypt_name']         = TRUE;
             $cfg['file_ext_tolower']     = TRUE;
