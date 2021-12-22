@@ -71,7 +71,7 @@
                                             <div class="col-md-4 col-12">
                                                 <div class="form-group">
                                                     <label>Tanggal Lahir</label>
-                                                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" required>
+                                                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" min="2005-01-01" max="2007-12-12" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-12">
@@ -204,7 +204,7 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label>Tahun Lulus</label>
-                                                    <input type="number" id="tahun_lulus" name="tahun_lulus" maxlength="4" class="form-control" required>
+                                                    <input type="number" id="tahun_lulus" name="tahun_lulus" maxlength="4" min="2020" max="2022" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>

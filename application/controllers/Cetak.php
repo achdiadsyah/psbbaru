@@ -21,14 +21,14 @@ class Cetak extends CI_Controller {
         $get = $this->M_Peserta->get($this->session->userdata['id']);
         $join    = $this->M_Peserta->get_file($this->session->userdata['nik']);
 
-        if ($get->jadwal_ujian == ""){
+        if ($get->jalur == "reguler" && $get->jadwal_ujian == NULL){
             $data = [
                 'title'     => 'Pilih Jadwal Ujian',
                 'content'   => 'cetak/jadwal',
                 'costum_js' => 'cetak/js-jadwal',
             ];
             echo $this->template->views($data);
-        } elseif ($get->jadwal_ujian == psb_detail('tes_undangan') && $get->ujian_via == NULL) {
+        } elseif ($get->jalur == "undangan" && $get->jadwal_ujian == NULL) {
             $data = [
                 'title'     => 'Pilih Wawancara Via',
                 'content'   => 'cetak/lokasi',

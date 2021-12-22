@@ -93,6 +93,7 @@ $pdf->StartTransform();
 $pdf->Rotate(10, 70, 100);
 $pdf->Image($assetsurl.'images/ttd.png', 117, 152, 55, '', '', '', '', false, 300);
 $pdf->StopTransform();
+$pdf->Image($filesurl.'qr/'.$output->checksum.'.png', 10, 123, 45, '', '', '', '', false, 300);
 $tanda_tangan = '
     <table width="100%">
         <tr>
@@ -139,7 +140,7 @@ $tanda_tangan = '
      <br />
      <p style="border: 1px solid black;"><b> Mekanisme calon santri yang akan mengikuti tes :</b>
      <ol>
-          <li>Calon santri wajib hadir 30 menit sebelum jadwal tes dilaksanakan.</li>
+          <li>Calon santri wajib login atau hadir 30 menit sebelum jadwal tes dilaksanakan</li>
           <li>Calon santri menyerahkan berkas yang telah disiapkan ke panitia di lokasi ujian.
             <ul>
                 <li>Fotokopi rapor MTs/SMP semester 1,2,3 dan 4 yang telah di legalisir</li>
@@ -406,14 +407,14 @@ $formulir = '
 <br />
 ';
 $pdf->writeHTML($formulir, true, false, false, false, '');
-
+$pdf->Image($filesurl.'qr/'.$output->checksum.'.png', 10, 228, 45, '', '', '', '', false, 300);
 $tandatangan = '
     
     <table>
         <tbody>
         <tr>
             <td>
-                <img src="'.$filesurl.'qr/'.$output->checksum.'.png" width="70px"/>
+                &nbsp;
             </td>
             <td width="90mm" align="center">
                 Aceh Besar, '.date_indo(date('Y-m-d', strtotime($output->tanggal_daftar))).'<br / />

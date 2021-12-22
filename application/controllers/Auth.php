@@ -128,7 +128,7 @@ class Auth extends CI_Controller {
                 "NO REK : *".psb_detail('no_rekening')."*".urldecode('%0A').
                 "A/N : *".psb_detail('nama_rekening')."*".urldecode('%0A').
                 "BERITA : *PSB-".$nik."*".urldecode('%0A%0A').
-                "Lakukan Pembayaran sebelum 1x24 Jam".urldecode('%0A').
+                "Lakukan Pembayaran sebelum 3x24 Jam".urldecode('%0A').
                 "Segera *Upload Bukti Pembayaran* jika sudah melakukan transfer".urldecode('%0A%0A').
                 "https://psb.ruhulislam.com/auth/login".urldecode('%0A').
                 "Terima Kasih";
