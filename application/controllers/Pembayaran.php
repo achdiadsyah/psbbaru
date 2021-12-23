@@ -54,8 +54,13 @@ class Pembayaran extends CI_Controller {
                     $data = [
                         'struk'=> $namafile,
                     ];  
+
+                    $data2 = [
+                        's_payment'=> '3',
+                    ];  
                     $insert = $this->M_Filepsb->update($nik, $data);
-                    if ($insert == TRUE) {
+                    $insert2 = $this->M_Peserta->update_nik($nik, $data2);
+                    if ($insert && $insert2) {
                         echo json_encode(array("status" => true, "msg" => "Berhasil Upload Gambar Dan Ke Database"));
                     } else {
                         echo json_encode(array("status" => false, "msg" => "Gagal Upload Gambar Dan Ke Database"));
@@ -78,13 +83,13 @@ class Pembayaran extends CI_Controller {
             if ($get->struk == "-"){
                 echo json_encode(array('status' => false, 'message' => "Silahkan Upload Slip Transfer Anda"));
             } elseif ($get->struk == "undangan.jpg"){
-                echo json_encode(array('status' => true, 'message' => "Jalur Undangan, Tidak perlu upload bukti pembayaran"));
+                echo json_encode(array('status' => false, 'message' => "Jalur Undangan, Tidak perlu upload bukti pembayaran"));
             } else {
-                if ($get2->s_payment == 1){
+                if($get2->s_payment == 1){
                     echo json_encode(array('status' => true, 'message' => "Verifikasi Berhasil, Pembayaran di terima <br> <a href='".base_url('biodata')."' class='btn btn-primary'>Lanjut Isi Biodata</a>"));
                 } elseif ($get2->s_payment == 2){
                     echo json_encode(array('status' => true, 'message' => "Pembayaran anda di tolak"));
-                } else {
+                } elseif ($get2->s_payment == 3){
                     echo json_encode(array('status' => true, 'message' => "Sudah Pernah Upload, Menunggu Verifikasi <p>Jika Anda tidak menerima whatsapp dari kami 1x24 Jam, segera hubungi kami untuk konfirmasi manual</p>"));
                 }
             }

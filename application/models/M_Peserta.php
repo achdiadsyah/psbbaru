@@ -41,6 +41,13 @@ class M_Peserta extends CI_Model {
         return $query;
     }
 
+    public function update_nik($nik, $data)
+    {
+        $this->db->where('nik', $nik);
+        $query = $this->db->update($this->table, $data);
+        return $query;
+    }
+
     public function update_checksum($checksum, $data)
     {
         $this->db->where('checksum', $checksum);

@@ -31,13 +31,19 @@ function check_payment()
         return true;
     } else if($x->s_payment == 2){
         $ci->session->set_flashdata([
-            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena pembayaran anda belum di setujui',
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena pembayaran anda di tolak',
+            'type' => 'info'
+        ]);
+        redirect ('pembayaran');
+    } else if($x->s_payment == 3){
+        $ci->session->set_flashdata([
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena pembayaran sedang di verifikasi',
             'type' => 'info'
         ]);
         redirect ('pembayaran');
     } else if($x->s_payment == 0){
         $ci->session->set_flashdata([
-            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena pembayaran anda belum di setujui',
+            'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum upload bukti pembayaran',
             'type' => 'info'
         ]);
         redirect ('pembayaran');
