@@ -62,7 +62,7 @@
                                                 <tr>
                                                     <td>Penentuan Nomor Ujian</td>
                                                     <?php if ($user->no_ujian == ''): ?>
-                                                    <td><a href="<?= base_url('biodata'); ?>"><span class="badge bg-danger">Belum</span></a></td>
+                                                    <td><span class="badge bg-danger">Belum</span></td>
                                                     <?php else: ?>
                                                     <td><span class="badge bg-success"><?= $user->no_ujian; ?></span></td>
                                                     <?php endif; ?>
@@ -98,7 +98,7 @@
                                                 <tr>
                                                 <td>Sesi Ujian CAT</td>
                                                     <?php if ($user->jalur == "undangan"): ?>
-                                                    <td><span class="badge bg-success">Tidak Ada</span></td>
+                                                    <td><span class="badge bg-success">Tidak Ada Ujian</span></td>
                                                     <?php elseif($user->jalur == "reguler"): ?>
                                                         <?php if ($user->sesi_cat == ""): ?>
                                                         <td><span class="badge bg-danger">Belum Pilih</span></td>
@@ -115,6 +115,24 @@
                                                     <td><?= $user->sesi_lisan." WIB"; ?></td>
                                                     <?php endif; ?>
                                                 </tr>
+
+                                                <?php if ($user->jalur == "undangan"): ?>
+                                                <tr>
+                                                    <td>Lokasi Ujian Anda</td>
+                                                    <?php if ($user->ujian_via == NULL): ?>
+                                                    <td><span class="badge bg-danger">Belum Pilih</span></td>
+                                                    <?php else: ?>
+                                                        <?php if ($user->ujian_via == "offline"): ?>
+                                                            <td><span class="badge bg-info">Offline - Di Kampus</span></td>
+                                                        <?php elseif ($user->ujian_via == "online"): ?>
+                                                            <td><span class="badge bg-info">Online - Zoom / Google Meet</span></td>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <?php endif; ?>    
+
+
+
                                                 <?php if ($user->jalur == "undangan"): ?>
                                                 <tr>
                                                     <td>Pengumuman Seleksi Adm (Undangan)</td>

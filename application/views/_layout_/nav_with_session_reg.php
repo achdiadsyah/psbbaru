@@ -12,7 +12,7 @@
                                     <span>Dahboard</span>
                                 </a>
                             </li>
-                            <?php if(check_open(psb_detail("pengumuman_reguler"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
+                            <?php if(check_close(psb_detail("pengumuman_reguler"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
                                 <li
                                     class="menu-item  ">
                                     <a href="<?= base_url('pengumuman/reguler'); ?>" class='menu-link'>

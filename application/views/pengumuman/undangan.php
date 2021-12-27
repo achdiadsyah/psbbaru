@@ -7,7 +7,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <?php if(check_open(psb_detail("pengumuman_undangan"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
+                                    <?php if(check_close(psb_detail("pengumuman_undangan"), psb_detail("tutup_daftar_ulang_reguler")) == "Open"): ?>
                                         <?php if ($user->s_lulus == "1"): ?>
                                             <div id="lulus">
                                                 <center>

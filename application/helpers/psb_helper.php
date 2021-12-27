@@ -119,7 +119,7 @@ function check_lulus_adm()
         return true;
     } else if($x->s_lulus_adm == 0){
         $ci->session->set_flashdata([
-            'msg' => 'Menu ini akan dibuka bagi yang lulus pengumuman administrasi tanggal 30 Desember 2021.',
+            'msg' => 'Menu ini akan dibuka bagi peserta yang lulus seleksi berkas dan administrasi. Pengumuman tanggal : '.date_indo(psb_detail('pengumuman_adm_undangan')),
             'type' => 'info'
         ]);
         redirect ('dashboard');
@@ -249,6 +249,17 @@ function check_open($date)
     $date_now = date("Y-m-d");
 
     if ($date_now >= $date) {
+        return "Open";
+    } else {
+        return "Close";
+    }
+}
+
+function check_close($dateA, $dateZ)
+{
+    $date_now = date("Y-m-d");
+
+    if ($date_now >= $dateA && $date_now <= $dateZ) {
         return "Open";
     } else {
         return "Close";
