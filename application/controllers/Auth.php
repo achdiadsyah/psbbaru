@@ -164,7 +164,7 @@ class Auth extends CI_Controller {
                     $data2 = [
                         'nik'           => $nik,
                         'struk'         => "undangan.jpg",
-                        's_struk'       => '1'
+                        's_struk'       => '1',
                         'status'        => '0'
                     ];
     
