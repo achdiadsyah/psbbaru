@@ -114,12 +114,12 @@ function check_lulus_adm()
     $id = $ci->session->userdata['id'];
     $ci->load->model('M_Peserta');
 	$x = $ci->M_Peserta->get($id);
-
+    
     if($x->s_lulus_adm == 1){
         return true;
     } else if($x->s_lulus_adm == 0){
         $ci->session->set_flashdata([
-            'msg' => 'Menu ini akan dibuka bagi peserta yang lulus seleksi berkas dan administrasi. Pengumuman tanggal : '.date_indo(psb_detail('pengumuman_adm_undangan')),
+            'msg' => 'Menu ini dibuka bagi peserta yang lulus seleksi berkas dan administrasi. <br>Pengumuman tanggal : '.date_indo(psb_detail('pengumuman_adm_undangan')),
             'type' => 'info'
         ]);
         redirect ('dashboard');

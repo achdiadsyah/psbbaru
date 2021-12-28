@@ -95,8 +95,20 @@
                                                         <td><?= longdate_indo($user->jadwal_ujian); ?></td>
                                                     <?php endif; ?>
                                                 </tr>
+                                                
+                                                <?php if ($user->jalur !== "undangan"): ?>
                                                 <tr>
-                                                <td>Sesi Ujian CAT</td>
+                                                    <td>Ruang Ujian CAT</td>
+                                                    <?php if ($user->ruang_cat == ""): ?>
+                                                    <td><span class="badge bg-danger">Belum Pilih</span></td>
+                                                    <?php else: ?>
+                                                    <td><?= $user->ruang_cat; ?></td>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <?php endif; ?>
+
+                                                <tr>
+                                                    <td>Sesi Ujian CAT</td>
                                                     <?php if ($user->jalur == "undangan"): ?>
                                                     <td><span class="badge bg-success">Tidak Ada Ujian</span></td>
                                                     <?php elseif($user->jalur == "reguler"): ?>
@@ -107,6 +119,18 @@
                                                         <?php endif; ?>
                                                     <?php endif; ?>
                                                 </tr>
+
+                                                <?php if ($user->jalur !== "undangan"): ?>
+                                                <tr>
+                                                    <td>Ruang Ujian Lisan</td>
+                                                    <?php if ($user->ruang_lisan == ""): ?>
+                                                    <td><span class="badge bg-danger">Belum Pilih</span></td>
+                                                    <?php else: ?>
+                                                    <td><?= $user->ruang_lisan; ?></td>
+                                                    <?php endif; ?>
+                                                </tr>
+                                                <?php endif; ?>
+
                                                 <tr>
                                                     <td>Sesi Ujian Lisan</td>
                                                     <?php if ($user->sesi_lisan == ""): ?>
