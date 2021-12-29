@@ -72,6 +72,17 @@ class Auth extends CI_Controller {
         echo $this->template->views($data);
 	}
 
+    // REGISTER FUNCTION
+	public function registerbyadmin()
+	{
+		$data = [
+            'title'     => 'Daftar',
+            'content'   => 'auth/register2',
+            'costum_js' => 'auth/js-register'
+        ];
+        echo $this->template->views($data);
+	}
+
     public function do_register()
     {
         $kode_undangan      = $this->input->post('kode_undangan');
@@ -164,7 +175,6 @@ class Auth extends CI_Controller {
                     $data2 = [
                         'nik'           => $nik,
                         'struk'         => "undangan.jpg",
-                        's_struk'       => '1',
                         'status'        => '0'
                     ];
     
