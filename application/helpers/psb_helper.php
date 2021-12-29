@@ -255,6 +255,23 @@ function check_open($date)
     }
 }
 
+
+function check_buka_menu($date)
+{
+    $ci = &get_instance();
+    $date_now = date("Y-m-d");
+
+    if ($date_now >= $date) {
+        return TRUE;
+    } else {
+        $ci->session->set_flashdata([
+            'msg' => 'Menu ini tidak dapat di akses, karena belum masuk jadwal aksesnya.',
+            'type' => 'warning'
+        ]);
+        redirect ('dashboard');
+    }
+}
+
 function check_close($dateA, $dateZ)
 {
     $date_now = date("Y-m-d");

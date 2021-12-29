@@ -12,6 +12,7 @@ class Cetak extends CI_Controller {
         check_biodata();
         check_berkas();
         check_lulus_adm();
+        check_buka_menu(psb_detail('pengumuman_adm_undangan'));
         $this->load->model('M_Peserta');
     }
 
