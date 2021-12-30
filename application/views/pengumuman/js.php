@@ -30,7 +30,7 @@
                         dataType: "JSON",
                         success: function(data)
                         {
-                            mySwalalert('Berhasi Beralih Jurusan, Lanjutkan Pembayaran di Menu <b>PEMBAYARAN</b>', 'error');
+                            mySwalalert('Berhasi Beralih Jurusan, Lanjutkan Pembayaran di Menu <b>PEMBAYARAN</b>', 'success');
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {

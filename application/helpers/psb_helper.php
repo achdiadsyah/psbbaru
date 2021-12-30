@@ -122,7 +122,7 @@ function check_lulus_adm()
             'msg' => 'Menu ini dibuka bagi peserta yang lulus seleksi berkas dan administrasi. <br>Pengumuman tanggal : '.date_indo(psb_detail('pengumuman_adm_undangan')),
             'type' => 'info'
         ]);
-        redirect ('dashboard');
+        redirect ('pengumuman/adm');
     }
 
 }

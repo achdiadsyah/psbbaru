@@ -30,6 +30,17 @@ class Pengumuman extends CI_Controller {
         echo $this->template->views($data);
 	}
 
+    public function adm()
+	{
+        check_akses_pengumuman('undangan');
+		$data = [
+            'title'     => 'Pengumuman Kelulusan ADM',
+            'content'   => 'pengumuman/adm',
+            'costum_js' => 'pengumuman/js'
+        ];
+        echo $this->template->views($data);
+	}
+
     public function ajax_beralih($nik)
     {
         if ($this->input->is_ajax_request() == true) {
