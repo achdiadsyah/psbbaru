@@ -11,6 +11,7 @@ class Daftarulang extends CI_Controller {
         // check_lulus_adm();
         // check_lulus();
         $this->load->model('M_Peserta');
+        $this->load->model('M_Filepsb');
     }
 
 	public function index()
@@ -22,12 +23,45 @@ class Daftarulang extends CI_Controller {
         echo $this->template->views($data);
     }
 
-    public function kelengkapan()
+    public function biodata()
     {
         $data = [
-            'title'     => 'Daftar Ulang',
-            'content'   => 'daftarulang/index'
+            'title'     => 'Kelengkapan Biodata',
+            'content'   => 'daftarulang/biodata'
         ];
         echo $this->template->views($data);
+    }
+
+    public function berkas()
+    {
+        $data = [
+            'title'     => 'Kelengkapan Berkas',
+            'content'   => 'daftarulang/berkas',
+            'costum_js'   => 'daftarulang/js-berkas'
+        ];
+        echo $this->template->views($data);
+    }
+    
+    function ajax_update()
+    {
+        if ($this->input->is_ajax_request() == true) {
+
+            $nik = $this->input->post('nik');
+            $target = $this->input->post('target');
+            $namafile = $this->input->post('file_name');
+
+            $data = [
+                $target => $namafile,
+            ];
+
+            $insert = $this->M_Filepsb->update($nik, $data);
+            if ($insert == TRUE) {
+                echo json_encode(array("status" => true, "msg" => 'Berhasil Upload File'));
+            } else {
+                echo json_encode(array("status" => false, "msg" => "Gagal Upload File Ke Database"));
+            }
+        } else {
+            exit('Error');
+        }
     }
 }

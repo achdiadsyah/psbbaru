@@ -30,12 +30,30 @@
                                         </a>
                                     </li>
                                     <li
-                                        class="menu-item  ">
-                                        <a href="<?= base_url('daftarulang/kelengkapan'); ?>" class='menu-link'>
-                                            <i class="bi bi-file-fill"></i>
-                                            <span>Lengkapi Berkas</span>
-                                        </a>
-                                    </li>
+                                    class="menu-item  has-sub">
+                                    <a href="#" class='menu-link'>
+                                        <i class="bi bi-stack"></i>
+                                        <span>Kelengkapan</span>
+                                    </a>
+                                    <div
+                                        class="submenu ">
+                                        <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                                        <div class="submenu-group-wrapper">     
+                                            <ul class="submenu-group">                                            
+                                                <li
+                                                    class="submenu-item  ">
+                                                    <a href="<?= base_url('daftarulang/biodata'); ?>"
+                                                        class='submenu-link'>Biodata</a>
+                                                </li>
+                                                <li
+                                                    class="submenu-item  ">
+                                                    <a href="<?= base_url('daftarulang/berkas'); ?>"
+                                                        class='submenu-link'>Berkas</a>
+                                                </li>                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
                                 <?php endif; ?>
                             <?php else: ?>
                                 <?php $this->view('_layout_/nav_with_session'); ?>

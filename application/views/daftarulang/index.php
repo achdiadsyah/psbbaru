@@ -103,8 +103,14 @@
                                                 <li>Scan Kartu ASKES / BPJS</li>
                                                 <li>Scan Kartu NISN</li>
                                                 <li>Scan Kartu KIP (Tidak Wajib)</li>
+                                                <li>Scan Surat Sehat</li>
+                                                <br>
                                                 <li>Scan Surat tidak pindah jurusan
                                                     <br> <a href="<?= base_url('assets/file/surattidakpindahjurusan.docx'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
+                                                </li>
+                                                <br>
+                                                <li>Scan Surat patuh tata tertib
+                                                    <br> <a href="<?= base_url('assets/file/surattatatertib.docx'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
                                                 </li>
                                             </ul>
                                         </li>

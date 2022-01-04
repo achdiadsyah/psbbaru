@@ -1,8 +1,8 @@
 <?php 
 
-function cdn_file()
+function cdn_file($path = NULL)
 {
-    return "https://cdn.ruhulislam.com/";
+    return "https://cdn.ruhulislam.com/".$path;
 }
 
 function check_login()
