@@ -42,6 +42,11 @@ class Daftarulang extends CI_Controller {
         echo $this->template->views($data);
     }
     
+    public function cetak()
+    {
+        check_berkas_akhir();
+    }
+
     function ajax_update()
     {
         if ($this->input->is_ajax_request() == true) {

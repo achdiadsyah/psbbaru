@@ -173,14 +173,10 @@ function check_berkas()
                     $key->raport_1 !== "" &&
                     $key->raport_2 !== "" &&
                     $key->raport_3 !== "" &&
-                    $key->raport_4 !== ""){
-                        $data_up = [
-                            'status'   => "1"
-                        ];
+                    $key->raport_4 !== ""){                        
                         $data_up2 = [
                             's_file'   => "1"
-                        ];
-                        $ci->M_Filepsb->update($nik, $data_up);
+                        ];                        
                         $ci->M_Peserta->update($id, $data_up2);
                         
                     } else {
@@ -201,14 +197,10 @@ function check_berkas()
                     $key->raport_1 !== "" &&
                     $key->raport_2 !== "" &&
                     $key->raport_3 !== "" &&
-                    $key->raport_4 !== ""){
-                        $data_up = [
-                            'status'   => "1"
-                        ];
+                    $key->raport_4 !== ""){                        
                         $data_up2 = [
                             's_file'   => "1"
-                        ];
-                        $ci->M_Filepsb->update($nik, $data_up);
+                        ];                       
                         $ci->M_Peserta->update($id, $data_up2);
                         
                     } else {
@@ -227,13 +219,9 @@ function check_berkas()
                     $key->raport_2 !== "" &&
                     $key->raport_3 !== "" &&
                     $key->raport_4 !== ""){
-                        $data_up = [
-                            'status'   => "1"
-                        ];
                         $data_up2 = [
                             's_file'   => "1"
-                        ];
-                        $ci->M_Filepsb->update($nik, $data_up);
+                        ];                        
                         $ci->M_Peserta->update($id, $data_up2);
                         
                     } else {
@@ -247,6 +235,55 @@ function check_berkas()
         }
     }
 
+}
+
+function check_berkas_akhir()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $nik = $ci->session->userdata['nik'];
+
+    $ci->load->model('M_Peserta');
+    $ci->load->model('M_Filepsb');
+	
+    $x = $ci->M_Peserta->get($id);
+	$y = $ci->M_Filepsb->get_by_nik($nik)->result();
+
+    foreach ($y as $key) {
+        if (
+            $key->struk !== "" &&
+            $key->struk_daftarulang !== "" &&
+            $key->kk !== "" &&
+            $key->akte !== "" &&
+            $key->pasphoto !== "" &&           
+            $key->surat_pernyataan !== "" &&
+            $key->surat_kesanggupan !== "" &&
+            $key->formulir_kepsek !== "" &&
+            $key->raport_1 !== "" &&
+            $key->raport_2 !== "" &&
+            $key->raport_3 !== "" &&
+            $key->raport_4 !== "" &&
+            $key->surat_sehat !== "" &&
+            $key->bpjs !== "" &&
+            $key->surat_tatatertib !== "" &&
+            $key->surat_tidakpindahjurusan !== "" &&
+            $key->ktp_ayah !== "" &&
+            $key->kp_ibu !== ""
+            ){
+                $data_up = [
+                    'status'   => "1"
+                ];
+                
+                $ci->M_Filepsb->update($nik, $data_up);
+                
+            } else {
+                $ci->session->set_flashdata([
+                    'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                    'type' => 'info'
+                ]);
+                redirect ('daftarulang/berkas');
+            }
+    }
 }
 
 function check_open($date)

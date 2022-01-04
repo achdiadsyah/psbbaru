@@ -25,8 +25,8 @@
                                     <li
                                         class="menu-item  ">
                                         <a href="<?= base_url('daftarulang'); ?>" class='menu-link'>
-                                            <i class="bi bi-pen-fill"></i>
-                                            <span>Daftar Ulang</span>
+                                            <i class="bi bi-chat-dots"></i>
+                                            <span>Info Daftar Ulang</span>
                                         </a>
                                     </li>
                                     <li
@@ -39,20 +39,27 @@
                                         class="submenu ">
                                         <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
                                         <div class="submenu-group-wrapper">     
-                                            <ul class="submenu-group">                                            
-                                                <li
-                                                    class="submenu-item  ">
-                                                    <a href="<?= base_url('daftarulang/biodata'); ?>"
-                                                        class='submenu-link'>Biodata</a>
-                                                </li>
+                                            <ul class="submenu-group">
                                                 <li
                                                     class="submenu-item  ">
                                                     <a href="<?= base_url('daftarulang/berkas'); ?>"
                                                         class='submenu-link'>Berkas</a>
-                                                </li>                                                
+                                                </li>  
+                                                <li
+                                                    class="submenu-item  ">
+                                                    <a href="<?= base_url('daftarulang/biodata'); ?>"
+                                                        class='submenu-link'>Biodata</a>
+                                                </li>                                              
                                             </ul>
                                         </div>
                                     </div>
+                                    <li
+                                        class="menu-item  ">
+                                        <a href="<?= base_url('daftarulang/cetak'); ?>" class='menu-link'>
+                                            <i class="bi bi-printer"></i>
+                                            <span>Cetak</span>
+                                        </a>
+                                    </li>
                                 </li>
                                 <?php endif; ?>
                             <?php else: ?>
