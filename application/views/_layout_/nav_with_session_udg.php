@@ -22,7 +22,7 @@
                                 </li>
 
                                 <?php if($user->s_lulus == "1" && $user->s_lulus_adm == "1"): ?>
-                                    <!-- <li
+                                    <li
                                         class="menu-item  ">
                                         <a href="<?= base_url('daftarulang'); ?>" class='menu-link'>
                                             <i class="bi bi-pen-fill"></i>
@@ -35,7 +35,7 @@
                                             <i class="bi bi-file-fill"></i>
                                             <span>Lengkapi Berkas</span>
                                         </a>
-                                    </li> -->
+                                    </li>
                                 <?php endif; ?>
                             <?php else: ?>
                                 <?php $this->view('_layout_/nav_with_session'); ?>

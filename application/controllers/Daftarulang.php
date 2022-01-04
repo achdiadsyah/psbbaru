@@ -21,4 +21,13 @@ class Daftarulang extends CI_Controller {
         ];
         echo $this->template->views($data);
     }
+
+    public function kelengkapan()
+    {
+        $data = [
+            'title'     => 'Daftar Ulang',
+            'content'   => 'daftarulang/index'
+        ];
+        echo $this->template->views($data);
+    }
 }

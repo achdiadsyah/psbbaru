@@ -1,5 +1,10 @@
 <?php 
 
+function cdn_file()
+{
+    return "https://cdn.ruhulislam.com/";
+}
+
 function check_login()
 {
     $ci = &get_instance();
