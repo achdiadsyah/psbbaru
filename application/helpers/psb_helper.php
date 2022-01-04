@@ -278,7 +278,7 @@ function check_berkas_akhir()
                 
             } else {
                 $ci->session->set_flashdata([
-                    'msg' => 'Anda Tidak dapat melanjutkan proses ini, karena belum melengkapi upload berkas',
+                    'msg' => 'Anda Tidak dapat melanjutkan proses ini untuk sementara waktu',
                     'type' => 'info'
                 ]);
                 redirect ('daftarulang/berkas');
