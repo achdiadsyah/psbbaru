@@ -57,6 +57,7 @@ class Pengumuman extends CI_Controller {
                 's_biodata'     =>  '1',
                 's_file'        =>  '1',
                 's_lulus_adm'   =>  '1',
+                's_cetak'       =>  '0',
                 's_lulus'       =>  '0',
             ];
 

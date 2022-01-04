@@ -12,7 +12,7 @@ class Cetak extends CI_Controller {
         check_biodata();
         check_berkas();
         check_lulus_adm();
-        check_buka_menu(psb_detail('pengumuman_adm_undangan'));
+        check_buka_menu(psb_detail('buka_daftar_reguler'));
         $this->load->model('M_Peserta');
     }
 
@@ -47,7 +47,7 @@ class Cetak extends CI_Controller {
 
             foreach (arr_jadwal_reguler() as $key) {
                 $countjadwal = $this->M_Peserta->get_by_jadwal($key)->num_rows();
-                if ($countjadwal >= "100"){
+                if ($countjadwal >= "240"){
                     $status = 'disabled';
                     $msg = ' - KUOTA PENUH';
                     $keys = ""; 
