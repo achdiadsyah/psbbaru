@@ -115,13 +115,12 @@
                                         <li>
                                             Berikut Berkas yang perlu di bawa ke Dayah :
                                             <div><i class="bi bi-check"></i> Bukti Transfer Daftar Ulang</div>
-                                            <div><i class="bi bi-check"></i> Surat Sehat</div>
-                                            <div><i class="bi bi-check"></i> Surat Pernyataan</div>
+                                            <div><i class="bi bi-check"></i> Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah</div>
+                                            <div><i class="bi bi-check"></i> Surat Kesanggupan Membiayai</div>
                                             <div><i class="bi bi-check"></i> Surat Tidak Pindah Jurusan</div>
                                             <div><i class="bi bi-check"></i> Bukti Cetak Kelulusan</div>
                                             <div><i class="bi bi-check"></i> Pas Photo 3x4 = 5 Lembar (Latar Merah)</div>
                                             <div><i class="bi bi-check"></i> Pas Photo 2x3 = 2 Lembar (Latar Merah)</div>
-
                                         </li>
                                         <br>
                                         <li>Saat pendaftaran ke dayah, calon siswa/santri tidak perlu hadir</li>

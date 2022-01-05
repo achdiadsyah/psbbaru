@@ -133,15 +133,17 @@
                             var link = key+"/"+value;
                             if (value == "no_image.jpg"){
                                 var ss = 
-                                '<div class="input-group">'
-                                    +'<input type="text" class="form-control" value="Tidak Perlu Upload" readonly>'
-                                +'</div>';
+                                '<center>'
+                                    +'<h1><i class="fas fa-check"></i></h3>'
+                                    +'<p>Tidak Perlu Upload</p>'
+                                +'</center>';
                             } else {
                                 var ss = 
-                                '<div class="input-group">'
-                                    +'<button class="btn btn-success" type="button" onClick="show_file('+"'"+link+"'"+')">Lihat File</button>'
-                                    +'<input type="text" class="form-control" value="File Sudah Di Upload" readonly>'
-                                +'</div>';
+                                '<center>'
+                                    +'<h1><i class="fas fa-check"></i></h3>'
+                                    +'<p>Sudah Upload</p>'
+                                    +'<button class="btn btn-success btn-sm" type="button" onClick="show_file('+"'"+link+"'"+')">Lihat File</button>'
+                                +'</center>';
                             }
 
                             var keys = "#result_"+key;

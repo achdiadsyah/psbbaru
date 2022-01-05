@@ -1,3 +1,5 @@
+
+        <script src="<?= base_url(); ?>assets/vendors/fontawesome/all.min.js"></script>
         
         <script src="<?= base_url(); ?>assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 

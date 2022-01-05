@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/fontawesome/all.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app.css">
     <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.ico" type="image/x-icon">
 </head>
