@@ -95,7 +95,7 @@
                                         </li>
                                         <br>
                                         <li>Poin-poin berikut harap diupload ke website <b>psb.ruhulislam.com</b> di akun masing-masing
-                                            <ol type="a">
+                                            <ol type="A">
                                                 <li>Scan Bukti Transfer Biaya Daftar Ulang</li>
                                                 <li>Scan KK (Kartu Keluarga)</li>
                                                 <li>Scan KTP Ayah</li>
@@ -114,13 +114,15 @@
                                         <br>
                                         <li>
                                             Berikut Berkas yang perlu di bawa ke Dayah :
-                                            <div><i class="bi bi-check"></i> Bukti Transfer Daftar Ulang</div>
-                                            <div><i class="bi bi-check"></i> Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah</div>
-                                            <div><i class="bi bi-check"></i> Surat Kesanggupan Membiayai</div>
-                                            <div><i class="bi bi-check"></i> Surat Tidak Pindah Jurusan</div>
-                                            <div><i class="bi bi-check"></i> Bukti Cetak Kelulusan</div>
-                                            <div><i class="bi bi-check"></i> Pas Photo 3x4 = 5 Lembar (Latar Merah)</div>
-                                            <div><i class="bi bi-check"></i> Pas Photo 2x3 = 2 Lembar (Latar Merah)</div>
+                                            <ol type="A">
+                                                <li>Bukti Transfer Daftar Ulang</li>
+                                                <li>Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah</li>
+                                                <li>Surat Kesanggupan Membiayai</li>
+                                                <li>Surat Tidak Pindah Jurusan</li>
+                                                <li>Bukti Cetak Kelulusan</li>
+                                                <li>Pas Photo 3x4 = 5 Lembar (Latar Merah)</li>
+                                                <li>Pas Photo 2x3 = 2 Lembar (Latar Merah)</li>
+                                            </ol>
                                         </li>
                                         <br>
                                         <li>Saat pendaftaran ke dayah, calon siswa/santri tidak perlu hadir</li>
