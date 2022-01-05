@@ -194,27 +194,6 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title">Surat Patuh Tata Tertib</h5>
-                                </div>
-                                <div class="card-body">                                    
-                                    <div class="col-md-12 mb-2">
-                                        <form action="#" id="form_surat_tatatertib" enctype="multipart/form-data">
-                                            <div class="form-group">                                                    
-                                                <div class="input-group" id="result_surat_tatatertib">
-                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
-                                                    <button class="btn btn-danger" type="button" id="btnSave_surat_tatatertib" onClick="save('surat_tatatertib')">Upload</button>
-                                                </div>
-                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-12">
-                            <div class="card">
-                                <div class="card-header">
                                     <h5 class="card-title">Surat Tidak Pindah Jurusan</h5>
                                 </div>
                                 <div class="card-body">                                    

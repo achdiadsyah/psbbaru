@@ -93,8 +93,9 @@
                                                 <li><b>TIDAK MENERIMA UANG CASH / BAYAR DI DAYAH !</b></li>
                                             </ul>
                                         </li>
+                                        <br>
                                         <li>Poin-poin berikut harap diupload ke website <b>psb.ruhulislam.com</b> di akun masing-masing
-                                            <ul>
+                                            <ol type="a">
                                                 <li>Scan Bukti Transfer Biaya Daftar Ulang</li>
                                                 <li>Scan KK (Kartu Keluarga)</li>
                                                 <li>Scan KTP Ayah</li>
@@ -104,21 +105,31 @@
                                                 <li>Scan Kartu NISN</li>
                                                 <li>Scan Kartu KIP (Tidak Wajib)</li>
                                                 <li>Scan Surat Sehat</li>
-                                                <br>
                                                 <li>Scan Surat tidak pindah jurusan
                                                     <br> <a href="<?= base_url('assets/file/surattidakpindahjurusan.docx'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
                                                 </li>
                                                 <br>
-                                                <li>Scan Surat patuh tata tertib
-                                                    <br> <a href="<?= base_url('assets/file/surattatatertib.docx'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
-                                                </li>
-                                            </ul>
+                                            </ol>
                                         </li>
+                                        <br>
+                                        <li>
+                                            Berikut Berkas yang perlu di bawa ke Dayah :
+                                            <div><i class="bi bi-check"></i> Bukti Transfer Daftar Ulang</div>
+                                            <div><i class="bi bi-check"></i> Surat Sehat</div>
+                                            <div><i class="bi bi-check"></i> Surat Pernyataan</div>
+                                            <div><i class="bi bi-check"></i> Surat Tidak Pindah Jurusan</div>
+                                            <div><i class="bi bi-check"></i> Bukti Cetak Kelulusan</div>
+                                            <div><i class="bi bi-check"></i> Pas Photo 3x4 = 5 Lembar (Latar Merah)</div>
+                                            <div><i class="bi bi-check"></i> Pas Photo 2x3 = 2 Lembar (Latar Merah)</div>
+
+                                        </li>
+                                        <br>
+                                        <li>Saat pendaftaran ke dayah, calon siswa/santri tidak perlu hadir</li>
                                     </ol>
                                     <hr>
                                     <center>
                                         <h3>PENTING !!</h3>
-                                        <p>Peserta Yang tidak mendaftar ulang di atas tanggal <b><?= date_indo(psb_detail('tutup_daftar_ulang_undangan')); ?></b>, maka di anggap <b>Mengundurkan diri</b> </p>
+                                        <p>Calon santri baru yang tidak mendaftar ulang sampai dengan tanggal <b><?= date_indo(psb_detail('tutup_daftar_ulang_undangan')); ?></b>, di anggap <b>Mengundurkan diri</b> </p>
                                     </center>
                                 </div>
                             </div>

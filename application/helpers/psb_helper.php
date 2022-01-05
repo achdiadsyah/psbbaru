@@ -265,7 +265,6 @@ function check_berkas_akhir()
             $key->raport_4 !== "" &&
             $key->surat_sehat !== "" &&
             $key->bpjs !== "" &&
-            $key->surat_tatatertib !== "" &&
             $key->surat_tidakpindahjurusan !== "" &&
             $key->ktp_ayah !== "" &&
             $key->kp_ibu !== ""
