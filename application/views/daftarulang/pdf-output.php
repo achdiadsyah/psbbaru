@@ -441,51 +441,168 @@ $pdf->setJPEGQuality(75);
 $header = '<p><img src="'.$assetsurl.'images/header-formulir-lulus.jpg"></img></p>';
 $pdf->writeHTML($header, true, false, false, false, '');
 
-
 $validasi = '
 
     <style>
-    table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-
-    table td, table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    }
-
-    table tr:nth-child(even){background-color: #f2f2f2;}
-
-    table tr:hover {background-color: #ddd;}
-
-    table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-    }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 13pt;
+        }
+        td,
+        th {
+            padding: 0;
+        }
     </style>
     <h3 align="center" style="line-height: 1.1em;">VALIDASI BERKAS SISWA</h3>
-    <table class="table table-striped" cellpadding="1" width="100%">
-        <thead>
-            <tr>
-                <td>Keterangan</td>                
-                <td>File Name</td>                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1. Pas Photo</td>                
-                <td>'.is_uploaded($output->pasphoto).'</td>                
-            </tr>
-        </tbody>
-    </table>        
+    <hr>
+    <table class="validasitab" cellpadding="1" width="100%">
+        
+        <tr>
+            <th>Keterangan</th>                
+            <th>File Status</th>                
+        </tr> 
+        
+        <tr>
+            <td>1. Pas Photo</td>                
+            <td>'.is_uploaded($output->pasphoto).'</td>                
+        </tr>
+
+        <tr>
+            <td>2. Bukti Transfer</td>                
+            <td>'.is_uploaded($output->struk_daftarulang).'</td>                
+        </tr>
+
+        <tr>
+            <td>3. Scan KK</td>                
+            <td>'.is_uploaded($output->kk).'</td>                
+        </tr>
+
+        <tr>
+            <td>4. Scan AKTE Kelahiran</td>                
+            <td>'.is_uploaded($output->akte).'</td>                
+        </tr>
+
+        <tr>
+            <td>5. Scan KTP Ayah</td>                
+            <td>'.is_uploaded($output->ktp_ayah).'</td>                
+        </tr>
+
+        <tr>
+            <td>6. Scan KTP Ibu</td>                
+            <td>'.is_uploaded($output->ktp_ibu).'</td>                
+        </tr>
+
+        <tr>
+            <td>7. Scan KTP Wali</td>                
+            <td>'.is_uploaded($output->ktp_wali).'</td>                
+        </tr>
+
+        <tr>
+            <td>8. Surat Pernyatan</td>                
+            <td>'.is_uploaded($output->surat_pernyataan).'</td>                
+        </tr>
+
+        <tr>
+            <td>9. Surat Sanggup Membiayai</td>                
+            <td>'.is_uploaded($output->surat_kesanggupan).'</td>                
+        </tr>
+
+        <tr>
+            <td>10. Form Kepala Sekolah</td>                
+            <td>'.is_uploaded($output->formulir_kepsek).'</td>                
+        </tr>
+
+        <tr>
+            <td>11. Scan Surat Sehat</td>                
+            <td>'.is_uploaded($output->surat_sehat).'</td>                
+        </tr>
+
+        <tr>
+            <td>12. Surat Tidak Pindah Jurusan</td>                
+            <td>'.is_uploaded($output->surat_tidakpindahjurusan).'</td>                
+        </tr>
+
+        <tr>
+            <td>13. Scan Kartu BPSJ</td>                
+            <td>'.is_uploaded($output->bpjs).'</td>                
+        </tr>
+
+        <tr>
+            <td>14. Kartu Indonesia Pintar (KIP)</td>                
+            <td>'.is_uploaded($output->kip).'</td>                
+        </tr>
+
+        <tr>
+            <td>15. Scan Raport SM-1</td>                
+            <td>'.is_uploaded($output->raport_1).'</td>                
+        </tr>
+
+        <tr>
+            <td>16. Scan Raport SM-2</td>                
+            <td>'.is_uploaded($output->raport_2).'</td>                
+        </tr>
+
+        <tr>
+            <td>17. Scan Raport SM-3</td>                
+            <td>'.is_uploaded($output->raport_3).'</td>                
+        </tr>
+
+        <tr>
+            <td>18. Scan Raport SM-4</td>                
+            <td>'.is_uploaded($output->raport_4).'</td>                
+        </tr>
+
+        <tr>
+            <td>19. SK Rangking</td>                
+            <td>'.is_uploaded($output->sk).'</td>                
+        </tr>
+
+        <tr>
+            <td>20. Setifikat Prestasi 1</td>                
+            <td>'.is_uploaded($output->sertifikat_1).'</td>                
+        </tr>
+
+        <tr>
+            <td>21. Setifikat Prestasi 2</td>                
+            <td>'.is_uploaded($output->sertifikat_2).'</td>                
+        </tr>
+
+        <tr>
+            <td>22. Setifikat Prestasi 3</td>                
+            <td>'.is_uploaded($output->sertifikat_3).'</td>                
+        </tr>
+
+        <tr>
+            <td>23. Setifikat Prestasi 4</td>                
+            <td>'.is_uploaded($output->sertifikat_4).'</td>                
+        </tr>
+
+        <tr>
+            <td>24. Setifikat Prestasi 5</td>                
+            <td>'.is_uploaded($output->sertifikat_5).'</td>                
+        </tr>
+    </table>
+    
+    <p></p>   
+    <ul>
+        <li>
+        Berikut Berkas yang perlu di bawa ke Dayah :
+            <ol>
+                <li>Bukti Transfer Daftar Ulang <b>(Point ke-2)</b></li>
+                <li>Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah <b>(Point ke-8)</b></li>
+                <li>Surat Kesanggupan Membiayai <b>(Point ke-9)</b></li>
+                <li>Surat Tidak Pindah Jurusan <b>(Point ke-12)</b></li>
+                <li>Bukti Cetak Kelulusan <b>(Form atau PDF ini wajib di cetak)</b></li>
+                <li>Pas Photo 3x4 = 5 Lembar (Latar Merah) <b>(Point ke-1)</b></li>
+                <li>Pas Photo 2x3 = 2 Lembar (Latar Merah) <b>(Point ke-1)</b></li>
+            </ol>
+        </li>
+    </ul>
 ';
 
 $pdf->writeHTML($validasi, true, false, false, false, '');
+$pdf->Image($filesurl.'qr/'.$output->checksum.'.png', 154, 30, 40, '', '', '', '', false, 300);
 $pdf->endPage();
  
 $pdf->Output('PSB-RIAB-'.$output->no_ujian.'.pdf', 'I');

@@ -732,9 +732,9 @@ function is_piatu($status)
 function is_uploaded($data)
 {
     if($data !== ""){
-        return "UPLOADED";
+        return '<span style="color: rgb(0, 128, 64);"><b>Uploaded</b></span>';
     } else {
-        return "FILE NOT FOUND";
+        return '<span style="color: rgb(255, 0, 0);"><b>File Not Found</b></span>';
     }
 }
 ?>
