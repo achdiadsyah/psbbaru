@@ -25,7 +25,7 @@ class Daftarulang extends CI_Controller {
 
     public function biodata()
     {
-        check_biodata_ulang();
+        check_akses_biodata_ulang();
         $data = [
             'title'     => 'Kelengkapan Biodata',
             'content'   => 'daftarulang/biodata',
@@ -48,6 +48,7 @@ class Daftarulang extends CI_Controller {
     {
         check_berkas_akhir();
         check_biodata_ulang();
+        check_daftar_ulang();
 
         $join    = $this->M_Peserta->get_file($this->session->userdata['nik']);
 
@@ -85,7 +86,7 @@ class Daftarulang extends CI_Controller {
 
     public function ajax_update_file()
     {
-        if ($this->input->is_ajax_request() == true) {
+        if ($this->input->post() == true) {
 
             $nik = $this->input->post('nik');
             $target = $this->input->post('target');
@@ -109,10 +110,10 @@ class Daftarulang extends CI_Controller {
     public function ajax_update_biodata()
     {
         if ($this->input->is_ajax_request() == true) {
-            $checksum = $this->input->post('checksum');
+            $nik = $this->input->post('nik_2');
 
             $data = [
-                's_biodata_ulang'       => $this->input->post('s_biodata_ulang'),
+                's_biodata_ulang'       => '1',
                 'nomor_akte'            => $this->input->post('nomor_akte'),
                 'nomor_kk'              => $this->input->post('nomor_kk'),
                 'nama_panggilan'        => $this->input->post('nama_panggilan'),
@@ -139,7 +140,7 @@ class Daftarulang extends CI_Controller {
                 'alamat_wali'           => $this->input->post('alamat_wali'),
             ];
 
-            $insert = $this->M_Peserta->update_checksum($checksum, $this->input->post());
+            $insert = $this->M_Peserta->update_nik($nik, $data);
 
             if ($insert == TRUE) {
                 echo json_encode(array("status" => true, "msg" => 'Berhasil Menyimpan File'));

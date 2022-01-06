@@ -132,7 +132,7 @@ function check_lulus_adm()
 
 }
 
-function check_biodata_ulang()
+function check_akses_biodata_ulang()
 {
     $ci = &get_instance();
     $id = $ci->session->userdata['id'];
@@ -147,6 +147,44 @@ function check_biodata_ulang()
             'type' => 'info'
         ]);
         redirect ('daftarulang/cetak');
+    }
+
+}
+
+function check_biodata_ulang()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+    
+    if($x->s_biodata_ulang == 1){
+        return true;
+    } else if($x->s_biodata_ulang == 0){
+        $ci->session->set_flashdata([
+            'msg' => 'Biodata anda belum lengkap, lengkapi biodata anda',
+            'type' => 'info'
+        ]);
+        redirect ('daftarulang/biodata');
+    }
+
+}
+
+function check_daftar_ulang()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+    
+    if($x->s_biodata_ulang == 1 && $x->s_berkas_ulang == 1){
+        $data_up2 = [
+            's_daftar_ulang'   => "1"
+        ];                       
+        $ci->M_Peserta->update($x->id, $data_up2);
+        return true;
+    } else {
+        
     }
 
 }
