@@ -292,8 +292,7 @@ function check_berkas_akhir()
                 ];
 
                 $data2 = [
-                    's_berkas_ulang'   => "1",
-                    's_daftar_ulang'   => "1"
+                    's_berkas_ulang'   => "1"
                 ];
                 
                 $ci->M_Filepsb->update($nik, $data);
@@ -308,6 +307,7 @@ function check_berkas_akhir()
             }
     }
 }
+
 
 function check_open($date)
 {

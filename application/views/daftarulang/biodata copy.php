@@ -11,8 +11,8 @@
                                         <h5 id="nama"></h5>
                                         <span id="nik"></span>
                                     </center>    
-                                    <form id="form-biodata" class="form" method="POST">  
-                                        <input type="hidden" id="checksum" required>                                      
+                                    <form id="form-biodata" class="form" method="POST">                                        
+                                        <input type="hidden" name="s_biodata_ulang" id="s_biodata_ulang" value="1" required>
                                         <div class="divider">
                                             <div class="divider-text">
                                                 <b>Data Diri</b>
@@ -251,7 +251,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label>Nama Wali</label>
-                                                    <input type="text" class="form-control nama_wali" readonly required>
+                                                    <input type="text" name="nama_wali" class="form-control nama_wali" readonly required>
                                                 </div>
                                             </div>                                    
 

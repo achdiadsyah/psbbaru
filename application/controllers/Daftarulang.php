@@ -110,7 +110,42 @@ class Daftarulang extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $checksum = $this->input->post('checksum');
 
-            $this->M_Peserta->update_checksum($checksum, $this->input->post());
+            $data = [
+                's_biodata_ulang'       => $this->input->post('s_biodata_ulang'),
+                'nomor_akte'            => $this->input->post('nomor_akte'),
+                'nomor_kk'              => $this->input->post('nomor_kk'),
+                'nama_panggilan'        => $this->input->post('nama_panggilan'),
+                'agama'                 => $this->input->post('agama'),
+                'negara'                => $this->input->post('negara'),
+                'bahasa_seharihari'     => $this->input->post('bahasa_seharihari'),
+                'kesenian'              => $this->input->post('kesenian'),
+                'olah_raga'             => $this->input->post('olah_raga'),
+                'organisasi'            => $this->input->post('organisasi'),
+                'golongan_darah'        => $this->input->post('golongan_darah'),
+                'penyakit_pernah'       => $this->input->post('penyakit_pernah'),
+                'penyakit_sekarang'     => $this->input->post('penyakit_sekarang'),
+                'kelainan_jasmani'      => $this->input->post('kelainan_jasmani'),
+                'tinggi'                => $this->input->post('tinggi'),
+                'berat_badan'           => $this->input->post('berat_badan'),
+                'saudara_tiri'          => $this->input->post('saudara_tiri'),
+                'saudara_angkat'        => $this->input->post('saudara_angkat'),
+                'nik_ayah'              => $this->input->post('nik_ayah'),
+                'agama_ayah'            => $this->input->post('agama_ayah'),
+                'alamat_ayah'           => $this->input->post('alamat_ayah'),
+                'nik_ibu'               => $this->input->post('nik_ibu'),
+                'agama_ibu'             => $this->input->post('agama_ibu'),
+                'alamat_ibu'            => $this->input->post('alamat_ibu'),
+                'alamat_wali'           => $this->input->post('alamat_wali'),
+            ];
+
+            $insert = $this->M_Peserta->update_checksum($checksum, $this->input->post());
+
+            if ($insert == TRUE) {
+                echo json_encode(array("status" => true, "msg" => 'Berhasil Menyimpan File'));
+            } else {
+                echo json_encode(array("status" => false, "msg" => "Gagal Upload File Ke Database"));
+            }
+
             
         } else {
             exit('Error');
