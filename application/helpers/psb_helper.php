@@ -308,24 +308,7 @@ function check_berkas_akhir()
     }
 }
 
-function check_biodata_ulang()
-{
-    $ci = &get_instance();
-    $id = $ci->session->userdata['id'];
-    $ci->load->model('M_Peserta');
-	$x = $ci->M_Peserta->get($id);
 
-    if($x->s_biodata_ulang == "1"){
-        return true;
-    } else if($x->s_biodata_ulang == "0"){
-        $ci->session->set_flashdata([
-            'msg' => 'Anda Tidak dapat melanjutkan proses ini karena ada kewajiban yang belum anda lengkapi',
-            'type' => 'info'
-        ]);
-        redirect ('daftarulang/biodata');
-    }
-
-}
 
 
 function check_open($date)
