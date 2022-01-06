@@ -119,7 +119,9 @@
                                                 <li>Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah</li>
                                                 <li>Surat Kesanggupan Membiayai</li>
                                                 <li>Surat Tidak Pindah Jurusan</li>
-                                                <li>Bukti Cetak Kelulusan</li>
+                                                <li>Bukti Cetak Kelulusan
+                                                    <br> <a href="<?= base_url('daftarulang/cetak'); ?>" class="btn btn-sm btn-primary">Cetak Bukti Lulus</a>
+                                                </li>
                                                 <li>Pas Photo 3x4 = 5 Lembar (Latar Merah)</li>
                                                 <li>Pas Photo 2x3 = 2 Lembar (Latar Merah)</li>
                                             </ol>
