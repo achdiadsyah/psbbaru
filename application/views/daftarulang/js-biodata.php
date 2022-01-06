@@ -99,12 +99,11 @@
                     type: "POST",
                     url: '<?= base_url('daftarulang/ajax_update_biodata'); ?>',
                     data: jsonObj,
-                    success: function (data,status,xhr) {
+                    success: function (data) {
                         mySwalalert('Berhasil Menyimpan Data', 'success');
                         $('#btnsave').text('Save');
                         $('#btnsave').attr('disabled',false);
                         $('#form-biodata')[0].reset();
-                        location.reload();
                     },
                     error: function(xhr, status, error) {
                         mySwalalert('Gagal Menyimpan Data', 'error');
