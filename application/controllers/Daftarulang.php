@@ -47,7 +47,7 @@ class Daftarulang extends CI_Controller {
     public function cetak()
     {
         check_berkas_akhir();
-        check_biodata_ulang()
+        check_biodata_ulang();
 
         $join    = $this->M_Peserta->get_file($this->session->userdata['nik']);
 
