@@ -68,12 +68,12 @@ $formulir = '
             <td>'.$output->nik.'</td>
         </tr>
         <tr>
-            <td>7. No KK</td>
+            <td>7. Nomor KK</td>
             <td>:</td>
             <td>'.$output->nomor_kk.'</td>
         </tr>
         <tr>
-            <td>8. No AKTE</td>
+            <td>8. Nomor AKTE</td>
             <td>:</td>
             <td>'.$output->nomor_akte.'</td>
         </tr>
