@@ -50,6 +50,7 @@
                             beforeSend: function() {
                                 btn.attr('disabled',true);
                                 btn.html('Uploading...');
+                                $("body").css("cursor", "progress");
                             },
                             success: function(data){
                                 const objdata = JSON.parse(data);
@@ -63,9 +64,10 @@
 
                                     $.ajax({
                                         type: "POST",
-                                        url: '<?= base_url('daftarulang/ajax_update'); ?>',
+                                        url: '<?= base_url('daftarulang/ajax_update_file'); ?>',
                                         data: datajson,
                                         success: function (data2) {
+                                            $("body").css("cursor", "default");
                                             const objdata2 = JSON.parse(data2);
                                             mySwalalert(objdata2.msg, 'success');
                                             btn.attr('disabled',false);
@@ -112,7 +114,7 @@
 
         function show_file(key_value){
 
-            var url = "https://cdn.ruhulislam.com/uploads/"+key_value;
+            var url = "<?= cdn_file(); ?>uploads/"+key_value;
             
             newwindow=window.open(url,'View File','height=720,width=1280');
                 if (window.focus) {newwindow.focus()}
@@ -141,8 +143,8 @@
                                 var ss = 
                                 '<center>'
                                     +'<h1><i class="fas fa-check"></i></h3>'
-                                    +'<p>Sudah Upload</p>'
-                                    +'<button class="btn btn-success btn-sm" type="button" onClick="show_file('+"'"+link+"'"+')">Lihat File</button>'
+                                    +'<p>File Sudah Upload</p>'
+                                    +'<span class="badge bg-success" onClick="show_file('+"'"+link+"'"+')" type="button">Lihat File</span>'
                                 +'</center>';
                             }
 

@@ -132,6 +132,25 @@ function check_lulus_adm()
 
 }
 
+function check_biodata_ulang()
+{
+    $ci = &get_instance();
+    $id = $ci->session->userdata['id'];
+    $ci->load->model('M_Peserta');
+	$x = $ci->M_Peserta->get($id);
+    
+    if($x->s_biodata_ulang == 0){
+        return true;
+    } else if($x->s_biodata_ulang == 1){
+        $ci->session->set_flashdata([
+            'msg' => 'Biodata anda sudah lengkap, lanjut cetak berkas validasi',
+            'type' => 'info'
+        ]);
+        redirect ('daftarulang/cetak');
+    }
+
+}
+
 function check_cetak()
 {
     $ci = &get_instance();
@@ -250,8 +269,7 @@ function check_berkas_akhir()
 	$y = $ci->M_Filepsb->get_by_nik($nik)->result();
 
     foreach ($y as $key) {
-        if (
-            $key->struk !== "" &&
+        if (            
             $key->struk_daftarulang !== "" &&
             $key->kk !== "" &&
             $key->akte !== "" &&
@@ -267,17 +285,23 @@ function check_berkas_akhir()
             $key->bpjs !== "" &&
             $key->surat_tidakpindahjurusan !== "" &&
             $key->ktp_ayah !== "" &&
-            $key->kp_ibu !== ""
+            $key->ktp_ibu !== ""
             ){
-                $data_up = [
+                $data = [
                     'status'   => "1"
                 ];
+
+                $data2 = [
+                    's_berkas_ulang'   => "1",
+                    's_daftar_ulang'   => "1"
+                ];
                 
-                $ci->M_Filepsb->update($nik, $data_up);
+                $ci->M_Filepsb->update($nik, $data);
+                $ci->M_Peserta->update_nik($nik, $data2);
                 
             } else {
                 $ci->session->set_flashdata([
-                    'msg' => 'Anda Tidak dapat melanjutkan proses ini untuk sementara waktu',
+                    'msg' => 'Anda Tidak dapat melanjutkan proses ini karena ada kewajiban yang belum anda lengkapi',
                     'type' => 'info'
                 ]);
                 redirect ('daftarulang/berkas');
@@ -677,5 +701,40 @@ function what_akademik($kode)
         return "NON-AKADEMIK";
         break;
         }
+}
+
+function is_yatim($status)
+{
+    switch ($status)
+    {
+        case "masih":
+        return "-";
+        break;
+        case "meninggal":
+        return "Yatim";
+        break;
+    }
+}
+
+function is_piatu($status)
+{
+    switch ($status)
+    {
+        case "masih":
+        return "-";
+        break;
+        case "meninggal":
+        return "Piatu";
+        break;
+    }
+}
+
+function is_uploaded($data)
+{
+    if($data !== ""){
+        return "UPLOADED";
+    } else {
+        return "FILE NOT FOUND";
+    }
 }
 ?>

@@ -4,7 +4,7 @@
                         <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Bukti Pelunasan Daftar Ulang</h5>
                                 </div>
                                 <div class="card-body">
@@ -25,7 +25,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Kartu Keluarga (KK)</h5>
                                 </div>
                                 <div class="card-body">
@@ -46,7 +46,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Akte Kelahiran</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -67,7 +67,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">KTP Ayah</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -88,7 +88,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">KTP Ibu</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -109,7 +109,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">KTP Wali (Tidak Wajib)</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -130,7 +130,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Surat Sehat</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -151,7 +151,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Surat Pernyataan</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -172,7 +172,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Surat Sanggup Membiayai</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -193,7 +193,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">Surat Tidak Pindah Jurusan</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -214,7 +214,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">KIP-Kartu Indonesia Pintar (Tidak Wajib)</h5>
                                 </div>
                                 <div class="card-body">                                    
@@ -235,7 +235,7 @@
 
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <h5 class="card-title">ASKES / BPJS</h5>
                                 </div>
                                 <div class="card-body">                                    
