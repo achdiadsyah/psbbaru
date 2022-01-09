@@ -47,6 +47,8 @@ class Pengumuman extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $data = [
                 'jalur'         =>  'reguler',
+                'jurusan'       => '',
+                'no_ujian'      => '',
                 'jadwal_ujian'  => NULL,
                 'ruang_cat'     => '',
                 'sesi_cat'      => '',
