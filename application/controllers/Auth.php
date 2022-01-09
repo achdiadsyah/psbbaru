@@ -101,7 +101,7 @@ class Auth extends CI_Controller {
                     'nama'              =>  strtoupper($nama),
                     'no_telepon'        =>  $no_telepon,
                     'password'          =>  password_hash($password, PASSWORD_DEFAULT),
-                    'jalur_awal'             =>  $jalur,
+                    'jalur_awal'        =>  $jalur,
                     'jalur'             =>  $jalur,
                     'ujian_via'         =>  'offline',
                     's_akademik'        =>  '0',
@@ -114,7 +114,7 @@ class Auth extends CI_Controller {
                 ];
 
                 $data2 = [
-                    'nik'           => $nik,
+                    'nik'               => $nik,
                 ];
 
                 $pesan_wa = "Assalamualaikum..".urldecode('%0A').
@@ -162,8 +162,7 @@ class Auth extends CI_Controller {
                     ];
     
                     $data2 = [
-                        'nik'           => $nik,
-                        'struk'         => "undangan.jpg"
+                        'nik'               => $nik,
                     ];
     
                     $pesan_wa = "Assalamualaikum..".urldecode('%0A').

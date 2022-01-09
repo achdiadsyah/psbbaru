@@ -6,6 +6,7 @@ class Pengumuman extends CI_Controller {
     {
 		parent::__construct();
         $this->load->model('M_Peserta');
+        $this->load->model('M_Filepsb');
     }
 
 	public function reguler()
@@ -61,8 +62,14 @@ class Pengumuman extends CI_Controller {
                 's_lulus'       =>  '0',
             ];
 
-            $payload = $this->M_Peserta->update_nik($nik, $data);
-            if ($payload)
+            $data2 = [
+                'struk'         => '',
+            ];
+
+            $payload1 = $this->M_Filepsb->update($nik, $data2);
+            $payload2 = $this->M_Peserta->update_nik($nik, $data);
+
+            if ($payload1 && $payload2)
             {
                 echo json_encode(array("status" => true));
             } else {
