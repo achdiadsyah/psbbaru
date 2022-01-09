@@ -2,8 +2,8 @@
 
 function cdn_file($path = NULL)
 {
-    // return "https://cdn.ruhulislam.com/".$path;
-    return "http://localhost/cdn/".$path;
+    return "https://cdn.ruhulislam.com/".$path;
+    //return "http://localhost/cdn/".$path;
 
 }
 
