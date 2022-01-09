@@ -43,7 +43,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
                                                         <div class="position-relative">
-                                                            <input type="number" class="form-control" placeholder="Nomor Whatsapp" id="no_telepon" name="no_telepon" required>
+                                                            <input type="number" class="form-control" placeholder="Nomor Whatsapp" id="no_telepon" name="no_telepon"  autocomplete="off" required>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-phone"></i>
                                                             </div>
@@ -169,7 +169,7 @@
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
                                                         <div class="position-relative">
-                                                            <input type="number" class="form-control" placeholder="Nomor Whatsapp" id="no_telepon" name="no_telepon" required>
+                                                            <input type="number" class="form-control" placeholder="Nomor Whatsapp" id="no_telepon" name="no_telepon"  autocomplete="off" required>
                                                             <div class="form-control-icon">
                                                                 <i class="bi bi-phone"></i>
                                                             </div>
