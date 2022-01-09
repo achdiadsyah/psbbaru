@@ -2,7 +2,7 @@
     <script>
         $(document).ready(function(){
             doAjax();
-            setInterval(doAjax, 15000);
+            setInterval(doAjax, 10000);
         });
 
         function doAjax() {
@@ -12,6 +12,7 @@
                 dataType : 'json',
                 beforeSend: function()
                 {
+                    $("body").css("cursor", "progress");
                     Swal.fire({
                         title: "<div class='spinner-border text-primary' role='status'></div>",
                         html: "Mendapatkan Status Jadwal Ujian",
@@ -23,7 +24,7 @@
                     });
                 },
                 success: function(data){
-
+                    $("body").css("cursor", "default");
                     var html = '<option value="">-Silahkan Pilih Jadwal-</option>';
                     var i;
                     for(i=0; i<data.result.length; i++){
@@ -52,12 +53,13 @@
                 $('#btnsave').attr('disabled',true); //set button disable
                 
                 var jsonObj = $('#form-jadwal').serialize();
-                
+                $("body").css("cursor", "progress");
                 $.ajax({
                     type: "POST",
                     url: '<?= base_url('cetak/ajax_save_jadwal'); ?>',
                     data: jsonObj,
                     success: function (data,status,xhr) {
+                        $("body").css("cursor", "default");
                         mySwalalert('Berhasil Menyimpan Data', 'success');
                         $('#btnsave').text('Save');
                         $('#btnsave').attr('disabled',false);

@@ -4,6 +4,7 @@
                             <div class="card">
                                 <div class="card-body">
                                 <?php if(check_close(psb_detail("buka_daftar_undangan"), psb_detail("tutup_daftar_undangan")) == "Open"): ?>
+                                    
                                     <form class="form form-horizontal" action="<?= base_url('auth/do_register'); ?>" method="post">
                                         <div class="form-body">
                                             <div class="row">
@@ -126,7 +127,9 @@
                                             </div>
                                         </div>
                                     </form>
+
                                 <?php elseif(check_close(psb_detail("buka_daftar_reguler"), psb_detail("tutup_daftar_reguler")) == "Open"): ?>
+                                    
                                     <form class="form form-horizontal" action="<?= base_url('auth/do_register'); ?>" method="post">
                                         <div class="form-body">
                                             <div class="row">
@@ -195,12 +198,15 @@
                                             </div>
                                         </div>
                                     </form>
+
                                 <?php else: ?>
+
                                     <center>
                                         <p class="lead">Pendaftaran Jalur Reguler Belum di Buka, atau Jalur Undangan sudah di TUTUP</p>
                                         <p>Tanggal Daftar Reguler : <b><?= date_indo(psb_detail("buka_daftar_reguler")); ?></b></p>
                                     </center>
                                     <p><small class="text-muted">Sudah Punya Akun ?, <a href="<?= base_url('auth/login'); ?>">Silahkan Login</a></small></p>
+                                    
                                 <?php endif; ?>
                                 </div>
                             </div>

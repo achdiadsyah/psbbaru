@@ -348,9 +348,6 @@ function check_berkas_akhir()
     }
 }
 
-
-
-
 function check_open($date)
 {
     $date_now = date("Y-m-d");
@@ -448,9 +445,7 @@ function arr_jadwal_reguler()
     
     $x1 = strtotime(psb_detail('buka_tes_reguler'));
     $x2 = strtotime(psb_detail('tutup_tes_reguler'));
-
-    // Use for loop to store dates into array
-    // 86400 sec = 24 hrs = 60*60*24 = 1 day
+   
     for ($currentDate = $x1; $currentDate <= $x2;
         $currentDate += (86400)) {
         $Store = date('Y-m-d', $currentDate);
@@ -485,7 +480,7 @@ function get_cat($tanggal)
 {
     $ci = &get_instance();
     $ci->load->model('M_Peserta');
-	$jumlahCat = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows();
+	$jumlahCat = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows() + 1;
     
     if($jumlahCat <= "40" ){
         $result = [
@@ -536,7 +531,7 @@ function get_lisan($tanggal)
 {
     $ci = &get_instance();
     $ci->load->model('M_Peserta');
-	$jumlahLisan = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows();
+	$jumlahLisan = $ci->M_Peserta->get_by_jadwal($tanggal)->num_rows() + 1;
     
 
     // SESI 1

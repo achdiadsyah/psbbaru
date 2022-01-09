@@ -10,9 +10,9 @@
                                 <div class="card-body">
                                     <center>
                                         <p class="lead">Anda harus memilih jadwal ujian, sebelum mencetak kartu</p>
-                                        <p>Jadwal hanya dapat di pilih sekali, dan tidak dapat di rubah <br>Pastikan anda memilih jadwal dengan benar</p>
+                                        <h5>Jadwal hanya dapat di pilih sekali, dan tidak dapat di rubah <br>Pastikan anda memilih jadwal dengan benar</h5>
 
-                                        <p class="lead">Waktu Anda 15 Detik</p>
+                                        <h5>Waktu Anda 10 Detik</h5>
                                     </center>
                                     <form method="post" class="form-horizontal" id="form-jadwal">
                                         <div class="form-group">
@@ -31,6 +31,7 @@
                                                 <?php endif; ?>
                                             </select>
                                         </div>
+                                       
                                         <div class="form-group">
                                             <label for="jadwal_ujian">Pilih Jadwal Ujian</label>
                                             <select name="jadwal_ujian" id="jadwal_ujian" class="form-control" required>

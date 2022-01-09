@@ -4,7 +4,7 @@
                     ?>
                     <section class="row">
                         <div class="col-12 col-lg-12">
-                            <p>Assalamua'laikum, <?= $user->nama; ?></p>
+                            <p>Assalamua'laikum, <?= $user->nama; ?></p>                        
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="card">

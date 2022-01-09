@@ -54,7 +54,7 @@ class Cetak extends CI_Controller {
                 } else {
                     $keys = $key; 
                     $status = '';
-                    $msg = " - ".$countjadwal." Peserta";
+                    $msg = " - (".$countjadwal." Peserta)";
                 }
 
                 $data []= [
