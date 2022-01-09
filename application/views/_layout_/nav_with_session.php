@@ -1,14 +1,6 @@
 
                                 <li
                                     class="menu-item  ">
-                                    <a href="<?= base_url('pembayaran'); ?>" class='menu-link'>
-                                        <i class="bi bi-wallet-fill"></i>
-                                        <span>Pembayaran</span>
-                                    </a>
-                                </li>
-
-                                <li
-                                    class="menu-item  ">
                                     <a href="<?= base_url('biodata'); ?>" class='menu-link'>
                                         <i class="bi bi-pen-fill"></i>
                                         <span>Biodata</span>

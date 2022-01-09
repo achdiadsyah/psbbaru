@@ -473,9 +473,9 @@ function get_noujian($jurusan)
     $ci = &get_instance();
     $ci->load->model('M_Peserta');
 	$urutan = $ci->M_Peserta->get_by_jurusan($jurusan)->num_rows();
-    $urutan = $urutan + 1;
+    $nomor = $urutan + 1;
 
-    $kode = sprintf("%03s", $urutan);
+    $kode = sprintf("%03s", $nomor);
     $no_ujian = $jurusan."-".$kode;
 
     return $no_ujian;

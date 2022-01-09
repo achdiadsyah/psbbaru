@@ -11,7 +11,7 @@
                                         <?php if ($user->s_lulus_adm == "1"): ?>
                                             <div id="lulus">
                                                 <center>
-                                                    <p class="lead">Selamat!! Anda di nyatakan <br><span class="badge bg-success">LULUS</span></p>
+                                                    <p class="lead">Selamat!! Anda di nyatakan <br><span class="badge bg-success">LULUS SELEKSI BERKAS</span></p>
                                                     <br/>
                                                     <p>Silahkan Lakukan Cetak Berkas, Pada Menu <a href="<?= base_url('cetak'); ?>">Cetak Berkas</a></p>
                                                     <p>Terima Kasih</p>

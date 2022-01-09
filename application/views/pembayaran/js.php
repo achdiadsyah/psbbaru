@@ -106,4 +106,13 @@
             });
             return false;
         }
+
+        function show_file(key_value){
+
+        var url = "<?= cdn_file(); ?>uploads/"+key_value;
+
+        newwindow=window.open(url,'View File','height=720,width=1280');
+            if (window.focus) {newwindow.focus()}
+        return false;
+        }
         </script>
