@@ -115,8 +115,6 @@ class Auth extends CI_Controller {
 
                 $data2 = [
                     'nik'           => $nik,
-                    'struk'         => "-",
-                    'status'        => '0'
                 ];
 
                 $pesan_wa = "Assalamualaikum..".urldecode('%0A').
@@ -165,8 +163,7 @@ class Auth extends CI_Controller {
     
                     $data2 = [
                         'nik'           => $nik,
-                        'struk'         => "undangan.jpg",
-                        'status'        => '0'
+                        'struk'         => "undangan.jpg"
                     ];
     
                     $pesan_wa = "Assalamualaikum..".urldecode('%0A').

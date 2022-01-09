@@ -22,55 +22,16 @@ class Pembayaran extends CI_Controller {
         echo $this->template->views($data);
 	}
 
-    function ajax_upload()
+    function ajax_update($nik)
     {
-        $upload_image = $_FILES['file']['name'];
-        $nik = $this->input->post('nik');
-        if ($upload_image != NULL) {
-            $cfg['upload_path']          = './uploads/struk/';
-            $cfg['allowed_types']        = 'jpg|jpeg|png|jfif|gif';
-            $cfg['max_size']             = '5012';
-            $cfg['encrypt_name']         = TRUE;
-    
-            $this->load->library('upload', $cfg);
-    
-            if ($this->upload->do_upload('file')){
-    
-                $namafile = $this->upload->data('file_name');
-                
-                $config['image_library']='gd2';
-                $config['source_image']= './uploads/struk/'.$namafile;
-                $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= TRUE;
-                $config['quality']= '100%';
-                $config['width']= 1000;
-                $config['new_image']= './uploads/struk/'.$namafile;
-                $this->load->library('image_lib');
-                
-                $this->image_lib->initialize($config);
-
-                $this->image_lib->resize();
-    
-                    $data = [
-                        'struk'=> $namafile,
-                    ];  
-
-                    $data2 = [
-                        's_payment'=> '3',
-                    ];  
-                    $insert = $this->M_Filepsb->update($nik, $data);
-                    $insert2 = $this->M_Peserta->update_nik($nik, $data2);
-                    if ($insert && $insert2) {
-                        echo json_encode(array("status" => true, "msg" => "Berhasil Upload Gambar Dan Ke Database"));
-                    } else {
-                        echo json_encode(array("status" => false, "msg" => "Gagal Upload Gambar Dan Ke Database"));
-                    }
-                      
-            } else {
-                echo json_encode(array("status" => false, "msg" => $this->upload->display_errors()));
-            }
+        $data2 = [
+            's_payment'=> '3',
+        ];  
+        $insert = $this->M_Peserta->update_nik($nik, $data2);
+        if ($insert) {
+            echo json_encode(array("status" => true));
         } else {
-            echo json_encode(array("status" => false, "msg" => "Error"));
+            echo json_encode(array("status" => false));
         }
     }
 
@@ -80,7 +41,7 @@ class Pembayaran extends CI_Controller {
             $get = $this->M_Filepsb->get_by_nik($nik)->row();
 
             $get2 = $this->M_Peserta->get_by_nik($nik)->row();
-            if ($get->struk == "-"){
+            if ($get->struk == NULL){
                 echo json_encode(array('status' => false, 'message' => "Silahkan Upload Slip Transfer Anda"));
             } elseif ($get->struk == "undangan.jpg"){
                 echo json_encode(array('status' => false, 'message' => "Jalur Undangan, Tidak perlu upload bukti pembayaran"));

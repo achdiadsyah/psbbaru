@@ -25,14 +25,6 @@
 
                                 <li
                                     class="menu-item  ">
-                                    <a href="<?= base_url('pengumuman/adm'); ?>" class='menu-link'>
-                                        <i class="bi bi-file-fill"></i>
-                                        <span>Pengumuman ADM</span>
-                                    </a>
-                                </li>
-
-                                <li
-                                    class="menu-item  ">
                                     <a href="<?= base_url('cetak'); ?>" class='menu-link'>
                                         <i class="bi bi-printer-fill"></i>
                                         <span>Cetak Kartu Ujian</span>

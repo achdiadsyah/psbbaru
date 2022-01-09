@@ -17,11 +17,22 @@ class Berkas extends CI_Controller {
 
 	public function index()
 	{
-		$data = [
-            'title'     => 'Upload File dan Berkas',
-            'content'   => 'berkas/index',
-            'costum_js'   => 'berkas/js'
-        ];
+        $user = $this->M_Peserta->get($this->session->userdata['id']);
+
+        if($user->jalur == "undangan"){
+            $data = [
+                'title'     => 'Upload File dan Berkas',
+                'content'   => 'berkas/undangan',
+                'costum_js'   => 'berkas/js'
+            ]; 
+        } elseif($user->jalur == "reguler") {
+            $data = [
+                'title'     => 'Upload File dan Berkas',
+                'content'   => 'berkas/reguler',
+                'costum_js'   => 'berkas/js'
+            ]; 
+        }
+        
         echo $this->template->views($data);
 	}
 

@@ -15,7 +15,8 @@
         function save(target){
             var form = $('#form_'+target)[0];
             var btn = $('#btnSave_'+target);
-            var formData = new FormData(form);
+            var formData = new FormData(form);                  
+
             $(form).validate({
                 highlight: function (element) {
                     $(element).addClass('is-invalid');
@@ -25,127 +26,104 @@
                 }
             });
             if($(form).valid()){
-                $.ajax({
-                    url: "<?php echo base_url('berkas/ajax_upload/') ?>"+target,
-                    type:"POST",
-                    data:formData,
-                    mimeType: "multipart/form-data",
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    beforeSend: function() {
-                        btn.attr('disabled',true);
-                        btn.html('Uploading...');
-                    },
-                    success: function(data){
-                        const obj = JSON.parse(data);
-                        var res = obj.msg;
-                        if (obj.status == true){
-                            mySwalalert(res, 'success');
-                            btn.attr('disabled',false);
-                            btn.html('Upload');
-                            getStatus();
-                        } else {
-                            mySwalalert(res, 'error');
-                            btn.attr('disabled',false);
-                            btn.html('Upload');
-                            form.reset();
-                            getStatus();
-                        }
-                        
+                Swal.fire({
+                title: 'Anda Yakin File Sudah Benar ?',
+                html: "Data yang di upload, tidak dapat di hapus",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, upload it!'
+                }).then((result) => {
+                    if (result.value) {                  
+                        $.ajax({
+                            url: "<?php echo cdn_file('file/upload/') ?>",
+                            type:"POST",
+                            data:formData,
+                            mimeType: "multipart/form-data",
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            beforeSend: function() {
+                                btn.attr('disabled',true);
+                                btn.html('Uploading...');
+                                $("body").css("cursor", "progress");
+                            },
+                            success: function(data){
+                                const objdata = JSON.parse(data);
+                                if (objdata.status == true){
 
-                    },error: function (jqXHR, textStatus, errorThrown){
+                                    $("body").css("cursor", "default");
+                                    const objdata = JSON.parse(data);
+                                    mySwalalert(objdata.msg, 'success');
+                                    btn.attr('disabled',false);
+                                    btn.html('Upload');
+                                    getStatus();
 
-                        mySwalalert('Gagal Upload Data', 'error');
-                    },
-                });
+                                } else {
+
+                                    $("body").css("cursor", "default");
+                                    mySwalalert(objdata.msg, 'error');
+                                    btn.attr('disabled',false);
+                                    btn.html('Upload');
+                                    form.reset();
+                                    getStatus();
+                                }
+
+                            },error: function (jqXHR, textStatus, errorThrown){
+                                
+                                $("body").css("cursor", "default");
+                                mySwalalert('Gagal Upload Data', 'error');
+                                btn.attr('disabled',false);
+                                btn.html('Upload');
+                                form.reset();
+                                getStatus();
+                            },
+                        });
+                    }
+                })
             }else{
                 mySwalalert('Anda Belum Memilih File', 'info');
             }
             return false;  
         }
 
-
-        function delete_file(key_value){
-            var explode = key_value.split("/");
-            Swal.fire({
-                title: 'Anda Yakin Hapus File ini ?',
-                html: "Data yang di hapus, tidak dapat di pulihkan",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.value) {                    
-                    $.ajax({
-                        url : "<?= base_url('berkas/delete_file/') ?>"+key_value,
-                        type: "POST",
-                        data:{
-                            folder: explode[0],
-                            file: explode[1],
-                        },
-                        dataType: "JSON",
-                        success: function(data)
-                        {
-                            if(data.status == true){
-                                mySwalalert('Berhasil Menghapus Data', 'success');
-                                location.reload();
-                            } else if(data.status == "forbiden"){
-                                mySwalalert('Dilarang Menghapus File, karena berkas sudah di cetak', 'warning');
-                            } else {
-                                mySwalalert('Gagal Menghapus Data', 'error');
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown)
-                        {
-                            mySwalalert('Gagal Menghapus Data', 'error');
-                        }
-                    });
-                }
-            })
-        }
-
         function show_file(key_value){
 
-            const myArray = key_value.split(".");
-
-            if (myArray[1] == "pdf"){
-                var myImageLink = "<?= base_url('uploads/');?>"+key_value;
-                window.open(myImageLink);
-            } else {
-                var myImageLink = "<?= base_url('uploads/');?>"+key_value;
-                var html = '<center><img src="'+myImageLink+'" alt="popup" width="40%"></center>';
-                $(".modal-body").html(html);
-                $('#modalImage').modal('show');
-            }
+            var url = "<?= cdn_file(); ?>uploads/"+key_value;
+            
+            newwindow=window.open(url,'View File','height=720,width=1280');
+                if (window.focus) {newwindow.focus()}
+            return false;
         }
 
         function getStatus()
         {
+            var ses_nik = $("#sesnik").val();
             $.ajax({
-                url : "<?= base_url('berkas/get_status/');?>",
-                method : "GET",
+                url : "<?= cdn_file('file/get_by_nik/');?>",
+                method : "POST",
                 async : true,
-                dataType : 'json',
+                data : {nik: ses_nik},
                 success: function(data){
                     
-                    $.each( data, function( key, value ) {
+                    $.each( data.result, function( key, value ) {
                         if (value !== ""){
                             var link = key+"/"+value;
                             if (value == "no_image.jpg"){
                                 var ss = 
-                                '<div class="input-group">'
-                                    +'<input type="text" class="form-control" value="Tidak Perlu Upload" readonly>'
-                                +'</div>';
+                                '<center>'
+                                    +'<h1><i class="fas fa-check"></i></h3>'
+                                    +'<p>Tidak Perlu Upload</p>'
+                                +'</center>';
                             } else {
                                 var ss = 
-                                '<div class="input-group">'
-                                    +'<button class="btn btn-success" type="button" onClick="show_file('+"'"+link+"'"+')">Lihat File</button>'
-                                    +'<input type="text" class="form-control" value="File Sudah Di Upload" readonly>'
-                                    +'<button class="btn btn-danger" type="button" onClick="delete_file('+"'"+link+"'"+')">Hapus File</button>'
-                                +'</div>';
+                                '<center>'
+                                    +'<h1><i class="fas fa-check"></i></h3>'
+                                    +'<p>File Sudah Upload</p>'
+                                    +'<span class="badge bg-success" onClick="show_file('+"'"+link+"'"+')" type="button">Lihat File</span>'
+                                +'</center>';
                             }
 
                             var keys = "#result_"+key;

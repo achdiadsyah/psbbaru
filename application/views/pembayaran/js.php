@@ -6,7 +6,9 @@
 
         function save(){
             var form = $('#form')[0];
+            var btn = $('#btnSave');
             var formData = new FormData(form);
+            var nik = $('#nik').val()
             $("#form").validate({
                 highlight: function (element) {
                     $(element).addClass('is-invalid');
@@ -17,7 +19,7 @@
             });
             if($("#form").valid()){
                 $.ajax({
-                    url: "<?php echo base_url('pembayaran/ajax_upload') ?>",
+                    url: "<?php echo cdn_file('file/upload/') ?>",
                     type:"POST",
                     data:formData,
                     mimeType: "multipart/form-data",
@@ -26,30 +28,54 @@
                     cache: false,
                     timeout: 600000,
                     beforeSend: function() {
-                        $('#btnSave').attr('disabled',true);
-                        $('#btnSave').html('Uploading...');
+                        btn.attr('disabled',true);
+                        btn.html('Uploading...');
+                        $("body").css("cursor", "progress");
                     },
                     success: function(data){
-                        const obj = JSON.parse(data);
-                        var res = obj.message;
-                        if (obj.status == true){
-                            mySwalalert('Berhasil Upload Data', 'success');
-                            $('#btnSave').attr('disabled',false);
-                            $('#btnSave').html('Upload');
-                            form.reset();
-                            getStatus();
+                        const objdata = JSON.parse(data);
+                        if (objdata.status == true){
+
+                            $.ajax({
+                                type: "GET",
+                                url: '<?= base_url('pembayaran/ajax_update/'); ?>'+nik,
+                                success: function (data2) {
+                                    $("body").css("cursor", "default");
+                                    mySwalalert(objdata.msg, 'success');
+                                    btn.attr('disabled',false);
+                                    btn.html('Upload');
+                                    form.reset();
+                                    getStatus();
+
+                                },error: function (jqXHR, textStatus, errorThrown){
+                                    $("body").css("cursor", "default");
+                                    mySwalalert(objdata2.msg, 'error');
+                                    btn.attr('disabled',false);
+                                    btn.html('Upload');
+                                    form.reset();
+                                    getStatus();
+
+                                }
+                            });
+
                         } else {
-                            mySwalalert('Gagal Upload Data', 'error');
-                            $('#btnSave').attr('disabled',false);
-                            $('#btnSave').html('Upload');
+
+                            $("body").css("cursor", "default");
+                            mySwalalert(objdata.msg, 'error');
+                            btn.attr('disabled',false);
+                            btn.html('Upload');
                             form.reset();
                             getStatus();
                         }
-                        
 
                     },error: function (jqXHR, textStatus, errorThrown){
-
+                        
+                        $("body").css("cursor", "default");
                         mySwalalert('Gagal Upload Data', 'error');
+                        btn.attr('disabled',false);
+                        btn.html('Upload');
+                        form.reset();
+                        getStatus();
                     },
                 });
             }else{

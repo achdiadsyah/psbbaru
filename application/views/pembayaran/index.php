@@ -16,6 +16,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <form action="#" id="form" enctype="multipart/form-data">
+                                                        <input type="hidden" name="tujuan" id="tujuan" value="struk" required>
                                                         <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                                         <fieldset>
                                                             <div class="input-group d-none" id="input_file">

@@ -140,18 +140,15 @@ $tanda_tangan = '
      <br />
      <p style="border: 1px solid black;"><b> Mekanisme calon santri yang akan mengikuti tes :</b>
      <ol>
-          <li>Calon santri wajib login atau hadir 30 menit sebelum jadwal tes dilaksanakan</li>
-          <li>Calon santri menyerahkan berkas yang telah disiapkan ke panitia di lokasi ujian.
+          <li>Calon santri wajib hadir 20 menit sebelum jadwal tes dilaksanakan</li>
+          <li>Calon santri harap membawa:
             <ul>
-                <li>Fotokopi rapor MTs/SMP semester 1,2,3 dan 4 yang telah di legalisir</li>
-                <li>Surat Keterangan peringakat kelas dari sekolah/madrasah (Jika Ada)</li>
-                <li>Melampirkan fotokopi sertifikat prestasi akademik dan non akademik (Jika Ada)</li>
-                <li>Pas Photo Warna 3x4 sebanyak 2 Lembar</li>
-                <li>Membawa Seluruh Berkas yang telah di cetak dan blangko wawancara wali santri yang telah di isi</li>
-                <li>Membawa Slip kwitansi atau bukti pembayaran</li>
+                <li>Raport Asli</li>
+                <li>Sertifikat Asli (Jika Ada)</li>
+                <li>Surat Keterangan (SK) Peringkat (Jika Ada)</li>
             </ul>
           </li>
-          <li>Demi menghindari kerumunan massa, wali santri dilarang duduk berkelompok dan menciptakan kerumunan.</li>
+          <li>Demi menghindari kerumunan masa, wali santri dilarang duduk berkelompok dan menciptakan kerumunan.</li>
           <li>Calon santri dan wali santri wajib berpakaian rapi :
             <ul>
                 <li>Putra : Celana Kain, Kemeja/koko/batik dan peci</li>
