@@ -1,25 +1,19 @@
 <script>
         $(document).ready(function(){
 
-            $('#jalur').change(function(){
-                if($(this).val() == 'undangan'){
-                    $('#kode_title').removeClass('d-none');
-                    $('#kode_form').removeClass('d-none');
-                        
-                    $('#akademi_title').removeClass('d-none');
-                    $('#akademi_form').removeClass('d-none');
-
-                    $("#kode_undangan").prop('required',true);
-                    $("#s_akademik").prop('required',true);
-                } else  {
-                    $('#kode_title').addClass('d-none');
-                    $('#kode_form').addClass('d-none');
-
-                    $('#akademi_title').addClass('d-none');
-                    $('#akademi_form').addClass('d-none');
-                    
-                    $("#kode_undangan").prop('required',false);
-                    $("#s_akademik").prop('required',false);
+            $('#nik').change(function(){
+                var niklength = $(this).val().length;
+                if (niklength < 16){
+                    $(this).addClass('is-invalid');
+                    $(this).removeClass('is-valid');
+                    mySwalalert('NIK Anda Kurang dari 16 Digit', 'info');
+                } else if (niklength > 16){
+                    $(this).addClass('is-invalid');
+                    $(this).removeClass('is-valid');
+                    mySwalalert('NIK Anda tidak boleh lebih dari 16 Digit', 'info');
+                } else {
+                    $(this).addClass('is-valid');
+                    $(this).removeClass('is-invalid');
                 }
             });
 
