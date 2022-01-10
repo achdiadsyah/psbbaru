@@ -1,7 +1,7 @@
                     
-                    
+                                      
                     <section class="row">
-                        <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
+                        
                         <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
@@ -10,6 +10,8 @@
                                 <div class="card-body">
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_struk_daftarulang" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="struk_daftarulang" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_struk_daftarulang">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -31,6 +33,8 @@
                                 <div class="card-body">
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_kk" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="kk" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_kk">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -52,6 +56,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_akte" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="akte" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_akte">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -73,6 +79,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_ktp_ayah" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="ktp_ayah" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_ktp_ayah">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -94,6 +102,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_ktp_ibu" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="ktp_ibu" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_ktp_ibu">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -115,6 +125,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_ktp_wali" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="ktp_wali" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_ktp_wali">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -136,6 +148,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_surat_sehat" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="surat_sehat" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_surat_sehat">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -157,6 +171,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_surat_pernyataan" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="surat_pernyataan" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_surat_pernyataan">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -178,6 +194,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_surat_kesanggupan" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="surat_kesanggupan" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_surat_kesanggupan">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -199,6 +217,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_surat_tidakpindahjurusan" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="surat_tidakpindahjurusan" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_surat_tidakpindahjurusan">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -220,6 +240,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_kip" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="kip" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_kip">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
@@ -241,6 +263,8 @@
                                 <div class="card-body">                                    
                                     <div class="col-md-12 mb-2">
                                         <form action="#" id="form_bpjs" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="bpjs" required>
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>
                                             <div class="form-group" id="result_bpjs">                                                    
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
