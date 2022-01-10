@@ -327,15 +327,13 @@ function check_berkas_akhir()
             $key->ktp_ayah !== "" &&
             $key->ktp_ibu !== ""
             ){
-                $data = [
-                    'status'   => "1"
-                ];
+                
 
                 $data2 = [
                     's_berkas_ulang'   => "1"
                 ];
                 
-                $ci->M_Filepsb->update($nik, $data);
+                
                 $ci->M_Peserta->update_nik($nik, $data2);
                 
             } else {
