@@ -97,6 +97,9 @@ class Auth extends CI_Controller {
 
                 $data = [
                     'nik'               =>  $nik,
+                    'jurusan'           =>  "",
+                    'minat'             =>  "",
+                    'no_ujian'          =>  "",
                     'checksum'          =>  my_checksum($nik),
                     'nama'              =>  strtoupper($nama),
                     'no_telepon'        =>  $no_telepon,
