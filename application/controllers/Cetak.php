@@ -80,10 +80,10 @@ class Cetak extends CI_Controller {
                     'jurusan'       => $this->input->post('jurusan'),
                     'no_ujian'      => get_noujian($this->input->post('jurusan')),
                     'jadwal_ujian'  => $jadwal,
-                    'ruang_cat'     => get_cat($jadwal)['ruang_cat'],
-                    'sesi_cat'      => get_cat($jadwal)['sesi_cat'],
-                    'ruang_lisan'   => get_lisan($jadwal)['ruang_lisan'],
-                    'sesi_lisan'    => get_lisan($jadwal)['sesi_lisan'],
+                    'ruang_cat'     => get_catlisan($jadwal)['ruang_cat'],
+                    'sesi_cat'      => get_catlisan($jadwal)['sesi_cat'],
+                    'ruang_lisan'   => get_catlisan($jadwal)['ruang_lisan'],
+                    'sesi_lisan'    => get_catlisan($jadwal)['sesi_lisan'],
                     'ujian_via'     => 'offline',
                     's_cetak'       => '1'
                 ];
