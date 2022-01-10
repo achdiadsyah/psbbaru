@@ -220,8 +220,6 @@
                                         <li>Hubungi kami di menu <a href="<?= base_url('home/contact_us'); ?>"><b>Hubungi Kami</b></a> Jika anda lupa password</li>
                                         <li>Jaga Kerahasiaan akun anda</li>
                                         <li>Lakukan Logout setiap kali selesai mengakses portal PSB</li>
-                                        <li>Jika anda peserta jalur undangan wajib memasukkan kode yang di berikan</li>
-                                        <li>Untuk mendapatkan <b>Kode Undangan</b>, harap hubungi panitia</li>
                                     </ol>
                                 </div>
                             </div>
