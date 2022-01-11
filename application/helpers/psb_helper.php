@@ -303,12 +303,11 @@ function check_berkas_akhir()
     $nik = $ci->session->userdata['nik'];
 
     $ci->load->model('M_Peserta');
-    $ci->load->model('M_Filepsb');
 	
-    $x = $ci->M_Peserta->get($id);
-	$y = $ci->M_Filepsb->get_by_nik($nik)->result();
+    $x = $ci->M_Peserta->get_file($nik)->row();
+	// $y = $ci->M_Filepsb->get_by_nik($nik)->result();
 
-    foreach ($y as $key) {
+    foreach ($x as $key) {
         if (            
             $key->struk_daftarulang !== "" &&
             $key->kk !== "" &&
@@ -335,8 +334,15 @@ function check_berkas_akhir()
                 
                 
                 $ci->M_Peserta->update_nik($nik, $data2);
+                return TRUE;
                 
             } else {
+                $data2 = [
+                    's_berkas_ulang'   => "0"
+                ];
+                
+                
+                $ci->M_Peserta->update_nik($nik, $data2);
                 $ci->session->set_flashdata([
                     'msg' => 'Anda Tidak dapat melanjutkan proses ini karena ada kewajiban yang belum anda lengkapi',
                     'type' => 'info'
@@ -471,7 +477,14 @@ function get_noujian($jurusan)
     $kode = sprintf("%03s", $nomor);
     $no_ujian = $jurusan."-".$kode;
 
-    return $no_ujian;
+    $get = $ci->M_Peserta->get_by('no_ujian', $no_ujian);
+
+    if ($get !== ""){
+        return false;
+    } else {
+        return $no_ujian;
+    }
+
 }
 
 function get_catlisan($tanggal)
