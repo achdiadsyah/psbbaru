@@ -477,9 +477,9 @@ function get_noujian($jurusan)
     $kode = sprintf("%03s", $nomor);
     $no_ujian = $jurusan."-".$kode;
 
-    $get = $ci->M_Peserta->get_by('no_ujian', $no_ujian);
+    $get = $ci->M_Peserta->get_by('no_ujian', $no_ujian)->num_rows();
 
-    if ($get !== ""){
+    if ($get > 1){
         return false;
     } else {
         return $no_ujian;

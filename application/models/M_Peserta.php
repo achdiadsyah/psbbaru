@@ -73,6 +73,13 @@ class M_Peserta extends CI_Model {
         return $query;
     }
 
+    public function get_by($by, $data)
+    {
+        $this->db->where($by, $data);
+        $query = $this->db->get($this->table);
+        return $query;
+    }
+
     // Query Masal
     public function get_by_tanggal_daftar($tanggal)
     {
