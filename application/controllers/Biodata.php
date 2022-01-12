@@ -58,25 +58,6 @@ class Biodata extends CI_Controller {
                 $file_ktp_ibu = "";
             }
 
-            $this->load->library('ciqrcode'); //pemanggilan library QR CODE
-            $configqr['cacheable']    = true; //boolean, the default is true
-            $configqr['cachedir']     = './uploads/qr/'; //string, the default is application/cache/
-            $configqr['errorlog']     = './uploads/qr/'; //string, the default is application/logs/
-            $configqr['imagedir']     = './uploads/qr/'; //direktori penyimpanan qr code
-            $configqr['quality']      = true; //boolean, the default is true
-            $configqr['size']         = '1024'; //interger, the default is 1024
-            $configqr['black']        = array(224,255,255); // array, default is array(255,255,255)
-            $configqr['white']        = array(70,130,180); // array, default is array(0,0,0)
-            $this->ciqrcode->initialize($configqr);
-        
-            $qrname = $checksum.'.png'; //buat name dari qr code sesuai dengan nim
-        
-            $params['data'] = $checksum; //data yang akan di jadikan QR CODE
-            $params['level'] = 'H'; //H=High
-            $params['size'] = 10;
-            $params['savename'] = FCPATH.$configqr['imagedir'].$qrname;
-            $this->ciqrcode->generate($params);
-
             $data = [
                 'nik'                       => $this->input->post('nik'),
                 'no_telepon'                => $this->input->post('no_telepon'),

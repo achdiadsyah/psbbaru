@@ -93,7 +93,6 @@ $pdf->StartTransform();
 $pdf->Rotate(10, 70, 100);
 $pdf->Image($assetsurl.'images/ttd.png', 117, 152, 55, '', '', '', '', false, 300);
 $pdf->StopTransform();
-$pdf->Image($filesurl.'qr/'.$output->checksum.'.png', 10, 123, 45, '', '', '', '', false, 300);
 $tanda_tangan = '
     <table width="100%">
         <tr>
@@ -404,7 +403,6 @@ $formulir = '
 <br />
 ';
 $pdf->writeHTML($formulir, true, false, false, false, '');
-$pdf->Image($filesurl.'qr/'.$output->checksum.'.png', 10, 228, 45, '', '', '', '', false, 300);
 $tandatangan = '
     
     <table>
