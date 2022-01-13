@@ -71,7 +71,7 @@
                                             <div class="col-md-4 col-12">
                                                 <div class="form-group">
                                                     <label>Tanggal Lahir</label>
-                                                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" min="2005-01-01" max="2007-12-12" class="form-control" required>
+                                                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" min="2005-01-01" max="2008-12-01" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-12">
