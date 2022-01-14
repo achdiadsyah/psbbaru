@@ -50,7 +50,7 @@ class Biodata extends CI_Controller {
                 $file_ktp_ayah = "";
             }
 
-            if ($status_ayah == 'meninggal'){
+            if ($status_ibu == 'meninggal'){
                 $nama_ibu = "Almh. ".strtoupper($this->input->post('nama_ibu'));
                 $file_ktp_ibu = "no_image.jpg";
             } else {
