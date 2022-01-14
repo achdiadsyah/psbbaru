@@ -252,7 +252,7 @@
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps">
                                                     <button class="btn btn-danger" type="button" id="btnSave_sertifikat_5" onClick="save('sertifikat_5')">Upload</button>
                                                 </div>
-                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
+                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG</small>
                                             </div>
                                         </form>
                                     </div>
