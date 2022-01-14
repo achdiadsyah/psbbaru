@@ -16,7 +16,7 @@
                                             <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>    
                                             <div class="form-group" id="result_pasphoto">                                                    
                                                 <div class="input-group">
-                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
+                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg" required>
                                                     <button class="btn btn-danger" type="button" id="btnSave_pasphoto" onClick="save('pasphoto')">Upload</button>
                                                 </div>
                                                 <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
