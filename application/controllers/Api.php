@@ -13,7 +13,7 @@ class Api extends CI_Controller {
 
 	public function send()
 	{
-		$limit = '1';
+		$limit = '2';
 	    $get_chat = $this->M_Chat->get_to_send($limit);
 	    
 	    if (empty($get_chat)) {
