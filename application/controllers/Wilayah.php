@@ -10,8 +10,6 @@ class Wilayah extends CI_Controller {
         // check_login();
 
         $this->load->model('M_Wilayah');
-        $this->load->model('M_Peserta');
-        $this->load->model('M_Chat');
     }
 
 	public function ajax_prov()
@@ -52,31 +50,5 @@ class Wilayah extends CI_Controller {
         } else {
             exit('Error');
         }
-    }
-
-
-    public function getbayaraberes()
-    {
-        $get = $this->M_Peserta->get_rahmat()->result();
-
-        $pesan_wa = "Assalamualaikum.. Bpk/Ibu".urldecode('%0A').
-        "dikarenakan terjadi kesalahan di server pesan whatsapp, sehingga hari ini pesan bpk/ibu terhapus secara keseluruhan, oleh karena itu bagi bapak/ibu yang memiliki kendala dan masalah dalam pendaftaran baik itu yg telah kami data atau belum, harap kembali mengirimkan pesan sebagai berikut :".urldecode('%0A%0A').
-        "Nama Calon Santri :".urldecode('%0A').
-        "NIK Yang Terdaftar :".urldecode('%0A').
-        "Kendala / Masalah :".urldecode('%0A%0A').
-        "Atas perhatian bapak/ibu, kami ucapkan terima kasih".urldecode('%0A').
-        "#PanitiaPSB2022";
-
-        foreach ($get as $key) {
-        
-            $data []= [
-                'no_telepon'    => $key->no_telepon,
-                'pesan'         => $pesan_wa,
-                'type'          => 'Text',
-                'status_proses' => 'pending'
-            ];
-        }
-
-        $this->M_Chat->insert_banyak($data);
     }
 }
