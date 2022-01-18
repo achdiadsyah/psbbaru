@@ -53,6 +53,12 @@ class M_Chat extends CI_Model
         return $query;
     }
 
+    public function insert_banyak($data)
+    {
+        $query = $this->db->insert_batch($this->table, $data);
+        return $query;
+    }
+
     public function update($id, $data)
     {
         $this->db->where('id', $id);

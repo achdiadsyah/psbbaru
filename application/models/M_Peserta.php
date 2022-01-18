@@ -101,4 +101,12 @@ class M_Peserta extends CI_Model {
         $query = $this->db->get($this->table);
         return $query;
     }
+
+    public function get_rahmat()
+    {
+        $this->db->where('jalur', 'reguler');
+        $this->db->where('s_payment', '1');
+        $query = $this->db->get($this->table);
+        return $query;
+    }
 }
