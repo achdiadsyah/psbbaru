@@ -202,7 +202,7 @@
                                 <?php else: ?>
 
                                     <center>
-                                        <p class="lead">Pendaftaran Jalur Reguler Belum di Buka, atau Jalur Undangan sudah di TUTUP</p>
+                                        <p class="lead">Mohon Maaf, Pendaftaran Penerimaan Santri Baru 2022 di MA Dayah Ruhul Islam Anak Bangsa Telah Ditutup.</p>
                                         <p>Tanggal Daftar Reguler : <b><?= date_indo(psb_detail("buka_daftar_reguler")); ?></b></p>
                                     </center>
                                     <p><small class="text-muted">Sudah Punya Akun ?, <a href="<?= base_url('auth/login'); ?>">Silahkan Login</a></small></p>
