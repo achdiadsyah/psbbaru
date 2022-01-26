@@ -9,6 +9,7 @@ class Api extends CI_Controller {
 
         $this->load->library('Apiwhatsapp');
         $this->load->model('M_Chat');
+        $this->load->model('M_Peserta');
     }
 
 	public function send()
@@ -137,6 +138,32 @@ class Api extends CI_Controller {
             }
         } else {
             exit('Maaf data tidak bisa ditampilkan');
+        }
+    }
+
+
+    public function gettosend()
+    {
+        $query = $this->M_Peserta->gettosend()->result();
+        foreach ($query as $key) {
+
+            $pesan_wa = "Assalamualaikum..".urldecode('%0A').
+            "Kami informasikan kepada seluruh peserta Tes Santri Baru di Ruhul Islam Anak Bangsa agar *DAPAT MENCETAK ULANG KARTU UJIAN* karena ada beberapa informasi tambahan dan perbaikan :".urldecode('%0A').
+            "1. Perubahan beberapa No ujian peserta tes".urldecode('%0A').
+            "2. *Informasi wawancara wali santri*".urldecode('%0A').
+            "3. Biodata yang belum diperbaiki, akan diperbaiki di hari tes".urldecode('%0A%0A').
+            "Bagi yang masih terkendala gagal cetak kartu ujian, agar segera dapat menginformasikan ke Panita melalui kontak person berikut : *085222935475* / *082219217307*".urldecode('%0A').
+            "Atas perhatian bapak/ibu, kami ucapkan terima kasih".urldecode('%0A').
+            "Terima Kasih. Wassalamualaikum.wr.wb";
+
+            $data3 = [
+                'no_telepon'    => $key->no_telepon,
+                'pesan'         => $pesan_wa,
+                'type'          => 'Text',
+                'status_proses' => 'pending'
+            ];
+
+            $this->M_Chat->insert($data3);
         }
     }
 

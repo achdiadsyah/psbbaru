@@ -101,4 +101,16 @@ class M_Peserta extends CI_Model {
         $query = $this->db->get($this->table);
         return $query;
     }
+
+    public function gettosend()
+    {
+        $this->db->where('jalur', 'reguler');
+        $this->db->where('s_payment', '1');
+        $this->db->where('s_biodata', '1');
+        $this->db->where('s_file', '1');
+        $this->db->where('s_lulus_adm', '1');
+        $this->db->where('s_cetak', '1');
+        $query = $this->db->get($this->table);
+        return $query;
+    }
 }
