@@ -14,41 +14,25 @@ class Wilayah extends CI_Controller {
 
 	public function ajax_prov()
     {
-        if ($this->input->is_ajax_request()) {
-            $result = $this->M_Wilayah->get_provinsi();
-            echo json_encode($result->result());
-        } else {
-            exit('Error');
-        }
+        $result = $this->M_Wilayah->get_provinsi();
+        echo json_encode($result->result());
     }
 
     public function ajax_kabupaten($id)
     {
-        if ($this->input->is_ajax_request() == true) {
-            $result = $this->M_Wilayah->get_kabupaten_by_prov($id);
-            echo json_encode($result);
-        } else {
-            exit('Error');
-        }
+        $result = $this->M_Wilayah->get_kabupaten_by_prov($id);
+        echo json_encode($result);
     }
 
     public function ajax_kecamatan($id)
     {
-        if ($this->input->is_ajax_request() == true) {
-            $result = $this->M_Wilayah->get_kecamatan_by_kab($id);
-            echo json_encode($result);
-        } else {
-            exit('Error');
-        }
+        $result = $this->M_Wilayah->get_kecamatan_by_kab($id);
+        echo json_encode($result);
     }
 
     public function ajax_desa($id)
     {
-        if ($this->input->is_ajax_request() == true) {
-            $result = $this->M_Wilayah->get_desa_by_kec($id);
-            echo json_encode($result);
-        } else {
-            exit('Error');
-        }
+        $result = $this->M_Wilayah->get_desa_by_kec($id);
+        echo json_encode($result);
     }
 }
