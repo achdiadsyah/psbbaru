@@ -8,7 +8,7 @@ class Wilayah extends CI_Controller {
     {
 		parent::__construct();
         // check_login();
-
+        header("Access-Control-Allow-Origin: *");
         $this->load->model('M_Wilayah');
     }
 
