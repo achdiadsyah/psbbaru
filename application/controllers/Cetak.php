@@ -47,7 +47,7 @@ class Cetak extends CI_Controller {
 
             foreach (arr_jadwal_reguler() as $key) {
                 $countjadwal = $this->M_Peserta->get_by_jadwal($key)->num_rows();
-                if ($countjadwal >= "250"){
+                if ($countjadwal >= "240"){
                     $status = 'disabled';
                     $msg = ' - KUOTA PENUH';
                     $keys = ""; 

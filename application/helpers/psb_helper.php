@@ -731,7 +731,7 @@ function get_catlisan($tanggal)
             'sesi_lisan'  => '13:30 - 15:00',
         ];
         return $result;
-    } else if ($jumlahLisan > "232" && $jumlahLisan <= "250"){
+    } else if ($jumlahLisan > "232" && $jumlahLisan <= "240"){
         $result = [
             'ruang_cat'  => 'Ruang LAB 2',
             'sesi_cat'  => '11:00 - 12:30',
