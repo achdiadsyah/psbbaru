@@ -32,7 +32,7 @@
 
                                     <li
                                         class="menu-item  ">
-                                        <a href="<?= base_url('daftarulang/kelengkapan'); ?>" class='menu-link'>
+                                        <a href="<?= base_url('daftarulang/berkas'); ?>" class='menu-link'>
                                             <i class="bi bi-file-fill"></i>
                                             <span>Lengkapi Berkas</span>
                                         </a>

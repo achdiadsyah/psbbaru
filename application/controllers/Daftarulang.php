@@ -38,7 +38,7 @@ class Daftarulang extends CI_Controller {
     {
         $data = [
             'title'     => 'Kelengkapan Berkas',
-            'content'   => 'daftarulang/berkas',
+            'content'   => 'daftarulang/berkas-maintenance',
             'costum_js'   => 'daftarulang/js-berkas'
         ];
         echo $this->template->views($data);
