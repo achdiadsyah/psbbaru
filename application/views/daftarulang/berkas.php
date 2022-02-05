@@ -1,6 +1,6 @@
                     
                     <section class="row">
-                        <div class="col-lg-4 col-md-12">
+                        <div class="col-lg-6 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Pas Photo (3X4)</h5>
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
+                        <div class="col-lg-6 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Kartu NISN</h5>
@@ -44,32 +44,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="card">
-                                <div class="card-header text-center">
-                                    <h5 class="card-title">SK Rangking (Tidak Wajib)</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col-md-12 mb-2">
-                                        <form action="#" id="form_sk" enctype="multipart/form-data">
-                                            <input type="hidden" name="tujuan" id="tujuan" value="sk" required>    
-                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>    
-                                            <div class="form-group" id="result_sk">                                                    
-                                                <div class="input-group">
-                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps">
-                                                    <button class="btn btn-danger" type="button" id="btnSave_sk" onClick="save('sk')">Upload</button>
-                                                </div>
-                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </section>
                     <section class="row">
 
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Raport Semester 1</h5>
@@ -92,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Raport Semester 2</h5>
@@ -115,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Raport Semester 3</h5>
@@ -138,7 +117,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <h5 class="card-title">Raport Semester 4</h5>
@@ -152,6 +131,52 @@
                                                 <div class="input-group">
                                                     <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps" required>
                                                     <button class="btn btn-danger" type="button" id="btnSave_raport_4" onClick="save('raport_4')">Upload</button>
+                                                </div>
+                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h5 class="card-title">SK Rangking (Tidak Wajib)</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col-md-12 mb-2">
+                                        <form action="#" id="form_sk" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="sk" required>    
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>    
+                                            <div class="form-group" id="result_sk">                                                    
+                                                <div class="input-group">
+                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps">
+                                                    <button class="btn btn-danger" type="button" id="btnSave_sk" onClick="save('sk')">Upload</button>
+                                                </div>
+                                                <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h5 class="card-title">Form Kepala Sekolah (Tidak Wajib)</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col-md-12 mb-2">
+                                        <form action="#" id="form_formulir_kepsek" enctype="multipart/form-data">
+                                            <input type="hidden" name="tujuan" id="tujuan" value="formulir_kepsek" required>    
+                                            <input type="hidden" name="nik" id="nik" value="<?= $this->session->userdata['nik']; ?>" required>    
+                                            <div class="form-group" id="result_formulir_kepsek">                                                    
+                                                <div class="input-group">
+                                                    <input type="file" class="form-control" name="file" id="file" accept="image/x-png,image/jpg,image/jpeg,application/pdf,image/x-eps">
+                                                    <button class="btn btn-danger" type="button" id="btnSave_formulir_kepsek" onClick="save('formulir_kepsek')">Upload</button>
                                                 </div>
                                                 <small class="text-muted">Maksimal 5 MB | Format JPG / JPEG / PNG / PDF</small>
                                             </div>

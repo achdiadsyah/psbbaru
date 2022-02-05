@@ -43,11 +43,6 @@ class Daftarulang extends CI_Controller {
         ];
         echo $this->template->views($data);
     }
-
-    public function test()
-    {
-        check_berkas_akhir();
-    }
     
     public function cetak()
     {
@@ -149,7 +144,7 @@ class Daftarulang extends CI_Controller {
             $insert = $this->M_Peserta->update_nik($nik, $data);
 
             if ($insert == TRUE) {
-                echo json_encode(array("status" => true, "msg" => 'Berhasil Menyimpan File'));
+                echo json_encode(array("status" => true, "msg" => 'Berhasil Menyimpan Biodata'));
             } else {
                 echo json_encode(array("status" => false, "msg" => "Gagal Upload File Ke Database"));
             }

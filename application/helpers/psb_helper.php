@@ -322,7 +322,6 @@ function check_berkas_akhir()
     $x->kartu_nisn !== "" &&           
     $x->surat_pernyataan !== "" &&
     $x->surat_kesanggupan !== "" &&
-    $x->formulir_kepsek !== "" &&
     $x->raport_1 !== "" &&
     $x->raport_2 !== "" &&
     $x->raport_3 !== "" &&
@@ -789,9 +788,9 @@ function is_piatu($status)
 function is_uploaded($data)
 {
     if($data !== ""){
-        return '<span style="color: rgb(0, 128, 64);"><b>Uploaded</b></span>';
+        return '<span style="color: rgb(0, 128, 64);"><b>Sudah Upload</b></span>';
     } else {
-        return '<span style="color: rgb(255, 0, 0);"><b>File Not Found</b></span>';
+        return '<span style="color: rgb(255, 0, 0);"><b>Tidak Upload</b></span>';
     }
 }
 ?>

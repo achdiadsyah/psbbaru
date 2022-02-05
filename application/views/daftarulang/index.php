@@ -10,7 +10,7 @@
                                         <hr>
                                     </center>
                                     <ol>
-                                        <li>Pendaftaran Ulang Mulai Tanggal <?= date_indo(psb_detail('buka_daftar_ulang_undangan')); ?> s/d <?= date_indo(psb_detail('tutup_daftar_ulang_undangan')); ?> Pukul: 08.30 – 13.00 Setiap Hari Kerja.</li>
+                                        <li>Pendaftaran Ulang Mulai Tanggal <b><?= date_indo(psb_detail('buka_daftar_ulang_reguler')); ?> s/d <?= date_indo(psb_detail('tutup_daftar_ulang_reguler')); ?></b> Pukul: 08.30 – 13.00 Setiap Hari Kerja.</li>
                                         <li>Total Biaya yang Harus Dilunasi Saat Pendaftaran Ulang <b>Rp. 11.200.000,- (Sebelas Juta Dua Ratus Ribu Rupiah)</b>, Dengan Rincian Sebagai Berikut :</li> 
                                             <table class="table table-striped mt-3 mb-3" width="100%">
                                                 <tbody>
@@ -96,17 +96,25 @@
                                         <br>
                                         <li>Poin-poin berikut harap diupload ke website <b>psb.ruhulislam.com</b> di akun masing-masing
                                             <ol type="A">
-                                                <li>Scan Bukti Transfer Biaya Daftar Ulang</li>
-                                                <li>Scan KK (Kartu Keluarga)</li>
-                                                <li>Scan KTP Ayah</li>
-                                                <li>Scan KTP IBU</li>
-                                                <li>Scan KTP WALI (Tidak Wajib)</li>
-                                                <li>Scan Kartu ASKES / BPJS</li>
-                                                <li>Scan Kartu NISN</li>
-                                                <li>Scan Kartu KIP (Tidak Wajib)</li>
-                                                <li>Scan Surat Sehat</li>
-                                                <li>Scan Surat tidak pindah jurusan
-                                                    <br> <a href="<?= base_url('assets/file/surattidakpindahjurusan.docx'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
+                                                <li>Hasil Scan Bukti Transfer Biaya Daftar Ulang</li>
+                                                <li>Hasil Scan KK <b>(Kartu Keluarga)</b></li>
+                                                <li>Hasil Scan KTP Ayah <b>(Jika Status Masih)</b></li>
+                                                <li>Hasil Scan KTP Ibu <b>(Jika Status Masih)</b></li>
+                                                <li>Hasil Scan KTP WALI <b>(Tidak Wajib)</b></li>
+                                                <li>Hasil Scan Kartu ASKES / BPJS</li>
+                                                <li>Hasil Scan Kartu NISN</li>
+                                                <li>Hasil Scan Kartu KIP <b>(Tidak Wajib)</b></li>
+                                                <li>Hasil Scan Surat Pernyataan Sehat
+                                                    <br> <a href="<?= base_url('assets/file/suratsehat.pdf'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
+                                                </li>
+                                                <li>Hasil Scan Surat pernyataan tidak pindah jurusan
+                                                    <br> <a href="<?= base_url('assets/file/surattidakpindahjurusan.pdf'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
+                                                </li>
+                                                <li>Hasil Scan Surat pernyataan sanggup membiayai
+                                                    <br> <a href="<?= base_url('assets/file/suratsanggupmembiayai.pdf'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
+                                                </li>
+                                                <li>Hasil Scan Surat pernyataan bersedia mengikuti tata tertib
+                                                    <br> <a href="<?= base_url('assets/file/suratpernyataantatatertib.pdf'); ?>" class="btn btn-sm btn-primary">Download Contoh Surat</a>
                                                 </li>
                                                 <br>
                                             </ol>
@@ -119,6 +127,7 @@
                                                 <li>Surat Pernyataan Bersedia Mengikuti Tata Tertib Dayah</li>
                                                 <li>Surat Kesanggupan Membiayai</li>
                                                 <li>Surat Tidak Pindah Jurusan</li>
+                                                <li>Surat Pernyataan Sehat</li>
                                                 <li>Bukti Cetak Kelulusan
                                                     <br> <a href="<?= base_url('daftarulang/cetak'); ?>" class="btn btn-sm btn-primary">Cetak Bukti Lulus</a>
                                                 </li>
@@ -132,7 +141,7 @@
                                     <hr>
                                     <center>
                                         <h3>PENTING !!</h3>
-                                        <p>Calon santri baru yang tidak mendaftar ulang sampai dengan tanggal <b><?= date_indo(psb_detail('tutup_daftar_ulang_undangan')); ?></b>, di anggap <b>Mengundurkan diri</b> </p>
+                                        <p>Calon santri baru yang tidak mendaftar ulang sampai dengan tanggal <b><?= date_indo(psb_detail('tutup_daftar_ulang_reguler')); ?></b>, di anggap <b>Mengundurkan diri</b> </p>
                                     </center>
                                 </div>
                             </div>
