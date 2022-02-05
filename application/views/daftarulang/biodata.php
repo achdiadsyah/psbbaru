@@ -196,7 +196,8 @@
                                                     <select class="form-select sel_dom_ayah" id="sel_dom_ayah" required>
                                                         <option value="">Silahkan Pilih</option>
                                                         <option value="sama">Sama Dengan Pendaftar</option>    
-                                                        <option value="beda">Beda Alamat</option>    
+                                                        <option value="beda">Beda Alamat</option>
+                                                        <option value="meninggal">Sudah Meninggal</option>    
                                                     </select>
                                                 </div>
                                             </div>
@@ -233,6 +234,7 @@
                                                         <option value="">Silahkan Pilih</option>
                                                         <option value="sama">Sama Dengan Pendaftar</option>    
                                                         <option value="beda">Beda Alamat</option>    
+                                                        <option value="meninggal">Sudah Meninggal</option>    
                                                     </select>
                                                 </div>
                                             </div>
@@ -248,10 +250,17 @@
                                         </div>
 
                                         <div class="row">    
-                                            <div class="col-md-8">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Nama Wali</label>
                                                     <input type="text" class="form-control nama_wali" readonly required>
+                                                </div>
+                                            </div>                                    
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Status Dengan Wali</label>
+                                                    <input type="text" class="form-control status_wali" readonly required>
                                                 </div>
                                             </div>                                    
 

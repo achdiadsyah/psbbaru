@@ -18,7 +18,7 @@ class Daftarulang extends CI_Controller {
     {
         $data = [
             'title'     => 'Daftar Ulang',
-            'content'   => 'daftarulang/berkas-maintenance'
+            'content'   => 'daftarulang/index'
         ];
         echo $this->template->views($data);
     }
@@ -38,10 +38,15 @@ class Daftarulang extends CI_Controller {
     {
         $data = [
             'title'     => 'Kelengkapan Berkas',
-            'content'   => 'daftarulang/berkas-maintenance',
+            'content'   => 'daftarulang/berkas',
             'costum_js'   => 'daftarulang/js-berkas'
         ];
         echo $this->template->views($data);
+    }
+
+    public function test()
+    {
+        check_berkas_akhir();
     }
     
     public function cetak()
@@ -76,6 +81,7 @@ class Daftarulang extends CI_Controller {
                 'status_ayah'               => $get->status_ayah,
                 'status_ibu'                => $get->status_ibu,
                 'nama_wali'                 => $get->nama_wali,                
+                'status_wali'               => $get->status_wali,                
             ];
 
             echo json_encode($data);

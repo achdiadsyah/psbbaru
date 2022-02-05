@@ -15,9 +15,28 @@
                     my_alamat = data.alamat;    
                     
                     $('.nama_wali').val(data.nama_wali);
+                    $('.status_wali').val(data.status_wali);
                     $('#nik').html(data.nik);
                     $('#nama').html(data.nama);
                     $('#nik_2').val(data.nik);
+
+                    if(data.status_ayah == 'masih'){
+                        $('#nik_ayah').prop('readonly',false);
+                        $('#agama_ayah').prop('readonly',false);
+                    } else {
+                        $('#nik_ayah').prop('readonly',true);
+                        $('#nik_ayah').prop('required',false);
+                        $('#agama_ayah').prop('readonly',true);
+                    }
+
+                    if(data.status_ibu == 'masih'){
+                        $('#nik_ibu').prop('readonly',false);
+                        $('#agama_ibu').prop('readonly',false);
+                    } else {
+                        $('#nik_ibu').prop('readonly',true);
+                        $('#nik_ibu').prop('required',false);
+                        $('#agama_ibu').prop('readonly',true);
+                    }
                     
                 }
             });
@@ -28,9 +47,12 @@
                 if($(this).val() == 'beda'){
                     $('#alamat_ayah').prop('readonly',false);
                     $('#alamat_ayah').val('');
-                } else {
+                } else if($(this).val() == 'sama'){
                     $('#alamat_ayah').prop('readonly',true);
                     $('#alamat_ayah').val(my_alamat);
+                } else if($(this).val() == 'meninggal'){
+                    $('#alamat_ayah').prop('readonly',true);
+                    $('#alamat_ayah').val('Sudah Meninggal');
                 }
             });
 
@@ -39,9 +61,12 @@
                 if($(this).val() == 'beda'){
                     $('#alamat_ibu').prop('readonly',false);
                     $('#alamat_ibu').val('');
-                } else {
+                } else if($(this).val() == 'sama'){
                     $('#alamat_ibu').prop('readonly',true);
-                    $('#alamat_ibu').val(my_alamat);                    
+                    $('#alamat_ibu').val(my_alamat);
+                } else if($(this).val() == 'meninggal'){
+                    $('#alamat_ibu').prop('readonly',true);
+                    $('#alamat_ibu').val('Sudah Meninggal');
                 }
             });
 

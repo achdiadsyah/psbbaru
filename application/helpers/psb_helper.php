@@ -145,10 +145,10 @@ function check_akses_biodata_ulang()
         return true;
     } else if($x->s_biodata_ulang == 1){
         $ci->session->set_flashdata([
-            'msg' => 'Biodata anda sudah lengkap, lanjut cetak berkas validasi',
+            'msg' => 'Biodata anda sudah lengkap, lanjut upload berkas kelengkapan',
             'type' => 'info'
         ]);
-        redirect ('daftarulang/cetak');
+        redirect ('daftarulang');
     }
 
 }
@@ -179,14 +179,22 @@ function check_daftar_ulang()
     $ci->load->model('M_Peserta');
 	$x = $ci->M_Peserta->get($id);
     
-    if($x->s_biodata_ulang == 1 && $x->s_berkas_ulang == 1){
+    if($x->s_biodata_ulang == "1" && $x->s_berkas_ulang == "1"){
         $data_up2 = [
             's_daftar_ulang'   => "1"
         ];                       
         $ci->M_Peserta->update($x->id, $data_up2);
         return true;
     } else {
-        
+        $data_up2 = [
+            's_daftar_ulang'   => "0"
+        ];                       
+        $ci->M_Peserta->update($x->id, $data_up2);
+        $ci->session->set_flashdata([
+            'msg' => 'Sepertinya berkas atau biodata anda belum lengkap, periksa kembali',
+            'type' => 'warning'
+        ]);
+        redirect ('daftarulang');
     }
 
 }
@@ -305,50 +313,42 @@ function check_berkas_akhir()
     $ci->load->model('M_Peserta');
 	
     $x = $ci->M_Peserta->get_file($nik)->row();
-	// $y = $ci->M_Filepsb->get_by_nik($nik)->result();
 
-    foreach ($x as $key) {
-        if (            
-            $key->struk_daftarulang !== "" &&
-            $key->kk !== "" &&
-            $key->akte !== "" &&
-            $key->pasphoto !== "" &&           
-            $key->surat_pernyataan !== "" &&
-            $key->surat_kesanggupan !== "" &&
-            $key->formulir_kepsek !== "" &&
-            $key->raport_1 !== "" &&
-            $key->raport_2 !== "" &&
-            $key->raport_3 !== "" &&
-            $key->raport_4 !== "" &&
-            $key->surat_sehat !== "" &&
-            $key->bpjs !== "" &&
-            $key->surat_tidakpindahjurusan !== "" &&
-            $key->ktp_ayah !== "" &&
-            $key->ktp_ibu !== ""
-            ){
-                
+    if (            
+    $x->struk_daftarulang !== "" &&
+    $x->kk !== "" &&
+    $x->akte !== "" &&
+    $x->pasphoto !== "" &&           
+    $x->kartu_nisn !== "" &&           
+    $x->surat_pernyataan !== "" &&
+    $x->surat_kesanggupan !== "" &&
+    $x->formulir_kepsek !== "" &&
+    $x->raport_1 !== "" &&
+    $x->raport_2 !== "" &&
+    $x->raport_3 !== "" &&
+    $x->raport_4 !== "" &&
+    $x->surat_sehat !== "" &&
+    $x->bpjs !== "" &&
+    $x->surat_tidakpindahjurusan !== "" &&
+    $x->ktp_ayah !== "" &&
+    $x->ktp_ibu !== ""
+    ){
+        
 
-                $data2 = [
-                    's_berkas_ulang'   => "1"
-                ];
-                
-                
-                $ci->M_Peserta->update_nik($nik, $data2);
-                return TRUE;
-                
-            } else {
-                $data2 = [
-                    's_berkas_ulang'   => "0"
-                ];
-                
-                
-                $ci->M_Peserta->update_nik($nik, $data2);
-                $ci->session->set_flashdata([
-                    'msg' => 'Anda Tidak dapat melanjutkan proses ini karena ada kewajiban yang belum anda lengkapi',
-                    'type' => 'info'
-                ]);
-                redirect ('daftarulang/berkas');
-            }
+        $data2 = [
+            's_berkas_ulang'   => "1"
+        ];
+        
+        
+        $ci->M_Peserta->update_nik($nik, $data2);
+        return true;
+        
+    } else {
+        $data2 = [
+            's_berkas_ulang'   => "0"
+        ];
+        $ci->M_Peserta->update_nik($nik, $data2);
+        return false;
     }
 }
 

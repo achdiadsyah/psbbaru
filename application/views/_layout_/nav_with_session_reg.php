@@ -25,8 +25,16 @@
                                     <li
                                         class="menu-item  ">
                                         <a href="<?= base_url('daftarulang'); ?>" class='menu-link'>
-                                            <i class="bi bi-pen-fill"></i>
+                                            <i class="bi bi-person-fill"></i>
                                             <span>Daftar Ulang</span>
+                                        </a>
+                                    </li>
+
+                                    <li
+                                        class="menu-item  ">
+                                        <a href="<?= base_url('daftarulang/biodata'); ?>" class='menu-link'>
+                                            <i class="bi bi-pen-fill"></i>
+                                            <span>Lengkapi Biodata</span>
                                         </a>
                                     </li>
 
@@ -35,6 +43,14 @@
                                         <a href="<?= base_url('daftarulang/berkas'); ?>" class='menu-link'>
                                             <i class="bi bi-file-fill"></i>
                                             <span>Lengkapi Berkas</span>
+                                        </a>
+                                    </li>
+
+                                    <li
+                                        class="menu-item  ">
+                                        <a href="<?= base_url('daftarulang/cetak'); ?>" class='menu-link'>
+                                            <i class="bi bi-printer-fill"></i>
+                                            <span>Cetak Bukti Lulus</span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
