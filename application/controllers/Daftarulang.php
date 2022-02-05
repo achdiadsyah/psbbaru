@@ -18,7 +18,7 @@ class Daftarulang extends CI_Controller {
     {
         $data = [
             'title'     => 'Daftar Ulang',
-            'content'   => 'daftarulang/index'
+            'content'   => 'daftarulang/berkas-maintenance'
         ];
         echo $this->template->views($data);
     }
