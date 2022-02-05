@@ -15,7 +15,7 @@ class Home extends CI_Controller {
         check_logout();
 		$data = [
             'title'     => 'Beranda',
-            'content'   => 'home/index',
+            'content'   => 'home/close',
             'costum_js' => 'home/js-home'
         ];
         echo $this->template->views($data);
